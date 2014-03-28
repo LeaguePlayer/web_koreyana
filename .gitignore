@@ -6,7 +6,7 @@ Capfile
 .idea
 
 framework
-/protected/config/environment/params-local.php
+/protected/config
 /uploads
 /gallery
 *~

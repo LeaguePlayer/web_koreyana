@@ -1,6 +1,6 @@
 <?php
 
-class PageController extends FrontController
+class RecordController extends FrontController
 {
 	public $layout='//layouts/simple';
 
@@ -25,31 +25,21 @@ class PageController extends FrontController
 			),
 		);
 	}
+
 	
-	public function actionView($url)
+	public function actionView($id)
 	{
-		
-		$node=Structure::model()->findByUrl($url);
-		if ( !$node )
-			throw new CHttpException(404);
-
-		$page=$node->getComponent();
-
 		$this->render('view',array(
-			'model'=>$page,
+			'model'=>$this->loadModel('Record', $id),
 		));
 	}
 
+	
 	public function actionIndex()
 	{
-		// $all=Page::model()->findAll();
-		// foreach ($all as $key => $value) {
-		// 	$all[$key]->wswg_body=str_replace('/media//', 'src="/', $all[$key]->wswg_body);
-		// 	$all[$key]->save();
-		// }
-		$model=Page::model()->findByPk(1);
+		$dataProvider=new CActiveDataProvider('Record');
 		$this->render('index',array(
-			'model'=>$model,
+			'dataProvider'=>$dataProvider,
 		));
 	}
 }
