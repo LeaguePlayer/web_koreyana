@@ -44,14 +44,6 @@ return array_replace_recursive(
             'config' => array(
                 'class' => 'DConfig'
             ),
-            'db' => array(
-                'connectionString' => 'mysql:host=localhost;dbname=koreyana',
-                'emulatePrepare' => true,
-                'username' => 'root',
-                'password' => '',
-                'charset' => 'utf8',
-                'tablePrefix' => 'tbl_',
-            ),
             'authManager' => array(
                 'class' => 'CDbAuthManager',// 'auth.components.CachedDbAuthManager',
                 //'cachingDuration' => 0,
