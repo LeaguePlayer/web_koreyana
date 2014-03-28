@@ -36,22 +36,19 @@
 			<div id="header-wrapper">
             <div class="container">
                 <div class="row navbar-wrapper">
-                    <div class="col-lg-2">
-                        <a id="logo" href="#"><img src="<?=$this->getAssetsUrl()?>/images/icon/logo-k.png"/></a>
-                        <a id="brand" href="#"><img src="<?=$this->getAssetsUrl()?>/images/icon/menu-down-buttons.png"/></a>
+                    <div class="col-lg-2 logotip">
+                        <a id="logo" href="#"><img src="<?=$this->getAssetsUrl().DIRECTORY_SEPARATOR?>images/icon/logo-k.png"/></a>
+                        <a id="brand" href="#"><img src="<?=$this->getAssetsUrl().DIRECTORY_SEPARATOR?>images/icon/menu-down-buttons.png"/></a>
                     </div>
-                    <div class="col-lg-8">
+                    <div class="col-lg-8 top-menu">
                         <div class="navbar">
-                        	<?
-
-                        		
-                        	?>
                             <ul class="nav navbar-nav">
-                            	<?
-                            		foreach ($this->menu as $key => $value) {
-                            			print('<li class="'.($value['active'] ? 'active': '').'"><a href="'.$value['url'].'" '.(strlen($value['label'])>40 ? 'id="long-bottom"' : (strlen($value['label'])>16 ? 'id="padding-top-6"' : '')).'>'.$value['label'].'</a></li>');
-                            		}
-                            	?>
+                                <?
+                                    foreach ($this->menu as $key => $value) {
+                                        print('<li class="'.($value['active'] ? 'active': '').'"><a href="'.$value['url'].'" '.(strlen($value['label'])>40 ? 'id="long-bottom"' : (strlen($value['label'])>16 ? 'id="padding-top-6"' : '')).'>'.$value['label'].'</a></li>');
+                                    }
+                                ?>
+                                
                                 <!-- <li class="active"><a href="#">Услуги</a></li>
                                 <li><a id="padding-top-6" href="#">Запасные</br>детали</a></li>
                                 <li><a href="#">Гарантия</a></li>
@@ -86,19 +83,19 @@
                     </div>
                     <div class="col-lg-2 netweb">
                         <h5>Следуй за нами:</h5>  
-                            <a href="#"><img src="<?=$this->getAssetsUrl()?>/images/icon/twitter.png" /></a>
-                            <a href="#"><img src="<?=$this->getAssetsUrl()?>/images/icon/facebook.png" /></a>
-                            <a href="#"><img src="<?=$this->getAssetsUrl()?>/images/icon/skype.png" /></a>
-                            <a href="#"><img src="<?=$this->getAssetsUrl()?>/images/icon/instagram.png" /></a>
+                            <a href="#"><img src="<?=$this->getAssetsUrl().DIRECTORY_SEPARATOR?>images/icon/twitter.png" /></a>
+                            <a href="#"><img src="<?=$this->getAssetsUrl().DIRECTORY_SEPARATOR?>images/icon/facebook.png" /></a>
+                            <a href="#"><img src="<?=$this->getAssetsUrl().DIRECTORY_SEPARATOR?>images/icon/skype.png" /></a>
+                            <a href="#"><img src="<?=$this->getAssetsUrl().DIRECTORY_SEPARATOR?>images/icon/instagram.png" /></a>
                     </div>
                     <div class="col-lg-4 phone">
                         <a href="#">Связаться с нами</a>
-                        <img src="<?=$this->getAssetsUrl()?>/images/icon/phone.png" />
+                        <img src="<?=$this->getAssetsUrl().DIRECTORY_SEPARATOR?>images/icon/phone.png" />
                         <span>30 57 93</span>
                     </div>
                     <div class="col-lg-2 logo">
-                        <h6>С Кореяна друзья с 2010 года</h6> 
-                        <img src="<?=$this->getAssetsUrl()?>/images/icon/logo.png"/>
+                        <h6>С Кореяна друзья с 2013 года</h6> 
+                        <a href="http://amobile-studio.ru/" target="_blank"><img src="<?=$this->getAssetsUrl().DIRECTORY_SEPARATOR?>images/icon/logo.png" alt=""/></a>
                     </div>
                 </div>
             </div><!--container -->

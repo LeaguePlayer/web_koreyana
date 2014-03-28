@@ -13,7 +13,7 @@ footer {
     padding-right: 0;
 }
 .navbar-nav {
-    margin: 0 0 0 215px;
+    margin:0;
 }
 .navbar li > a {
     margin-right: 0;
@@ -53,10 +53,6 @@ footer {
 #padding-top-6, #long-bottom {
     top:-2px;
 }
-.netweb,
-.phone {
-    top:-30px;
-}
 .logo {
     top:4px;
 }
@@ -93,7 +89,13 @@ footer {
 .phone a {
     padding-left: 15px;
     padding-right: 23px;
-    padding-top: 10px;
+    padding-top: 10px;    
+    background: url(../images/icon/bt_1.png) no-repeat; 
+    width:187px;
+    height:41px;
+}
+.phone a:hover {
+    background-position:bottom;
 }
 .phone img {
     left: 160px;
@@ -130,12 +132,10 @@ footer {
     vertical-align:top;
 }
 .sto-1 .col-lg-6 {
-    width:595px;
     display:inline-block;
 }
 .sto-2 .col-lg-6 {
     display:inline-block;
-    width:645px;
     vertical-align:top;
 }
 .sto-3 .col-lg-5 {
@@ -147,11 +147,9 @@ footer {
 }
 .sto-3 .col-lg-6 {
     display:inline-block;
-    width:625px;
 }
 .sto-3 .col-lg-6 img {
-    left:320px;
-    top:-267px;
+    top:-101px;
 }
 .bt-3 a {
     padding:8px 70px 9px;
@@ -249,4 +247,13 @@ footer {
 }
 .modal-body {
     display:block;
+}
+#bt-road a {
+    font-size:16px;
+}
+.cont h2 {
+    padding-left: 450px;
+}
+.cont .bt-4 {
+    padding-left: 465px;    
 }
