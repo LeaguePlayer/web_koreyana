@@ -29,7 +29,7 @@ h1,h2,h3,h4,h5,h6,p {
     width: 980px;
 }
 .longer {
-    width:1310px;
+    width:980px;
 }
 /*===========header============*/
 #header-wrapper {
@@ -308,7 +308,7 @@ footer .container {
     width:430px;
     float:left;
     margin-top: 30px;
-
+    margin-left: 50px;
 }
 
 #cant-slider {
@@ -731,8 +731,8 @@ footer .container {
     top: 10px;
 }
 #brand-slider .carousel-inner {
-    margin-left: 75px;
-    margin-right: 75px;
+    right: 0;
+    left: 30px;
     width: 730px;
 }
 /*======3.гарантия============*/
@@ -766,17 +766,17 @@ footer .container {
 }
 .guaranty {
     margin:22px 0px 50px 0px;
-    width: 1260px;
+    width: 980px;
 }
 .guaranty .col-lg-5 {
     padding-left:0px;
     padding-right:0px;
-    width:520px;
+    width:480px;
     float:left;
 }
 .guaranty .col-lg-7 {
     padding-left: 0;
-    width:735px;
+    width:480px;
     float:left;
 }
 .guaranty h1 {
@@ -1090,7 +1090,7 @@ footer .container {
     float:left;
 }
 .company-3 .col-lg-5 {
-    width:625px;
+    width:825px;
     padding-left: 0px;
     padding-right: 0px;
 }
@@ -1109,12 +1109,12 @@ footer .container {
 .company-4 h2 {
     font-size:25px;
     font-family: 'Helvetica_Light', sans-serif;   
-    text-align:right;
+    text-align:left;
 }
 .company-4 p {
     font-size:18px;
     font-family: 'Helvetica_Light', sans-serif;   
-    text-align:right; 
+    text-align:left; 
     color: #e07317;
 }
 .company-4 .col-lg-7 {
@@ -1136,7 +1136,6 @@ footer .container {
     border-bottom: 1px solid #999999;
 }
 .sto-1 .col-lg-6 {
-    width:625px;
     float:left;
 }
 .sto-1 h1 {
@@ -1422,9 +1421,10 @@ footer .container {
     margin-bottom: 25px;
 }
 .cont .bt-4 {
-    padding-left: 449px;
+    padding-left: 149px;
     margin-top: 7px;
     margin-bottom: 30px;
+    text-align: left;
 }
 .cont h2 {
     color:#e68a17;
@@ -1433,8 +1433,8 @@ footer .container {
     font-weight: bold; 
     text-decoration:none;
     margin-bottom: 50px;
-    padding-left: 434px;
     margin-top: 15px;
+    text-align: left;
 }
 #mymap {
     width:100%;
@@ -1442,6 +1442,9 @@ footer .container {
     position:relative;
 }
 /*==============9.запись===============*/
+#form-services {
+    margin: 0 auto;
+}
 #form-services input {
     width:375px;
     height:37px;
@@ -1472,12 +1475,12 @@ footer .container {
     padding-top:10px;
 }
 #form-services .col-lg-4 {
-    width:435px;
+    width:135px;
     float:left;
 }
 #form-services .col-lg-8 {
-    width:850px;
     float:left;
+    width: 400px;
 }
 .bt-3 {
     padding-left: 450px;    
@@ -1508,7 +1511,6 @@ footer .container {
     font-family: 'Helvetica', sans-serif;
     font-weight: bold;  
     text-transform:uppercase;
-    padding-left: 435px;
     margin-bottom: 40px;
 }
 .captcha {
