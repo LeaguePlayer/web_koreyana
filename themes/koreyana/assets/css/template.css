@@ -26,7 +26,7 @@ h1,h2,h3,h4,h5,h6,p {
     font-family: 'MyriadPro', sans-serif;
 }
 .container {
-    width: 1285px;
+    width: 980px;
 }
 .longer {
     width:1310px;
@@ -238,12 +238,12 @@ footer .container {
     padding-right: 0;
     margin-left: 35px;
     margin-top: 50px;
-    width: 515px;
+    width: 415px;
     padding-left: 0;
     display: inline-block;
 }
 .item .col-lg-5 span {
-    font-size: 39px;
+    font-size: 30px;
     font-weight:bold;
     font-family: 'Helvetica', sans-serif;
     text-transform:uppercase;
@@ -251,7 +251,7 @@ footer .container {
 }
 .item .col-lg-5 p {
     font-family: 'Helvetica_Light', sans-serif;
-    font-size: 30px;
+    font-size: 20px;
     line-height: 1.2;
 }
 .carousel {
@@ -259,13 +259,12 @@ footer .container {
 
 }
 .carousel-inner {
-    margin-left: 76px;
     margin-right: 76px;
-    width: 1150px;
-/*    display: inline-block;*/
 	overflow:hidden;
-	height:370px;
+	height:270px;
+    right: 40px;
 }
+
 .carousel-indicators {
     padding-left: 45px;
     text-align: left;
@@ -276,11 +275,13 @@ footer .container {
     display: inline-block;
     position:absolute;
 }
+
 .left {
     margin-left: 0px;
     display: inline-block;
     position:absolute;
 }
+
 .carousel-indicators li{
     background: url("../images/icon/i.png") no-repeat; 
     height:11px;
@@ -288,24 +289,31 @@ footer .container {
     display: inline-block;
     margin-right: 6px;
 }
+
 .carousel-indicators .active {
     background: url("../images/icon/i.png") no-repeat;  
     background-position:bottom;
     height:11px;
     width:11px;
 }
+
 .carousel-control {
     height:37px;
     width:37px;
     top: 118px;
     display: inline-block;
 }
+
 #cant-slider .item .col-lg-6 {
-    width:575px;
+    width:430px;
     float:left;
+    margin-top: 30px;
+
 }
+
 #cant-slider {
     width:auto;
+    margin-bottom: 160px;
 }
 
 .carousel-inner > .item {
@@ -322,10 +330,11 @@ footer .container {
 .carousel {
   position: relative;
 }
+
 .carousel-inner {
   position: relative;
   overflow: hidden;
-  width: 100%;
+  margin-left: 50px;
 }
 .carousel-inner > .item {
   display: none;
@@ -441,7 +450,8 @@ footer .container {
 }
 .card-1 .col-lg-9 {
     display: inline-block;
-    margin-top: 10px;
+    margin-top: 20px;
+    width: auto;
 }
 .card-1 .col-lg-9 img {
     margin-left: -35px;
@@ -485,22 +495,20 @@ footer .container {
     float:right;
     margin-right: -10px;
     display: inline-block;
-}
+}   
 #map-1 {
-    position:absolute;
-    width:1250px;
-    height:257px; 
-    left: 45px;
-    top: 55px;
+    position: absolute;
+    width: 940px;
+    height: 257px;
+    left: 20px;
 }
 #map-bg {
-    position:relative;
-    width:1340px;
-    height:364px;
-    background: url("../images/icon/map-1a.png") no-repeat;   
+    position: relative;
+    width: 980px;
+    height: 304px;
     margin-left: -13px;
     margin-bottom: 55px;
-    margin-top: -34px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 /*=====1.Услуги================*/
 .services h3 {
@@ -564,7 +572,7 @@ footer .container {
     margin-top: 60px;
     padding-left:0px;
     padding-right:0px;
-    width:430px;
+    width:315px;
     float:left;
 }
 .respons {
@@ -573,6 +581,7 @@ footer .container {
     position: relative;
     top:auto;
     left:auto;
+    text-align: left;
 } 
 .respons img {
     margin-left: 35px;
@@ -619,7 +628,7 @@ footer .container {
     margin-top: 15px;
 }
 .zp-2 {
-    width: 1150px;
+    width: 940px;
     padding-bottom: 10px;
     padding-top: 5px;
 }
@@ -679,13 +688,11 @@ footer .container {
 .zp-6 img {
     position:absolute;
     top: -165px;
-    right: -5px;
     display:block;
 }
 .zp-6 .col-lg-6 {
     padding:0px;
     display:block;
-    width:635px;
     float:left;
 }
 .zp-6 .gray {
@@ -697,12 +704,11 @@ footer .container {
     position:relative;
 }
 #zp-slider {
-    width: 1290px;
+    width: 980px;
     margin-top: 55px;
     margin-bottom: 80px;
 }
 #zp-slider .item {
-    padding-left: 60px;    
 }
 #zp-slider .carousel-control {
     top: 85px;  
@@ -781,7 +787,7 @@ footer .container {
     text-align:right;
 }
 .guaranty h2 {
-    font-size:30px;
+    font-size:25px;
     font-family: 'Helvetica_Light', sans-serif; 
     text-align:right;
     margin-bottom: 25px;
@@ -960,13 +966,14 @@ footer .container {
 }
 .customers-1 h2,
 .customers-4 h2 {
-    font-size:30px;
+    font-size:25px;
     font-family: 'Helvetica_Light', sans-serif; 
+
 }
 .customers-2 .col-lg-5,
 .customers-3 .col-lg-5,
 .customers-5 .col-lg-5 {
-    width:635px;
+    width:835px;
 }
 .customers-2 {
     margin-bottom: 35px;
@@ -985,7 +992,7 @@ footer .container {
     color: #e07317;
 }
 .customers-3 h2 {
-    font-size:30px;
+    font-size:25px;
     font-family: 'Helvetica', sans-serif;
     font-weight: bold; 
     color: #e07317;
@@ -1000,7 +1007,7 @@ footer .container {
     margin-bottom: 0;
 }
 .customers-4 .col-lg-8 {
-    width:1100px;
+    width:880px;
 }
 .customers-4 h2 {
     padding-bottom: 30px;
@@ -1016,6 +1023,7 @@ footer .container {
 .customers-5 img {
     margin-top: 13px;
     margin-bottom: 20px;
+    width: 400px
 }
 .customers-5 a {
     font-family: 'Helvetica', sans-serif;
@@ -1049,8 +1057,7 @@ footer .container {
     width:660px;
 }
 .company-2 {
-    width: 1365px;
-    padding-left: 40px;
+    width: 980px;
     padding-right: 0;
     margin-bottom: 30px;
 }
@@ -1060,7 +1067,7 @@ footer .container {
     padding-right: 0;
 }
 .company-2 h2 {
-    font-size:30px;
+    font-size:25px;
     font-family: 'Helvetica', sans-serif;
     font-weight: bold; 
     color: #e68a17;   
@@ -1074,11 +1081,11 @@ footer .container {
 .company-2 .col-lg-6 {
     margin-top: 7px;
     margin-right: 3px;
-    width:663px;
+    width:503px;
     float:left;
 }
 .company-2 .col-lg-7 {
-    width:632px;
+    width:450px;
     margin-top: 20px;  
     float:left;
 }
@@ -1096,11 +1103,11 @@ footer .container {
     padding-top: 16px;
 }
 .company-4 {
-    width: 1365px;
+    width: 980px;
     margin-bottom: 17px;
 }
 .company-4 h2 {
-    font-size:30px;
+    font-size:25px;
     font-family: 'Helvetica_Light', sans-serif;   
     text-align:right;
 }
@@ -1114,13 +1121,13 @@ footer .container {
     margin-top: 70px;
     padding-left: 0px;
     padding-right: 0px;
-    width:779px;
+    width:470px;
     float:left;
 }
 .company-4 .col-lg-5 {
     padding-left: 0px;
     padding-right: 0px;
-    width:556px;
+    width:470px;
     float:left;
 }
 /*==========6.о сто==============*/
@@ -1151,7 +1158,7 @@ footer .container {
     padding-left: 0;
 }
 .sto-2 .col-lg-6 {
-    width:650px;
+    width:470px;
     float:left;
 }
 .sto-2 p {
@@ -1171,7 +1178,7 @@ footer .container {
     margin-left: 122px;
 }
 .sto-3 .col-lg-6 {
-    width:625px;
+    width:470px;
     float:left;
 }
 .sto-3 p {
@@ -1244,7 +1251,7 @@ footer .container {
 .jobs-2 h2,
 .jobs-3 h2,
 .jobs-4 h2 {
-    font-size:30px;
+    font-size:25px;
     font-family: 'Helvetica_Light', sans-serif;  
     margin-top: 10px;
 }
@@ -1275,7 +1282,7 @@ footer .container {
 }
 .jobs-5 h2 {
     color:#e68a17;
-    font-size:30px;
+    font-size:25px;
     font-family: 'Helvetica', sans-serif;
     font-weight: bold; 
     text-decoration:none;
@@ -1421,7 +1428,7 @@ footer .container {
 }
 .cont h2 {
     color:#e68a17;
-    font-size:30px;
+    font-size:25px;
     font-family: 'Helvetica', sans-serif;
     font-weight: bold; 
     text-decoration:none;
@@ -1678,4 +1685,7 @@ footer .container {
 
 .blocks{
     margin-bottom:40px;
+}
+.error{
+    border: solid 1px red;
 }

@@ -17,7 +17,7 @@ class RecordController extends FrontController
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','AjaxAddRecord'),
 				'users'=>array('*'),
 			),
 			array('deny',  // deny all users
@@ -42,4 +42,28 @@ class RecordController extends FrontController
 			'dataProvider'=>$dataProvider,
 		));
 	}
+	
+	//======AJAX========
+	public function actionAjaxAddRecord()
+	{
+		$response=array('success'=>false);
+
+		$model=new Record;
+		if (isset($_POST['Record']))
+		{
+			$model->attributes=$_POST['Record'];
+
+			if ($model->save())
+			{
+				$response['success']=true;								
+			} else {
+
+				$response['success']=false;
+				$response['error']=$model->errors;
+			}
+
+		}
+		print(CJSON::encode($response));
+	}
+	//======AJAX========
 }

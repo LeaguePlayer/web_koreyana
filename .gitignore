@@ -11,6 +11,7 @@ framework
 /gallery
 *~
 /index.php
+themes/media
 protected/yiic.php
 protected/yiic.bat
 protected/cron.php
