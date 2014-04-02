@@ -1,9 +1,3 @@
-<?php
-$this->menu=array(
-	array('label'=>'Добавить','url'=>array('create')),
-);
-?>
-
 <h1>Управление <?php echo $model->translition(); ?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
@@ -17,22 +11,20 @@ $this->menu=array(
         "class"=>"status_".(isset($data->status) ? $data->status : ""),
     )',
 	'columns'=>array(
+		
 		'name',
 		'phone',
+		
 		array(
 			'name'=>'dt_visit',
 			'type'=>'raw',
 			'value'=>'SiteHelper::russianDate($data->dt_visit)'
 		),
+
 		'visit_time',
+
 		'avto_info',
-		array(
-			'name'=>'status',
-			'type'=>'raw',
-			'value'=>'Record::getStatusAliases($data->status)',
-			'filter'=>Record::getStatusAliases()
-		),
-		'sort',
+		
 		array(
 			'name'=>'create_time',
 			'type'=>'raw',
@@ -44,6 +36,7 @@ $this->menu=array(
 			'value'=>'$data->update_time ? SiteHelper::russianDate($data->update_time).\' в \'.date(\'H:i\', strtotime($data->update_time)) : ""'
 		),
 		array(
+			'template'=>'{update}{delete}',
 			'class'=>'bootstrap.widgets.TbButtonColumn',
 		),
 	),

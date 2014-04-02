@@ -15,6 +15,7 @@
 	$cs->registerScriptFile($this->getAssetsUrl().'/js/jquery-1.10.2.js', CClientScript::POS_END);
 	$cs->registerScriptFile($this->getAssetsUrl().'/js/carousel.js', CClientScript::POS_END);
 	$cs->registerScriptFile($this->getAssetsUrl().'/js/bootstrap.min.js', CClientScript::POS_END);
+    $cs->registerScriptFile($this->getAssetsUrl().'/js/script.js', CClientScript::POS_END);
 	$cs->registerScriptFile('http://api-maps.yandex.ru/services/constructor/1.0/js/?sid=PC5YaAxHJF303X_pR-LSyeodnO-oicuY&id=map-1', CClientScript::POS_END);
 	//$cs->registerScriptFile($this->getAssetsUrl().'/js/lib/jquery.fancybox-buttons.js', CClientScript::POS_END);
 	//$cs->registerScriptFile('http://api-maps.yandex.ru/2.0.27/?load=package.standard&lang=ru-RU', CClientScript::POS_HEAD);
@@ -62,25 +63,18 @@
                     </div>
                     <div class="col-lg-2 service">
                         <h3>Запись на сервис</h3>
-                        <a href="#">Записаться</a>
+                        <a href="/page/records">Записаться</a>
                     </div>
                 </div>
             </div>
         </div>
 		</header>
 
-		<div class="container">
 		<?php echo $content;?>
-		</div>
 
 		<footer id="footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 etalon">
-                        <h5>ООО ЭТАЛОН-АВТО</h5>
-                        <p>2008-2014. Вся текстовая и графическая информаци </br>на сайте защищена знаком об авторском праве. 
-                            При использовании любых материалов сайта ссылка обязательна.</p> 
-                    </div>
                     <div class="col-lg-2 netweb">
                         <h5>Следуй за нами:</h5>  
                             <a href="#"><img src="<?=$this->getAssetsUrl().DIRECTORY_SEPARATOR?>images/icon/twitter.png" /></a>

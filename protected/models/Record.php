@@ -32,6 +32,7 @@ class Record extends EActiveRecord
             array('work_type, create_time, update_time', 'safe'),
             // The following rule is used by search().
             array('id, name, phone, dt_visit, visit_time, avto_info, work_type, status, sort, create_time, update_time', 'safe', 'on'=>'search'),
+            array('name, phone, dt_visit, visit_time, avto_info', 'required')
         );
     }
 
