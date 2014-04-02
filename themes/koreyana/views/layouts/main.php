@@ -1,39 +1,40 @@
 <?php
 
-	$cs = Yii::app()->clientScript;
-	//$cs->registerCssFile($this->getAssetsUrl().'/css/style.css');
-	$cs->registerCssFile($this->getAssetsUrl().'/css/bootstrap.min.css');
-	$cs->registerCssFile($this->getAssetsUrl().'/css/template.css');
-	
-	//$cs->registerCssFile($this->getAssetsUrl().'/css/fancybox/jquery.fancybox.css');
-	//$cs->registerCssFile($this->getAssetsUrl().'/css/jquery.ui/overcast/jquery-ui-1.10.3.custom.min.css');
-	//$cs->registerCssFile($this->getAssetsUrl().'/css/fancybox/jquery.fancybox-buttons.css');
-	
-	$cs->registerCoreScript('jquery');
-	$cs->registerCoreScript('jquery.ui');
-	//$cs->registerScriptFile($this->getAssetsUrl().'/js/lib/jquery.fancybox.js', CClientScript::POS_END);
-	$cs->registerScriptFile($this->getAssetsUrl().'/js/jquery-1.10.2.js', CClientScript::POS_END);
-	$cs->registerScriptFile($this->getAssetsUrl().'/js/carousel.js', CClientScript::POS_END);
-	$cs->registerScriptFile($this->getAssetsUrl().'/js/bootstrap.min.js', CClientScript::POS_END);
-	$cs->registerScriptFile('http://api-maps.yandex.ru/services/constructor/1.0/js/?sid=PC5YaAxHJF303X_pR-LSyeodnO-oicuY&id=map-1', CClientScript::POS_END);
-	//$cs->registerScriptFile($this->getAssetsUrl().'/js/lib/jquery.fancybox-buttons.js', CClientScript::POS_END);
-	//$cs->registerScriptFile('http://api-maps.yandex.ru/2.0.27/?load=package.standard&lang=ru-RU', CClientScript::POS_HEAD);
-	
-	//$cs->registerScriptFile($this->getAssetsUrl().'/js/lib/jquery.timepicker.addon.js', CClientScript::POS_END);
-	//$cs->registerScriptFile($this->getAssetsUrl().'/js/lib/jquery.ui.timepicker.ru.js', CClientScript::POS_END);
-	//$cs->registerScriptFile($this->getAssetsUrl().'/js/common.js', CClientScript::POS_END);
+    $cs = Yii::app()->clientScript;
+    //$cs->registerCssFile($this->getAssetsUrl().'/css/style.css');
+    $cs->registerCssFile($this->getAssetsUrl().'/css/bootstrap.min.css');
+    $cs->registerCssFile($this->getAssetsUrl().'/css/template.css');
+    
+    //$cs->registerCssFile($this->getAssetsUrl().'/css/fancybox/jquery.fancybox.css');
+    //$cs->registerCssFile($this->getAssetsUrl().'/css/jquery.ui/overcast/jquery-ui-1.10.3.custom.min.css');
+    //$cs->registerCssFile($this->getAssetsUrl().'/css/fancybox/jquery.fancybox-buttons.css');
+    
+    $cs->registerCoreScript('jquery');
+    $cs->registerCoreScript('jquery.ui');
+    //$cs->registerScriptFile($this->getAssetsUrl().'/js/lib/jquery.fancybox.js', CClientScript::POS_END);
+    $cs->registerScriptFile($this->getAssetsUrl().'/js/jquery-1.10.2.js', CClientScript::POS_END);
+    $cs->registerScriptFile($this->getAssetsUrl().'/js/carousel.js', CClientScript::POS_END);
+    $cs->registerScriptFile($this->getAssetsUrl().'/js/bootstrap.min.js', CClientScript::POS_END);
+    $cs->registerScriptFile($this->getAssetsUrl().'/js/script.js', CClientScript::POS_END);
+    $cs->registerScriptFile('http://api-maps.yandex.ru/services/constructor/1.0/js/?sid=PC5YaAxHJF303X_pR-LSyeodnO-oicuY&id=map-1', CClientScript::POS_END);
+    //$cs->registerScriptFile($this->getAssetsUrl().'/js/lib/jquery.fancybox-buttons.js', CClientScript::POS_END);
+    //$cs->registerScriptFile('http://api-maps.yandex.ru/2.0.27/?load=package.standard&lang=ru-RU', CClientScript::POS_HEAD);
+    
+    //$cs->registerScriptFile($this->getAssetsUrl().'/js/lib/jquery.timepicker.addon.js', CClientScript::POS_END);
+    //$cs->registerScriptFile($this->getAssetsUrl().'/js/lib/jquery.ui.timepicker.ru.js', CClientScript::POS_END);
+    //$cs->registerScriptFile($this->getAssetsUrl().'/js/common.js', CClientScript::POS_END);
 ?><!DOCTYPE html>
 <html lang="ru">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title><?php echo $this->title; ?></title>
-		<!--[if IE]>
-	    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	    <![endif]-->
-	</head>
-	<body <?php $this->is_home() ? print 'class="background"' : print '';?>>
-		<header id="header">
-			<div id="header-wrapper">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title><?php echo $this->title; ?></title>
+        <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body <?php $this->is_home() ? print 'class="background"' : print '';?>>
+        <header id="header">
+            <div id="header-wrapper">
             <div class="container">
                 <div class="row navbar-wrapper">
                     <div class="col-lg-2 logotip">
@@ -62,25 +63,18 @@
                     </div>
                     <div class="col-lg-2 service">
                         <h3>Запись на сервис</h3>
-                        <a href="#">Записаться</a>
+                        <a href="/page/records">Записаться</a>
                     </div>
                 </div>
             </div>
         </div>
-		</header>
+        </header>
 
-		<div class="container">
-		<?php echo $content;?>
-		</div>
+        <?php echo $content;?>
 
-		<footer id="footer">
+        <footer id="footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 etalon">
-                        <h5>ООО ЭТАЛОН-АВТО</h5>
-                        <p>2008-2014. Вся текстовая и графическая информаци </br>на сайте защищена знаком об авторском праве. 
-                            При использовании любых материалов сайта ссылка обязательна.</p> 
-                    </div>
                     <div class="col-lg-2 netweb">
                         <h5>Следуй за нами:</h5>  
                             <a href="#"><img src="<?=$this->getAssetsUrl().DIRECTORY_SEPARATOR?>images/icon/twitter.png" /></a>
@@ -100,5 +94,5 @@
                 </div>
             </div><!--container -->
         </footer>
-	</body>
+    </body>
 </html>

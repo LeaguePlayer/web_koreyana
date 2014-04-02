@@ -195,11 +195,11 @@
     e.preventDefault()
   })
 
-  $(window).on('load', function () {
-    $('[data-ride="carousel"]').each(function () {
-      var $carousel = $(this)
-      $carousel.carousel($carousel.data())
-    })
-  })
+  // $(window).on('load', function () {
+//     $('[data-ride="carousel"]').each(function () {
+//       var $carousel = $(this)
+//       $carousel.carousel($carousel.data())
+//     })
+//   })
 
 }(jQuery);
