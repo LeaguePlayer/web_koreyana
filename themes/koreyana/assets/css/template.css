@@ -20,7 +20,6 @@
      url(../css/fonts/helveticaneue-thin.woff);
 }
 body {
-    min-width:1400px;
 }
 h1,h2,h3,h4,h5,h6,p {
     font-family: 'MyriadPro', sans-serif;
@@ -557,7 +556,7 @@ footer .container {
     list-style-image: url("../images/icon/marker.gif");
 }
 .services-1 {
-    width:1300px; 
+    width:980px; 
 }
 .services-1 h3 {
     font-size:24px;
@@ -1085,7 +1084,7 @@ footer .container {
     float:left;
 }
 .company-2 .col-lg-7 {
-    width:450px;
+    width:430px;
     margin-top: 20px;  
     float:left;
 }
