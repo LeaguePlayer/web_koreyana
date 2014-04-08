@@ -163,12 +163,22 @@ class Structure extends EActiveRecord
     {
         if ( $this->_component === null ) {
             $component_name = ucfirst( $this->material->class_name );
-            $model = $component_name::model();
-            if ( !is_subclass_of($model, 'StructureMaterial') ) {
-//                throw new CHttpException(403, "Класс $component_name не наследует интерфейс StructureMaterial");
-            } else {
-                $this->_component = $model->findByAttributes(array('node_id'=>$this->id));
-            }
+
+            $empty_component=new Page;
+
+            if (!class_exists($component_name))
+                return $empty_component;
+            else 
+            if ($component_name::model())
+            {
+                $model = $component_name::model();
+                if ( !is_subclass_of($model, 'StructureMaterial') ) {
+    //                throw new CHttpException(403, "Класс $component_name не наследует интерфейс StructureMaterial");
+                } else {
+                    $this->_component = $model->findByAttributes(array('node_id'=>$this->id));
+                }
+            } 
+            
         }
         return $this->_component;
     }

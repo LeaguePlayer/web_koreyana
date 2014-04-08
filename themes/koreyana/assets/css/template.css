@@ -688,6 +688,7 @@ footer .container {
     position:absolute;
     top: -165px;
     display:block;
+    margin-left:20px;
 }
 .zp-6 .col-lg-6 {
     padding:0px;
@@ -943,8 +944,11 @@ footer .container {
 }
 /*=========4.корпоративным=======
 =================клиентам=========*/
-.gray {
+.gray:nth-child(even) {
     background-color: #efefef; 
+    width:100%;
+}
+.gray:nth-child(odd) {
     width:100%;
 }
 .center {
@@ -1234,28 +1238,23 @@ footer .container {
     float:left;
 }
 /*==============7.вакансии===============*/
-.jobs-1 h1 {
+.jobs h1 {
     font-size:39px;
     font-family: 'Helvetica', sans-serif;
     font-weight: bold;  
     text-transform:uppercase;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     margin-top: 40px;
 }
-.jobs-2 {
+/*.jobs {
     margin-top: 20px;    
-}
-.jobs-1 h2,
-.jobs-2 h2,
-.jobs-3 h2,
-.jobs-4 h2 {
-    font-size:25px;
+}*/
+.jobs h2 {
+    font-size:20px;
     font-family: 'Helvetica_Light', sans-serif;  
     margin-top: 10px;
 }
-.jobs-2 p,
-.jobs-3 p,
-.jobs-4 p {
+.jobs p {
     font-size:18px;
     font-family: 'Helvetica_Light', sans-serif; 
     line-height:1.2;  
@@ -1263,45 +1262,44 @@ footer .container {
     padding-left:50px;
     text-align:justify;
 }
-.jobs-2 .col-lg-9,
-.jobs-3 .col-lg-9,
-.jobs-4 .col-lg-9 {
+.jobs [class|=col-lg]
+{
+    padding: 20px!important;
+}
+
+.jobs .col-lg-9 {
+
     padding-top:15px;
     padding-bottom: 30px;
     width: 790px;
     float:left;
 }
-.jobs-2 .col-lg-3,
-.jobs-3 .col-lg-3,
-.jobs-4 .col-lg-3 {
+.jobs .col-lg-3 {
     padding-right: 0;
-    width: 280px;
+    width: 180px;
     float:left;
 }
-.jobs-5 h2 {
-    color:#e68a17;
-    font-size:25px;
+.jobs h2 {
+    margin:0px;
+    line-height: 1;
+    font-size:20px;
     font-family: 'Helvetica', sans-serif;
-    font-weight: bold; 
-    text-decoration:none;
-    margin-bottom: 38px;
-    padding-left: 202px;
 }
-.jobs-5 {
+.jobs {
     margin-left: 55px; 
     margin-bottom: 30px;
 }
-.jobs-5 .col-lg-6 {
+.jobs .col-lg-6 {
     width:620px;
     float:left;
 }
-.jobs-5 .col-lg-1 {
+.jobs .col-lg-1 {
     width:120px;
     float:left;
     margin-top:15px;
 }
-.jobs-5 .col-lg-1 span,
-.jobs-5 .col-lg-5 span {
+.jobs .col-lg-1 span,
+.jobs .col-lg-5 span {
     color: #E68A17;
     font-family: 'Helvetica',sans-serif;
     font-size: 30px;
@@ -1349,12 +1347,10 @@ footer .container {
     margin-bottom: 30px;     
 }
 #form-jobs .col-lg-4 {
-    width:200px;
-    float:left;
+
 }
 #form-jobs .col-lg-8 {
-    width:405px;
-    float:left;
+
 }
 .bt-5 {
     margin-bottom:35px;
@@ -1680,7 +1676,7 @@ footer .container {
     width:275px;
 }
 .hr {
-    margin-top:10px
+    margin-top:10px;
     margin-bottom:35px;
 }
 
@@ -1689,4 +1685,101 @@ footer .container {
 }
 .error{
     border: solid 1px red;
+}
+.form-job{
+    width: 565px;
+    
+}
+
+.line{
+    display: inline-block;
+}
+
+.line input {
+    width: 375px;
+    height: 37px;
+    float: left;
+    margin: 10px;
+}
+
+.lable{
+    float: left;
+    text-align: right;
+    font-size: 18px;
+    font-family: 'Helvetica_Light', sans-serif;
+    font-weight: normal;
+    float: left;
+    margin: 20px;
+}
+
+.line input{
+    float:left;
+    margin-right: 20px;
+    padding-left: 12px;
+}
+
+.line .attechFile{
+    float: right;
+}
+
+.attechFile span {
+
+}
+
+.attechFile{
+
+    width: 375px;
+    background: yellow;
+    text-align: center;
+    /* padding-bottom: 10px; */
+    height: 38px;
+    float: right;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-right: 36px;
+    background: url(../images/icon/bt-5.png) no-repeat;
+    font-size: 18px;
+    font-family: 'Helvetica_Light', sans-serif;
+    font-weight: normal;
+    color: #2d3339;
+    line-height: 15px;
+}
+
+.send input[type=submit]{
+
+    float:right;
+    margin-right: 15px;
+    background: url(../images/icon/bt-3.png) no-repeat;
+    margin-top:20px;
+    margin-bottom: 50px;
+    width: 245px;
+    border:none;
+    height: 41px;
+    color: #fff;
+    font-family: 'MyriadPro', sans-serif;
+font-size: 20px;
+}
+
+
+.clear{
+    clear: both;
+}
+.orange{
+
+}
+
+.orange li+li {
+    display: inline-block;
+    width: 200px;
+    text-align: center;
+}
+.orange li,.orange li a {
+    display: inline-block;
+    width: 375px;
+    color: #e68a17;
+    font-size: 30px;
+    font-family: 'Helvetica', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
 }
