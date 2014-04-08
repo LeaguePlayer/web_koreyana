@@ -16,6 +16,7 @@
 	$cs->registerScriptFile($this->getAssetsUrl().'/js/carousel.js', CClientScript::POS_END);
 	$cs->registerScriptFile($this->getAssetsUrl().'/js/bootstrap.min.js', CClientScript::POS_END);
     $cs->registerScriptFile($this->getAssetsUrl().'/js/script.js', CClientScript::POS_END);
+    $cs->registerScriptFile($this->getAssetsUrl().'/js/jquery.mask.js', CClientScript::POS_END);
 	$cs->registerScriptFile('http://api-maps.yandex.ru/services/constructor/1.0/js/?sid=PC5YaAxHJF303X_pR-LSyeodnO-oicuY&id=map-1', CClientScript::POS_END);
 	//$cs->registerScriptFile($this->getAssetsUrl().'/js/lib/jquery.fancybox-buttons.js', CClientScript::POS_END);
 	//$cs->registerScriptFile('http://api-maps.yandex.ru/2.0.27/?load=package.standard&lang=ru-RU', CClientScript::POS_HEAD);
