@@ -45,7 +45,7 @@ h1,h2,h3,h4,h5,h6,p {
 }*/
 .navbar {
     /*position:absolute;*/
-    top: 70px; 
+    top: 30px; 
     display: inline-block;
     left: -7px;
 }
@@ -82,17 +82,19 @@ h1,h2,h3,h4,h5,h6,p {
     height:37px;
 }
 #logo img {
-    position:absolute;
-    top: 60px;
     left: 15px;
     display: inline-block;
 }
 #brand img {
-    position:absolute;
-    top: 102px;
+    position: absolute;
+    top: 67px;
     left: 0;
     padding-left: 5px;
     display: inline-block;
+    background: #fff;
+    border-radius: 20px 20px 0 0;
+    padding-bottom: 40px;
+    padding-top: 15px;
 }
 .service {
     background: url(../images/icon/bg-z.png) no-repeat;
@@ -100,7 +102,6 @@ h1,h2,h3,h4,h5,h6,p {
     width:212px;
     float: right;
     right: 10px;
-    top: 30px;
     display: inline-block;
 }
 .service a {
@@ -126,9 +127,12 @@ h1,h2,h3,h4,h5,h6,p {
     margin-top: 30px;
 }
 .navbar-wrapper .logotip {
-    width:230px;
-    height:60px;
-    float:left;
+    float: left;
+    background: #f2ce80;
+    border-radius: 20px 20px 0px 0px;
+    width: 220px;
+    /* padding-bottom: 9px; */
+padding-top: 10px;
 }
 .navbar-wrapper .top-menu {
     /*width:850px;*/
@@ -1782,4 +1786,17 @@ font-size: 20px;
     font-weight: bold;
     text-decoration: none;
     text-align: center;
+}
+.statick_menu{
+    margin-top:5px;
+}
+.statick_menu li{
+    display: inline;
+    color: #fff;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.statick_menu li a {
+    color: #fff;
+    text-decoration: none;
 }

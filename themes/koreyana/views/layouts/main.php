@@ -42,9 +42,28 @@
                         <a id="logo" href="#"><img src="<?=$this->getAssetsUrl().DIRECTORY_SEPARATOR?>images/icon/logo-k.png"/></a>
                         <a id="brand" href="#"><img src="<?=$this->getAssetsUrl().DIRECTORY_SEPARATOR?>images/icon/menu-down-buttons.png"/></a>
                     </div>
+                    <ul class="statick_menu">
+                        <li>
+                            <a href="/page/disposal">Услуги</a>
+                        </li>
+                        <li>
+                            <a href="/page/warranty">Гарантия</a>
+                        </li>
+                        <li>
+                            <a href="/vacansy/index"> Вакансии</a>
+                        </li>
+                        <li>
+                            <a href="/page/about">О Нас</a>
+                        </li>
+                        <li>
+                            <a href="/page/Contacts">Контакты</a>
+                        </li>
+                    </ul>
                     <div class="col-lg-8 top-menu">
                         <div class="navbar">
+
                             <ul class="nav navbar-nav">
+
                                 <?
                                     foreach ($this->menu as $key => $value) {
                                         print('<li class="'.($value['active'] ? 'active': '').'"><a href="'.$value['url'].'" '.(strlen($value['label'])>40 ? 'id="long-bottom"' : (strlen($value['label'])>16 ? 'id="padding-top-6"' : '')).'>'.$value['label'].'</a></li>');
