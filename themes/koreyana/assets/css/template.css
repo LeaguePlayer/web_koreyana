@@ -1188,6 +1188,8 @@ footer .container {
     width:470px;
     float:left;
 }
+
+
 .sto-3 p {
     font-size:18px;
     font-family: 'Helvetica_Light', sans-serif; 
@@ -1200,7 +1202,6 @@ footer .container {
 .sto-3 img {
     position:absolute;
     left: 5px;
-    top: -102px;
 }
 /*=========6-1.плановое то=========*/
 .tbl-plan-to {
