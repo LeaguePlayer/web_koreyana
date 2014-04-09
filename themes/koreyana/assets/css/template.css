@@ -14,9 +14,9 @@
     font-family: Helvetica_Light; /* Гарнитура шрифта */
     src: url(../css/fonts/HelveticaNeue-Light.ttf); /* Путь к файлу со шрифтом */
      url(../css/fonts/HelveticaNeue-Light.eot);
-	 url(../css/fonts/HelveticaNeue-Light.eot?#iefix) format('embedded-opentype');
+     url(../css/fonts/HelveticaNeue-Light.eot?#iefix) format('embedded-opentype');
      url(../css/fonts/helveticaneue-thin.eot);
-	 url(../css/fonts/helveticaneue-thin.eot?#iefix) format('embedded-opentype');
+     url(../css/fonts/helveticaneue-thin.eot?#iefix) format('embedded-opentype');
      url(../css/fonts/helveticaneue-thin.woff);
 }
 body {
@@ -232,8 +232,8 @@ footer .container {
 /*===========карусель===============*/
 .item {
    /* width:1150px;
-	height:365px;*/
-	/*display:none;*/
+    height:365px;*/
+    /*display:none;*/
 }
 .item .col-lg-5 {
     font-size: 30px;
@@ -258,13 +258,13 @@ footer .container {
     line-height: 1.2;
 }
 .carousel {
-	position: relative;
+    position: relative;
 
 }
 .carousel-inner {
     margin-right: 76px;
-	overflow:hidden;
-	height:270px;
+    overflow:hidden;
+    height:270px;
     right: 40px;
 }
 
@@ -1321,10 +1321,10 @@ footer .container {
     width:400px;
     float:left;
     color: #E68A17;
-	text-decoration: underline;
+    text-decoration: underline;
 }
 .align-h2 span > a:hover {
-	text-decoration: none;
+    text-decoration: none;
 }
 .align-h2 span:hover {
     text-decoration:none;
@@ -1513,7 +1513,6 @@ footer .container {
     margin-bottom: 40px;
 }
 .captcha {
-    padding-left: 450px;
     padding-top: 5px;
 }
 .captcha p {
@@ -1523,7 +1522,6 @@ footer .container {
     margin-bottom: 18px;
 }
 #sortable {
-    padding-left:450px;
     height: 80px;
 }
 #sortable .captchaItem {
@@ -1714,6 +1712,7 @@ footer .container {
     font-weight: normal;
     float: left;
     margin: 20px;
+    width: 100px;
 }
 
 .line input{
@@ -1740,7 +1739,7 @@ footer .container {
     float: right;
     padding-top: 10px;
     padding-bottom: 10px;
-    margin-right: 36px;
+    margin-right: 42px;
     background: url(../images/icon/bt-5.png) no-repeat;
     font-size: 18px;
     font-family: 'Helvetica_Light', sans-serif;
@@ -1761,7 +1760,8 @@ footer .container {
     height: 41px;
     color: #fff;
     font-family: 'MyriadPro', sans-serif;
-font-size: 20px;
+    font-size: 20px;
+    margin-left: 150px;
 }
 
 
