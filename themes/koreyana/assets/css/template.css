@@ -1511,6 +1511,7 @@ footer .container {
     font-weight: bold;  
     text-transform:uppercase;
     margin-bottom: 40px;
+    padding-right: 140px;
 }
 .captcha {
     padding-top: 5px;
@@ -1554,13 +1555,14 @@ footer .container {
     text-align:right;
     padding-right: 56px;
     vertical-align:top;
-    width:435px;
     float:left;
+    text-align: left;
 }
 #form-resume .col-lg-8 {
     vertical-align:middle;  
-    width:790px;
-    float:left;
+    float: left;
+    width: 465px;
+    text-align: left;
 }
 #form-resume .row {
     margin-bottom: 25px;     
@@ -1576,9 +1578,10 @@ footer .container {
     height:175px;
 }
 #form-resume .bt-4 {
-    padding-left: 450px;
     margin-top: 25px;
     margin-bottom: 25px;
+    padding: 0;
+    padding-right: 60px;
 }
 #param input {
     width:255px;
@@ -1589,7 +1592,7 @@ footer .container {
     float:left;
 }
 #param .col-lg-8 {
-    width:460px;
+    width:260px;
     float:left;
 }
 #param span {
@@ -1712,7 +1715,7 @@ footer .container {
     font-weight: normal;
     float: left;
     margin: 20px;
-    width: 100px;
+    width: 120px;   
 }
 
 .line input{
@@ -1739,7 +1742,11 @@ footer .container {
     float: right;
     padding-top: 10px;
     padding-bottom: 10px;
+<<<<<<< HEAD
     margin-right: 42px;
+=======
+    margin-right: 20px;
+>>>>>>> 2261670834032d14f3404e2b0304dacb5249b60b
     background: url(../images/icon/bt-5.png) no-repeat;
     font-size: 18px;
     font-family: 'Helvetica_Light', sans-serif;
@@ -1751,7 +1758,7 @@ footer .container {
 .send input[type=submit]{
 
     float:right;
-    margin-right: 15px;
+    margin-right: 0px;
     background: url(../images/icon/bt-3.png) no-repeat;
     margin-top:20px;
     margin-bottom: 50px;

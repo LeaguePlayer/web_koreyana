@@ -24,7 +24,7 @@
 )); ?>
 
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
-    'id'=>'news-grid',
+    'id'=>'job-grid',
     'dataProvider'=>$jobFinder->search(),
     'filter'=>$jobFinder,
     'type'=>TbHtml::GRID_TYPE_HOVER,
@@ -34,24 +34,27 @@
             "class"=>"status_".$data->status,
         )',
     'columns'=>array(
-        array(
-            'name'=>'img_preview',
-            'type'=>'raw',
-            'value'=>'$data->getImage("icon")',
-            'filter'=>false
-        ),
+        'name',
+        'preview',
+        // array(
+        //     'name'=>'img_preview',
+        //     'type'=>'raw',
+        //     'value'=>'$data->getImage("icon")',
+        //     'filter'=>false
+        // ),
         
         array(
             'class'=>'bootstrap.widgets.TbButtonColumn',
-            'template'=>'{delete}',
+            'template'=>'{delete}{update}',
             'buttons'=>array(
                 'delete'=>array(
                     'url'=>'array("/admin/job/delete", "id"=>$data->id)'
                 ),
-                'view'=>array(
-                    'url'=>'array("/admin/job/view", "id"=>$data->id)'
+                'update'=>array(
+                    'url'=>'array("/admin/job/update", "id"=>$data->id)'
                 ),
             ),
         ),
     ),
 )); ?>
+<?php Yii::app()->clientScript->registerScript('sortGrid', 'sortGrid("job");', CClientScript::POS_END) ;?>
