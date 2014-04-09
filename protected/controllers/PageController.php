@@ -34,7 +34,7 @@ class PageController extends FrontController
 			throw new CHttpException(404);
 
 		$page=$node->getComponent();
-		$mark=array('{resume}','{record}');
+		$mark=array('{resume}','{record}','{contacts}');
 
 		foreach ($mark as $key => $value) {
 			if (substr_count($page->wswg_body, $value)>0)
