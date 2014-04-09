@@ -1486,7 +1486,6 @@ footer .container {
     width: 400px;
 }
 .bt-3 {
-    padding-left: 450px;    
 }
 .bt-3 a {
     background: url(../images/icon/bt-3.png) no-repeat; 
@@ -1528,6 +1527,7 @@ footer .container {
 }
 #sortable {
     height: 80px;
+    padding: 0;
 }
 #sortable .captchaItem {
     width:38px;
@@ -1776,7 +1776,11 @@ footer .container {
     clear: both;
 }
 .orange{
+<<<<<<< HEAD
 text-align: right;
+=======
+text-align: center;
+>>>>>>> 8ecf69763075e1bbd12659e4c1b5cd100eaf9e1f
 }
 
 .orange li+li {
