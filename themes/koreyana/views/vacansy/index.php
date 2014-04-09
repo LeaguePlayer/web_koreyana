@@ -24,7 +24,7 @@
 ?>
 <div class="container">
             <div class="row jobs-5">
-                <ul class="orange"><li>Отправить резюме</li><li></li><li><a href="#">Заполнить резюме</a></li></ul>
+                <ul class="orange"><li>Отправить резюме</li><li></li><li><a href="/page/resume">Заполнить резюме</a></li></ul>
                 <form id="vacansy_form" action="#" class="form-job">
                     <div class="line">
                         <div class="lable">

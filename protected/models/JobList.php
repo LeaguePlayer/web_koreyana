@@ -41,7 +41,14 @@ class JobList extends EActiveRecord
         );
     }
 
-
+    public function behaviors()
+    {
+        return array(
+            'structure' => array(
+                'class' => 'application.behaviors.StructureBehavior',
+            ),
+        );
+    }
 
     public function search()
     {
