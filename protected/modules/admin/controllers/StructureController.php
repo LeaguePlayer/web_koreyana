@@ -64,7 +64,6 @@ class StructureController extends AdminController
         ));
     }
 
-
     public function actionDelete($id)
     {
         $model = Structure::model()->findByPk($id);

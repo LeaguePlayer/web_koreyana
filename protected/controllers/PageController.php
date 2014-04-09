@@ -34,6 +34,17 @@ class PageController extends FrontController
 			throw new CHttpException(404);
 
 		$page=$node->getComponent();
+		$mark=array('{resume}','{record}');
+
+		foreach ($mark as $key => $value) {
+			if (substr_count($page->wswg_body, $value)>0)
+			{
+				$view=preg_replace('/[{}]/', '', $value);
+				$form=$this->renderPartial($view,true,true);
+				$page->wswg_body=str_replace($value, $form, $page->wswg_body);
+				break;
+			}
+		}
 
 		$this->render('view',array(
 			'model'=>$page,
