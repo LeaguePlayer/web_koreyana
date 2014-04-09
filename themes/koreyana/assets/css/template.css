@@ -1557,10 +1557,9 @@ footer .container {
 }
 #form-resume .col-lg-4 {
     text-align:right;
-    padding-right: 56px;
-    vertical-align:top;
     float:left;
     text-align: left;
+    width: 250px;
 }
 #form-resume .col-lg-8 {
     vertical-align:middle;  
