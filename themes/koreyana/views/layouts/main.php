@@ -4,7 +4,7 @@
     //$cs->registerCssFile($this->getAssetsUrl().'/css/style.css');
     $cs->registerCssFile($this->getAssetsUrl().'/css/bootstrap.min.css');
     $cs->registerCssFile($this->getAssetsUrl().'/css/template.css');
-    
+    $cs->registerCssFile($this->getAssetsUrl().'/css/fancybox/jquery.fancybox.css');
     //$cs->registerCssFile($this->getAssetsUrl().'/css/fancybox/jquery.fancybox.css');
     //$cs->registerCssFile($this->getAssetsUrl().'/css/jquery.ui/overcast/jquery-ui-1.10.3.custom.min.css');
     //$cs->registerCssFile($this->getAssetsUrl().'/css/fancybox/jquery.fancybox-buttons.css');
@@ -17,7 +17,9 @@
     $cs->registerScriptFile($this->getAssetsUrl().'/js/bootstrap.min.js', CClientScript::POS_END);
     $cs->registerScriptFile($this->getAssetsUrl().'/js/script.js', CClientScript::POS_END);
     $cs->registerScriptFile($this->getAssetsUrl().'/js/jquery.mask.js', CClientScript::POS_END);
-    $cs->registerScriptFile('http://api-maps.yandex.ru/services/constructor/1.0/js/?sid=PC5YaAxHJF303X_pR-LSyeodnO-oicuY&id=map-1', CClientScript::POS_END);
+    $cs->registerScriptFile($this->getAssetsUrl().'/js/lib/jquery.fancybox.js', CClientScript::POS_END);
+    
+        
     //$cs->registerScriptFile($this->getAssetsUrl().'/js/lib/jquery.fancybox-buttons.js', CClientScript::POS_END);
     //$cs->registerScriptFile('http://api-maps.yandex.ru/2.0.27/?load=package.standard&lang=ru-RU', CClientScript::POS_HEAD);
     
@@ -34,13 +36,14 @@
         <![endif]-->
     </head>
     <body <?php $this->is_home() ? print 'class="background"' : print '';?>>
+            
         <header id="header">
             <div id="header-wrapper">
             <div class="container">
                 <div class="row navbar-wrapper">
                     <div class="col-lg-2 logotip">
-                        <a id="logo" href="#"><img src="<?=$this->getAssetsUrl().DIRECTORY_SEPARATOR?>images/icon/logo-k.png"/></a>
-                        <a id="brand" href="#"><img src="<?=$this->getAssetsUrl().DIRECTORY_SEPARATOR?>images/icon/menu-down-buttons.png"/></a>
+                        <a id="logo" href="/"><img src="<?=$this->getAssetsUrl().DIRECTORY_SEPARATOR?>images/icon/logo-k.png"/></a>
+                        <a id="brand" href="/"><img src="<?=$this->getAssetsUrl().DIRECTORY_SEPARATOR?>images/icon/menu-down-buttons.png"/></a>
                     </div>
                     <ul class="statick_menu">
                         <li>
@@ -91,7 +94,9 @@
         </header>
 
         <?php echo $content;?>
-
+            <div id="callBox" style="display:none;">
+                <?=$this->renderPartial('//layouts/callsform',array())?>
+            </div>
         <footer id="footer">
             <div class="container">
                 <div class="row">
@@ -103,9 +108,9 @@
                             <a href="#"><img src="<?=$this->getAssetsUrl().DIRECTORY_SEPARATOR?>images/icon/instagram.png" /></a>
                     </div>
                     <div class="col-lg-4 phone">
-                        <a href="#">Связаться с нами</a>
+                        <a id="callBtn" href="#callBox" >Связаться с нами</a>
                         <img src="<?=$this->getAssetsUrl().DIRECTORY_SEPARATOR?>images/icon/phone.png" />
-                        <span>30 57 93</span>
+                        <span>(3452) 500 480</span>
                     </div>
                     <div class="col-lg-2 logo">
                         <h6>С Кореяна друзья с 2013 года</h6> 

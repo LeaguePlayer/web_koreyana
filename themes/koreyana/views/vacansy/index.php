@@ -23,41 +23,41 @@
     }
 ?>
 <div class="container">
-            <div class="row jobs-5">
-                <ul class="orange"><li>Отправить резюме</li><li>или</li><li><a href="/page/resume">Заполнить резюме</a></li></ul>
-                <form id="vacansy_form" action="#" class="form-job">
-                    <div class="line">
-                        <div class="lable">
-                            <label for="FirstName">Ваше имя</label>
-                        </div>
-                        <input type="text" name="Vacansy[sername]" placeholder="Ваше имя" value="">
-                    </div>
-                    <div class="line">
-                        <div class="lable">
-                            <label for="FirstName">Фамилия</label>
-                        </div>
-                        <input type="text" name="Vacansy[sername]" placeholder="Фамилия" value="">
-                    </div>
-                    <div class="line">
-                        <div class="lable">
-                            <label class="label" for="FirstName">Телефон</label>
-                        </div>
-                        <input name="Vacansy[phone]" type="text" class="Tel" placeholder="+7 (___) ___-__-__" value="">
-                    </div>
-                    <div class="line">
-                        <div class="lable">
-                            <label class="label" for="FirstName">Вакансия</label>
-                        </div>
-                        <input type="text" name="Vacansy[vacansy]" placeholder="Вакансия" value="">
-                    </div>
-                    <div class="clear"></div>
-                    <div class="attechFile">
-                        <span >Прикрепить резюме</span> 
-                        <input type="file" style="display:none;">
-                    </div>
-                    <div class="line send">
-                        <input type="submit" name="send" value="Отправить">
-                    </div>
-                </form>
+    <div class="row jobs-5">
+        <ul class="orange"><li>Отправить резюме</li><li>или</li><li><a href="/page/resume">Заполнить резюме</a></li></ul>
+        <form id="vacansy_form" action="#" class="form-job">
+            <div class="line">
+                <div class="lable">
+                    <label for="FirstName">Ваше имя</label>
+                </div>
+                <input type="text" name="Vacansy[name]" placeholder="Ваше имя" value="">
             </div>
-        </div>
+            <div class="line">
+                <div class="lable">
+                    <label for="FirstName">Фамилия</label>
+                </div>
+                <input type="text" name="Vacansy[sername]" placeholder="Фамилия" value="">
+            </div>
+            <div class="line">
+                <div class="lable">
+                    <label class="label" for="FirstName">Телефон</label>
+                </div>
+                <input name="Vacansy[phone]" type="text" class="Tel" placeholder="+7 (___) ___-__-__" value="">
+            </div>
+            <div class="line">
+                <div class="lable">
+                    <label class="label" for="FirstName">Вакансия</label>
+                </div>
+                <input type="text" name="Vacansy[vacansy]" placeholder="Вакансия" value="">
+            </div>
+            <div class="clear"></div>
+            <div class="attechFile">
+                <span >Прикрепить резюме</span> 
+                <input type="file" style="display:none;">
+            </div>
+            <div class="line send">
+                <input type="submit" id="sendVacansy" value="Отправить">
+            </div>
+        </form>
+    </div>
+</div>

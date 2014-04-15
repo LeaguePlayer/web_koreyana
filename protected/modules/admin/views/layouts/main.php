@@ -11,9 +11,12 @@
             $menuItems = array(
                 array('label'=>'Разделы сайта', 'url'=>array('/admin/structure')),
                 array('label'=>'Меню сайта', 'url'=>array('/admin/menu')),
-                array('label'=>'Вакансии', 'url'=>array('/admin/vacansy')),
-                array('label'=>'Записи на сервис', 'url'=>array('/admin/record')),
-                array('label'=>'Резюме', 'url'=>array('/admin/Resume')),
+                array('label'=>'Другое', 'items'=>array(
+                    array('label'=>'Звонки', 'url'=>'/admin/calls/list'),
+                    array('label'=>'Записи на сервис', 'url'=>array('/admin/record')),
+                    array('label'=>'Резюме', 'url'=>array('/admin/Resume')),
+                    ),
+                ),
                 array('label'=>'Материалы', 'url'=>array('/admin/material')),
                 array('label'=>'Настройки', 'url'=>array('/admin/config')),
             );

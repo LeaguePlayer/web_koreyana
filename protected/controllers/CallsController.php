@@ -1,6 +1,6 @@
 <?php
 
-class ResumeController extends FrontController
+class CallsController extends FrontController
 {
 	public $layout='//layouts/simple';
 
@@ -17,7 +17,7 @@ class ResumeController extends FrontController
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','CreateResume'),
+				'actions'=>array('index','view','AjaxCreate'),
 				'users'=>array('*'),
 			),
 			array('deny',  // deny all users
@@ -26,34 +26,36 @@ class ResumeController extends FrontController
 		);
 	}
 
+	public function actionAjaxCreate()
+	{
+		if (!empty($_POST['Calls']))
+		{
+			$model=new Calls;
+			$model->attributes=$_POST['Calls'];
+			$model->type=$_POST['Calls']['type']=='true' ? true : false;
+			if ($model->validate())
+			{
+				$response['succes']=true;
+				$model->save();
+			} else {
+
+				$response['error']=$model->errors;
+
+			}
+		}
+		echo CJSON::encode($response);
+	}
 	
 	public function actionView($id)
 	{
 		$this->render('view',array(
-			'model'=>$this->loadModel('Resume', $id),
+			'model'=>$this->loadModel('Calls', $id),
 		));
 	}
 	
-	public function actionCreateResume()
-	{
-		if (isset($_POST['Resume']))
-		{
-			$model=new Resume;
-			$model->attributes=$_POST['Resume'];
-			if ($model->validate())
-			{
-				$model->save();
-				$this->redirect(array('/page/thanks'));
-			} else {
-				$this->redirect(array('/page/resume'));
-			}
-
-		}
-	}
-
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Resume');
+		$dataProvider=new CActiveDataProvider('Calls');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

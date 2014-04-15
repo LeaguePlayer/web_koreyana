@@ -43,22 +43,20 @@ class VacansyController extends FrontController
 			'models'=>$models,
 		));
 	}
-	public function AjaxAddVacancy(){
+	public function actionAjaxAddVacancy(){
 
 		$model=new Vacansy;
-		$response=array('error'=>true,'succes'=>false);
+		$response=array('error'=>true,'success'=>false);
 		if (isset($_POST['Vacansy']))
 		{
 			$model->attributes=$_POST['Vacansy'];
 			if ($model->validate()){
-
-				$response['succes']=true;
+				$response['success']=true;
 				$response['error']=false;
-
 				$model->save();
 			}
 		}
-		print(CJSON::enconde($response));
+		print(CJSON::encode($response));
 		Yii::app()->end();
 	}
 }

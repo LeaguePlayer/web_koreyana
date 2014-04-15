@@ -28,7 +28,7 @@ class PageController extends FrontController
 	
 	public function actionView($url)
 	{
-		
+		$cs = Yii::app()->clientScript;
 		$node=Structure::model()->findByUrl($url);
 		if ( !$node )
 			throw new CHttpException(404);
@@ -45,6 +45,11 @@ class PageController extends FrontController
 				break;
 			}
 		}
+		
+		if ($url=="Contacts")
+		{
+			$cs->registerScriptFile('http://api-maps.yandex.ru/services/constructor/1.0/js/?sid=PC5YaAxHJF303X_pR-LSyeodnO-oicuY&id=mymap', CClientScript::POS_END);
+		}
 
 		$this->render('view',array(
 			'model'=>$page,
@@ -58,6 +63,9 @@ class PageController extends FrontController
 		// 	$all[$key]->wswg_body=str_replace('/media//', 'src="/', $all[$key]->wswg_body);
 		// 	$all[$key]->save();
 		// }
+		$cs = Yii::app()->clientScript;
+		$cs->registerScriptFile('http://api-maps.yandex.ru/services/constructor/1.0/js/?sid=PC5YaAxHJF303X_pR-LSyeodnO-oicuY&id=map-1', CClientScript::POS_END);
+
 		$model=Page::model()->findByPk(1);
 		$this->render('index',array(
 			'model'=>$model,

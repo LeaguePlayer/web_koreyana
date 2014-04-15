@@ -1,10 +1,10 @@
-<form id="form-resume" action="#">
+<form id="form-resume" action="/resume/CreateResume" method="POST">
     <div class="row">
         <div class="col-lg-4">
             <label for="fio">ФИО</label>
         </div>
         <div class="col-lg-8">
-            <input type="text" name="Resume[fio]" value=""> 
+            <input type="text" name="Resume[Name]" value=""> 
         </div>
     </div>                 
     <div class="row">
@@ -12,7 +12,7 @@
             <label for="job">На какую должность <br>вы претендуете</label>
         </div>
         <div class="col-lg-8">
-            <input type="text" name="Resume[job]" value="">
+            <input type="text" name="Resume[job_type]" value="">
         </div>
     </div>                     
     <div class="row">
@@ -20,7 +20,7 @@
             <label for="money">Желаемый доход</label> 
         </div>
         <div class="col-lg-8">
-            <input type="text" name="Resume[money]" value="">
+            <input type="text" name="Resume[salary]" value="">
         </div>
     </div>                     
     <div class="row">
@@ -28,7 +28,7 @@
             <label for="date-born">Дата и место <br>рождения</label>
         </div>
         <div class="col-lg-8">
-            <input type="text" name="Resume[date-born]" value="">
+            <input type="text" name="Resume[dt_birthday]" value="">
         </div> 
     </div>
     <div class="row">
@@ -36,7 +36,7 @@
             <label for="registration">Адрес постоянной<br> регистрации</label>
         </div>
         <div class="col-lg-8">
-            <input type="text" name="Resume[registration]" value="">
+            <input type="text" name="Resume[register_adres]" value="">
         </div>
     </div>  
     <div class="row">
@@ -44,7 +44,7 @@
             <label for="adress">Адрес проживания</label>
         </div>
         <div class="col-lg-8">
-            <input type="text" name="Resume[adress]" value="">
+            <input type="text" name="Resume[adres_fact]" value="">
         </div>
     </div> 
     <div class="row">
@@ -53,7 +53,7 @@
                 тел., e-mail</label>
         </div>
         <div class="col-lg-8">
-            <input type="text" name="Resume[tel-mail]" value="">
+            <input type="text" name="Resume[contacts]" value="">
         </div>
     </div> 
     <div class="row">
@@ -61,7 +61,7 @@
             <label for="family">Семейное положение,<br> дети</label>
         </div>
         <div class="col-lg-8">
-            <input type="text" name="Resume[family]" value="">
+            <input type="text" name="Resume[family_status]" value="">
         </div>
     </div> 
     <div class="row">
@@ -74,7 +74,7 @@
                     <label for="stature">Рост (см)</label>
                 </div>
                 <div class="col-lg-8">
-                    <input type="text" name="Resume[stature]" value="">
+                    <input type="text" name="Resume[height]" value="">
                 </div>
             </div> 
             <div class="row">
@@ -98,10 +98,10 @@
         <div class="block_1 margin_bottom">
             <div class="row">                         
                 <div class="col-lg-4">
-                    <label for="university">Учебное заведение</label>
+                    <label for="institution">Учебное заведение</label>
                 </div>
                 <div class="col-lg-8">
-                    <input type="text" name="Resume[university]" value="">
+                    <input type="text" name="Resume[institution]" value="">
                 </div>
             </div> 
             <div class="row">
@@ -133,7 +133,7 @@
                     <label for="education-form">Форма обучения</label>
                 </div>
                 <div class="col-lg-8">
-                    <input type="text" name="Resume[education-form]" value="">
+                    <input type="text" name="Resume[study_form]" value="">
                 </div>
             </div>
             <div class="row margin-bottom" style="display:none">
@@ -205,7 +205,7 @@
                     <label for="timetable">График работы</label>
                 </div>
                 <div class="col-lg-8">
-                    <input type="text" name="Resume[timetable]" value="">
+                    <input type="text" name="Resume[yours_timetable]" value="">
                 </div>
             </div> 
             <div class="row">
@@ -213,7 +213,7 @@
                     <label>Должностные обязанности<br> и достижения</label>
                 </div>
                 <div class="col-lg-8">
-                    <textarea rows="11" cols="55"></textarea>
+                    <textarea name="Resume[work_duties]" rows="11" cols="55"></textarea>
                 </div>
             </div> 
             <div class="row ">
@@ -239,7 +239,7 @@
         </div>
         <div class="col-lg-4"></div>
         <div class="col-lg-8">
-            <input type="text" name="Resume[motives]" value="">
+            <input type="text" name="Resume[motivate]" value="">
         </div>
     </div> 
     <div class="row">
@@ -261,7 +261,7 @@
         </div>
         <div class="col-lg-4"></div>
         <div class="col-lg-8">
-            <input type="text" name="Resume[plans]" value="">
+            <input type="text" name="Resume[postAfterYear]" value="">
         </div>
     </div> 
     <div class="row">
@@ -277,7 +277,7 @@
     </div>
     <div class="row">
         <div class="bt-4"> 
-            <a href="#">Отправить</a>
+            <input type="submit" value="Отправить">
         </div>
     </div>
 </form>

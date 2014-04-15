@@ -17,11 +17,10 @@ $(document).ready(function(){
 
 		  	if (data.success==true)
 		  	{
-		  		document.location.href="http://koreyana.local/page/thanks";
+		  		document.location.href="/page/thanks";
 		  	} 
 		  	else
 			{
-				$(document).scrollTop(0);
 				for (var i in data.error)
 				{
 					$('input[name="Record['+i+']"]').addClass('error');
@@ -32,14 +31,13 @@ $(document).ready(function(){
 		  error:function(){
 		  	alert("Произошла ошибка на сервере, Ваши данные не были отправленны!");
 		  }
-
 		})
 		return false;
 	});
-	$('.bt-4 a').click(function(){
+	$('#submitContacts').click(function(){
 
 		$.ajax({
-		  url: "/vacansy/AjaxAddVacancy",
+		  url: "/calls/AjaxCreate",
 		  dataType:'JSON',
 		  method:'POST',
 		  data:$('#form-services').serialize(),
@@ -51,14 +49,14 @@ $(document).ready(function(){
 
 		  	if (data.success==true)
 		  	{
-		  		document.location.href="http://koreyana.local/page/thanks";
+		  		document.location.href="/page/thanks";
 		  	} 
 		  	else
 			{
 				$(document).scrollTop(0);
 				for (var i in data.error)
 				{
-					$('input[name="Record['+i+']"]').addClass('error');
+					$('input[name="Calls['+i+']"]').addClass('error');
 				}
 		  	}
 		  },
@@ -94,4 +92,55 @@ $(document).ready(function(){
     $('.date').mask('99/99/9999');
     $('.time').mask('99:99');
     $('.Tel').mask('+7 (000) 000-00-00');
+
+    $('#callBtn').on('click', function() {
+        $this = $(this);
+        $.fancybox.open($('#callBox'), {
+            afterShow: function() {
+                $('a.close', this.inner).click(function(e) {
+                    $.fancybox.close();
+                    return false;
+                });
+            }
+        });
+        return false;
+    })
+    
+    $('#sendVacansy').click(function(){
+    	$.ajax({
+    		type:'POST',
+    		dataType:'JSON',
+    		url:'/vacansy/AjaxAddVacancy',
+    		data:$('#vacansy_form').serialize(),
+    		success:function(data)
+    		{
+    			document.location.href="/page/thanks";
+    		},
+    		error:function(data){
+
+    			var error="Заполните следующие поля ";
+    			alert(error);
+    		}
+    	});
+    	return false;
+    })
+    $('#submit').click(function(){
+    	$.ajax({
+    		type:'POST',
+    		dataType:'JSON',
+    		url:'/calls/AjaxCreate',
+    		data:$('#login').serialize(),
+
+    		success:function(data)
+    		{
+    			alert('Ваша заявка отправлена!');
+    			$('#login text,#login textarea,#login radio').val('');
+    		},
+    		error:function(data){
+
+    			var error="Заполните следующие поля ";
+    		}
+    	})
+    	return false;
+    })
 });
