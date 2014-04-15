@@ -42,6 +42,14 @@ return array_replace_recursive(
                     ),
                 ),
             ),
+            'db' => array(
+                'connectionString' => 'mysql:host=localhost;dbname=koreyana',
+                'emulatePrepare' => true,
+                'username' => 'root',
+                'password' => '',
+                'charset' => 'utf8',
+                'tablePrefix' => 'tbl_',
+            ),
             'clientScript'=>array(
                 'class'=>'EClientScript',
                 'scriptMap'=>array(
