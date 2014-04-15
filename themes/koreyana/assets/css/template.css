@@ -504,6 +504,7 @@ footer .container {
     width: 940px;
     height: 257px;
     left: 20px;
+    top: 20px;
 }
 #map-bg {
     position: relative;
