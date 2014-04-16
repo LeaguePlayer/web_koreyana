@@ -3,7 +3,7 @@
     $cs = Yii::app()->clientScript;
     //$cs->registerCssFile($this->getAssetsUrl().'/css/style.css');
     $cs->registerCssFile($this->getAssetsUrl().'/css/bootstrap.min.css');
-    $cs->registerCssFile($this->getAssetsUrl().'/css/template.css');
+    $cs->registerCssFile($this->getAssetsUrl().'/css/template.css?v=2');
     $cs->registerCssFile($this->getAssetsUrl().'/css/fancybox/jquery.fancybox.css');
     //$cs->registerCssFile($this->getAssetsUrl().'/css/fancybox/jquery.fancybox.css');
     //$cs->registerCssFile($this->getAssetsUrl().'/css/jquery.ui/overcast/jquery-ui-1.10.3.custom.min.css');
