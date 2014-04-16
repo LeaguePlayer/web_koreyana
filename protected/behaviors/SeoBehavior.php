@@ -10,7 +10,6 @@ class SeoBehavior extends CActiveRecordBehavior
     public function beforeSave($event) {
         parent::beforeSave($event);
         $owner = $this->getOwner();
-
         if($owner->metaData->hasRelation('seo')){
             if (isset($owner->seo_id)) {
                 $seo = Seo::model()->findByPk($owner->seo_id);

@@ -37,7 +37,6 @@ class Job extends EActiveRecord
     public function relations()
     {
         return array(
-             'list'=>array(self::BELONGS_TO, 'JobList', 'list_id')
         );
     }
 
@@ -67,9 +66,6 @@ class Job extends EActiveRecord
                 'updateAttribute' => 'update_time',
                 'setUpdateOnCreate' => true,
 			),
-            'seo' => array(
-                'class' => 'application.behaviors.SeoBehavior',
-            )
         ));
     }
 

@@ -105,10 +105,10 @@
                 <div class="row">
                     <div class="col-lg-2 netweb">
                         <h5>Следуй за нами:</h5>  
-                            <a href="#"><img src="<?=$this->getAssetsUrl().DIRECTORY_SEPARATOR?>images/icon/twitter.png" /></a>
-                            <a href="#"><img src="<?=$this->getAssetsUrl().DIRECTORY_SEPARATOR?>images/icon/facebook.png" /></a>
-                            <a href="#"><img src="<?=$this->getAssetsUrl().DIRECTORY_SEPARATOR?>images/icon/skype.png" /></a>
-                            <a href="#"><img src="<?=$this->getAssetsUrl().DIRECTORY_SEPARATOR?>images/icon/instagram.png" /></a>
+                            <? if(Yii::app()->config->get('social.twitter')):?><a href="<?= Yii::app()->config->get('social.twitter');?>"><img src="<?=$this->getAssetsUrl().DIRECTORY_SEPARATOR?>images/icon/twitter.png" /></a><? endif; ?>
+                            <? if(Yii::app()->config->get('social.facebook')):?><a href="<?= Yii::app()->config->get('social.facebook');?>"><img src="<?=$this->getAssetsUrl().DIRECTORY_SEPARATOR?>images/icon/facebook.png" /></a><? endif; ?>
+                            <? if(Yii::app()->config->get('social.skype')):?><a href="<?= Yii::app()->config->get('social.skype');?>"><img src="<?=$this->getAssetsUrl().DIRECTORY_SEPARATOR?>images/icon/skype.png" /></a><? endif; ?>
+                            <? if(Yii::app()->config->get('social.instagram')):?><a href="<?= Yii::app()->config->get('social.instagram');?>"><img src="<?=$this->getAssetsUrl().DIRECTORY_SEPARATOR?>images/icon/instagram.png" /></a><? endif; ?>
                     </div>
                     <div class="col-lg-4 phone">
                         <a id="callBtn" href="#callBox" >Связаться с нами</a>

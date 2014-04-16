@@ -58,7 +58,7 @@ class Structure extends EActiveRecord
     public function relations()
     {
         return array(
-            'material' => array(self::BELONGS_TO, 'Material', 'material_id')
+            'material' => array(self::BELONGS_TO, 'Material', 'material_id'),
         );
     }
 
@@ -91,15 +91,15 @@ class Structure extends EActiveRecord
                 'updateAttribute' => 'update_time',
                 'setUpdateOnCreate' => true,
 			),
+			'seo' => array(
+				'class' => 'application.behaviors.SeoBehavior',
+			),
             'nestedset'=>array(
                 'class'=>'application.behaviors.NestedSetBehavior',
                 'leftAttribute'=>'lft',
                 'rightAttribute'=>'rgt',
                 'levelAttribute'=>'level',
             ),
-			'seo' => array(
-				'class' => 'application.behaviors.SeoBehavior',
-			),
         ));
     }
 
@@ -128,17 +128,6 @@ class Structure extends EActiveRecord
     public static function model($className=__CLASS__)
     {
         return parent::model($className);
-    }
-
-
-    public function beforeSave()
-    {
-    	return true;
-    }
-
-    public function beforeDelete()
-    {
-        return true;
     }
 
     public function afterDelete()

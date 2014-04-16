@@ -34,6 +34,12 @@ class PageController extends FrontController
 			throw new CHttpException(404);
 
 		$page=$node->getComponent();
+
+        if ( !empty($node->seo->meta_title) )
+            $this->title = $node->seo->meta_title.' | '.Yii::app()->config->get('app.name');
+        else
+            $this->title = $node->name . ' | ' . Yii::app()->config->get('app.name');
+
 		$mark=array('{resume}','{record}','{contacts}');
 
 		foreach ($mark as $key => $value) {

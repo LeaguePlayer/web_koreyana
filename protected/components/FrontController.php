@@ -11,7 +11,8 @@ class FrontController extends Controller
 
     public function init() {
         parent::init();
-        $this->title = Yii::app()->name;
+
+       $this->title = Yii::app()->config->get('app.name');
     }
 
     //Check home page
