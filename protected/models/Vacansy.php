@@ -9,6 +9,7 @@
     * @property string $sername
     * @property string $phone
     * @property string $vacansy
+    * @property string $file
     * @property integer $status
     * @property integer $sort
     * @property string $create_time
@@ -28,8 +29,10 @@ class Vacansy extends EActiveRecord
             array('status, sort', 'numerical', 'integerOnly'=>true),
             array('name, sername, phone, vacansy', 'length', 'max'=>255),
             array('create_time, update_time', 'safe'),
-            array('name, sername, phone, vacansy','required'),
+            array('name, sername, phone, file, vacansy','required'),
             array('id, name, sername, phone, vacansy, status, sort, create_time, update_time', 'safe', 'on'=>'search'),
+            array('file', 'file', 'types'=>'doc, docx, pdf'),
+
         );
     }
 
@@ -49,6 +52,7 @@ class Vacansy extends EActiveRecord
             'phone' => 'Телефон',
             'vacansy' => 'Вакансия',
             'status' => 'Статус',
+            'file' => 'Резюме',
             'sort' => 'Вес для сортировки',
             'create_time' => 'Дата создания',
             'update_time' => 'Дата последнего редактирования',

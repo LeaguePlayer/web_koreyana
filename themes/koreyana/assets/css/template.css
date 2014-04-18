@@ -1732,7 +1732,7 @@ footer .container {
 }
 
 .attechFile span {
-
+    cursor: pointer !important;
 }
 
 .attechFile{
@@ -1752,6 +1752,21 @@ footer .container {
     font-weight: normal;
     color: #2d3339;
     line-height: 15px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.attechFile input{
+    -moz-opacity: 0.01;
+    filter: alpha(opacity=1);
+    opacity: 0.01;
+    font-size: 150px;
+    height: 38px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
 }
 
 .send input[type=submit]{
@@ -2085,4 +2100,10 @@ input [type=radio]
     height: 100%;
     background: rgba(0,0,0,0.5);
     z-index: 100;
+}
+.form-job .errors{
+    padding: 0 0 0 150px;
+    clear: both;
+    height: 30px;
+    color: red;
 }

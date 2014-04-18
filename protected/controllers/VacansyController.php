@@ -17,7 +17,7 @@ class VacansyController extends FrontController
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','AjaxAddVacancy'),
+				'actions'=>array('index','view','AddVacancy'),
 				'users'=>array('*'),
 			),
 			array('deny',  // deny all users
@@ -43,20 +43,28 @@ class VacansyController extends FrontController
 			'models'=>$models,
 		));
 	}
-	public function actionAjaxAddVacancy(){
+	public function actionAddVacancy(){
 
 		$model=new Vacansy;
-		$response=array('error'=>true,'success'=>false);
 		if (isset($_POST['Vacansy']))
 		{
 			$model->attributes=$_POST['Vacansy'];
+			$model->file=CUploadedFile::getInstance($model,'file');
+
 			if ($model->validate()){
-				$response['success']=true;
-				$response['error']=false;
+				$filename = time().md5($model->file->name).'.'.pathinfo($model->file->name, PATHINFO_EXTENSION);
+				$model->file = $filename;
 				$model->save();
+				$model->file->saveAs('media/upload/'.$filename);
+				$this->redirect('/page/thanks/');
 			}
+
+			$models=Job::model()->findAll('status=1');
+
+			$this->render('index',array(
+				'models'=>$models,
+				'errors'=>$model->errors,
+			));
 		}
-		print(CJSON::encode($response));
-		Yii::app()->end();
 	}
 }

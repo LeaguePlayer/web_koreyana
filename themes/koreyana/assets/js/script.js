@@ -106,7 +106,7 @@ $(document).ready(function(){
         return false;
     })
     
-    $('#sendVacansy').click(function(){
+    /*$('#sendVacansy').click(function(){
     	$.ajax({
     		type:'POST',
     		dataType:'JSON',
@@ -114,7 +114,8 @@ $(document).ready(function(){
     		data:$('#vacansy_form').serialize(),
     		success:function(data)
     		{
-    			document.location.href="/page/thanks";
+    			console.log(data);
+    			//document.location.href="/page/thanks";
     		},
     		error:function(data){
 
@@ -123,7 +124,7 @@ $(document).ready(function(){
     		}
     	});
     	return false;
-    })
+    })*/
     $('#submit').click(function(){
     	$.ajax({
     		type:'POST',
@@ -143,6 +144,7 @@ $(document).ready(function(){
     	})
     	return false;
     })
+
     //Яндекс карта
     YMaps.jQuery(function () {
     		if ($('#map-1').length) {
