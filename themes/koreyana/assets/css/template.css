@@ -1084,7 +1084,7 @@ footer .container {
     text-align:justify;
 } 
 .company-2 .col-lg-6 {
-    margin-top: 7px;
+    margin-top: 45px;
     margin-right: 3px;
     width:503px;
     float:left;
@@ -1134,6 +1134,7 @@ footer .container {
     padding-right: 0px;
     width:470px;
     float:left;
+    margin-top: 93px;
 }
 /*==========6.о сто==============*/
 .sto-1 {
@@ -1170,7 +1171,7 @@ footer .container {
     font-family: 'Helvetica_Light', sans-serif; 
     line-height:1.2;  
     text-align:justify; 
-    margin-top: 135px;
+    margin-top: 43px;
     padding-left: 8px;
 }
 .sto-3 {
@@ -1191,7 +1192,7 @@ footer .container {
     line-height:1.2;  
     text-align:right; 
     padding-bottom: 20px;
-    padding-top: 13px;
+    padding-top: 38px;
     padding-left: 70px;
 }
 .sto-3 img {
@@ -1440,6 +1441,7 @@ footer .container {
 /*==============9.запись===============*/
 #form-services {
     margin: 0 auto;
+    padding-left: 100px;
 }
 #form-services input {
     width:375px;
