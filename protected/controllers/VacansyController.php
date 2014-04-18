@@ -52,6 +52,8 @@ class VacansyController extends FrontController
 			$model->file=CUploadedFile::getInstance($model,'file');
 
 			if ($model->validate()){
+				if (! file_exists('media/upload'))
+					mkdir('media/upload');
 				$filename = time().md5($model->file->name).'.'.pathinfo($model->file->name, PATHINFO_EXTENSION);
 				$model->file->saveAs('media/upload/'.$filename);
 				$model->file = $filename;
