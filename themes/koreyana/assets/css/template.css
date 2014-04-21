@@ -1542,8 +1542,13 @@ footer .container {
     margin-right: 5px;
 }
 /*=====10.заполнить резюме=========*/
-#form-resume input {
-    border: none;
+#form-resume input[type=text] {
+    width:375px;
+    height:37px;
+    padding-left: 12px;
+}
+#form-resume input[type=submit] {
+    border:none;
 }
 #form-resume value {
     font-size:18px;
