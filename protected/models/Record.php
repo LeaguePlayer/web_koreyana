@@ -32,7 +32,6 @@ class Record extends EActiveRecord
             array('work_type, create_time, update_time', 'safe'),
             // The following rule is used by search().
             array('id, name, phone, dt_visit, visit_time, avto_info, work_type, status, sort, create_time, update_time', 'safe', 'on'=>'search'),
-            array('name, phone, dt_visit, visit_time, avto_info', 'required')
         );
     }
 
@@ -48,16 +47,16 @@ class Record extends EActiveRecord
     {
         return array(
             'id' => 'ID',
-            'name' => 'Name',
-            'phone' => 'Phone',
-            'dt_visit' => 'Dt Visit',
-            'visit_time' => 'Visit Time',
-            'avto_info' => 'Avto Info',
-            'work_type' => 'Work Type',
-            'status' => 'Status',
-            'sort' => 'Sort',
-            'create_time' => 'Create Time',
-            'update_time' => 'Update Time',
+            'name' => 'Имя',
+            'phone' => 'Телефон',
+            'dt_visit' => 'Дата визита',
+            'visit_time' => 'Время визита',
+            'avto_info' => 'Марка и модель автомобиля',
+            'work_type' => 'Предположительные виды работ',
+            'status' => 'Статус',
+            'sort' => 'Вес для сортировки',
+            'create_time' => 'Дата создания',
+            'update_time' => 'Дата последнего редактирования',
         );
     }
 
