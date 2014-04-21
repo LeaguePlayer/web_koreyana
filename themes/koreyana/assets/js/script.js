@@ -145,6 +145,9 @@ $(document).ready(function(){
     	return false;
     })
 
+    if ($('.QapTcha').length)
+    	$('.QapTcha').QapTcha();
+
     //Яндекс карта
     YMaps.jQuery(function () {
     		if ($('#map-1').length) {
