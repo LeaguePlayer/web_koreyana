@@ -1,17 +1,31 @@
 <div>
-    <?php 
-        $model=new Calls; 
-
+    <?php
         $form = $this->beginWidget('CActiveForm', array(
             'id'=>'calls-form',
-            'enableAjaxValidation'=>false,
-            'enableClientValidation'=>true,
+			'action'=>$this->createUrl('calls/AjaxCreate'),
+			'enableClientValidation' => true,
+			'clientOptions' => array(
+				'validateOnSubmit' => true,
+				'afterValidate' => "js: function(form, data, hasError) {
+					if ( hasError ) return;
+					form = $(form);
+					$.ajax({
+						url: form.attr('action'),
+						type: 'POST',
+						data: form.serialize(),
+						dataType: 'json',
+						success: function(data) {
+							if ( data.success ) {
+								$.fancybox.close();
+							}
+						}
+					});
+				}"
+			),
             'focus'=>array($model,'fam'),
-            'htmlOptions'=>array('id'=>'login'),
+//            'htmlOptions'=>array('id'=>'login'),
 
         )); ?>
-
-        <?php echo $form->errorSummary($model); ?>
 
         <div class="row">
             <?php echo $form->labelEx($model,'fam'); ?>
@@ -39,15 +53,15 @@
             <?php echo $form->TextArea($model,'comment'); ?>
             <?php echo $form->error($model,'comment'); ?>
         </div>
-        
-        <?php echo CHtml::label('какой какой то вопрос','comment'); ?>
+
+        <?php echo CHtml::label('','comment'); ?>
         <div class="row">
-            <?=$form->radioButtonList($model,'type',array('true'=>'Запчисти','false'=>'Сервис'))?>
+            <?=$form->radioButtonList($model,'type',Calls::getTypes())?>
         </div>
 
         <div class="row">
             <?=CHtml::submitButton('Заказать звонок',array('id'=>'submit'))?>
         </div>
-        
+
     <?php $this->endWidget(); ?>
 </div>

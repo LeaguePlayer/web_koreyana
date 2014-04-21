@@ -16,6 +16,23 @@
 */
 class Calls extends EActiveRecord
 {
+	const TYPE_PARTS = 1;
+	const TYPE_SERVICE = 2;
+
+	public static function getTypes()
+	{
+		return array(
+			self::TYPE_PARTS => 'Запчасти',
+			self::TYPE_SERVICE => 'Сервис',
+		);
+	}
+
+	public function getCurrentType()
+	{
+		$types = self::getTypes();
+		return $types[$this->type];
+	}
+
     public function tableName()
     {
         return '{{calls}}';
@@ -32,7 +49,9 @@ class Calls extends EActiveRecord
             // // The following rule is used by search().
             // array('id, fam, sername, comment, tatus, sort, create_time, update_time', 'safe', 'on'=>'search'),
 
-            array('fam, sername, comment,phone', 'required'),
+            array('fam, sername, comment, phone', 'required'),
+			array('e_mail', 'email'),
+			array('type', 'safe'),
         );
     }
 
@@ -54,7 +73,7 @@ class Calls extends EActiveRecord
             'phone' => 'Телефон',
             'comment' => 'Комментарий',
             'e_mail' => 'Електронная почта',
-            'type' => 'Тип звонка',
+            'type' => 'По какому вопросу',
             'status' => 'Статус',
             'sort' => 'Вес для сортировки',
             'create_time' => 'Дата создания',
