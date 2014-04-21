@@ -57,6 +57,7 @@ class VacansyController extends FrontController
 				$filename = time().md5($model->file->name).'.'.pathinfo($model->file->name, PATHINFO_EXTENSION);
 				$model->file->saveAs('media/upload/'.$filename);
 				$model->file = $filename;
+				$model->status=1;
 				$model->save();
 				$this->redirect('/page/thanks/');
 			}

@@ -68,6 +68,7 @@
 	<?php echo $form->textFieldControlGroup($model,'timetable',array('class'=>'span8','maxlength'=>255,'disabled'=>true)); ?>
 
 	<?php echo $form->textFieldControlGroup($model,'work_duties',array('class'=>'span8','maxlength'=>255,'disabled'=>true)); ?>
+	
 	<?
 		if (!empty($works))
 		{
