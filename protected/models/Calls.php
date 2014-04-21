@@ -74,6 +74,7 @@ class Calls extends EActiveRecord
             'comment' => 'Комментарий',
             'e_mail' => 'Електронная почта',
             'type' => 'По какому вопросу',
+            'currentType' => 'По какому вопросу',
             'status' => 'Статус',
             'sort' => 'Вес для сортировки',
             'create_time' => 'Дата создания',
@@ -107,7 +108,7 @@ class Calls extends EActiveRecord
 		$criteria->compare('sort',$this->sort);
 		$criteria->compare('create_time',$this->create_time,true);
 		$criteria->compare('update_time',$this->update_time,true);
-        $criteria->order = 'sort';
+        $criteria->order = 'create_time DESC';
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,
         ));

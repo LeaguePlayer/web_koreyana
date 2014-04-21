@@ -35,7 +35,8 @@ class CallsController extends FrontController
 			$model->type=$_POST['Calls']['type']=='true' ? true : false;
 			if ($model->validate())
 			{
-				$response['success']=true;
+				$response['success'] = true;
+				$response['message'] = 'Ваша заявка успешно отправлена!';
 				$model->save();
 			} else {
 				$response['errors']=$model->errors;

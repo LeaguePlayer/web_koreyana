@@ -16,6 +16,7 @@
 						dataType: 'json',
 						success: function(data) {
 							if ( data.success ) {
+								alert(data.message);
 								$.fancybox.close();
 							}
 						}
@@ -53,10 +54,10 @@
             <?php echo $form->TextArea($model,'comment'); ?>
             <?php echo $form->error($model,'comment'); ?>
         </div>
-
-        <?php echo CHtml::label('','comment'); ?>
         <div class="row">
-            <?=$form->radioButtonList($model,'type',Calls::getTypes())?>
+			<?= $form->labelEx($model,'type'); ?><br>
+			<?=$form->radioButtonList($model,'type',Calls::getTypes())?>
+			<?= $form->error($model,'comment'); ?>
         </div>
 
         <div class="row">
