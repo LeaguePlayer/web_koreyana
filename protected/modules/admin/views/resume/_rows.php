@@ -38,6 +38,22 @@
 	<?php echo $form->textFieldControlGroup($model,'speciality',array('class'=>'span8','maxlength'=>255)); ?>
 
 	<?php echo $form->textFieldControlGroup($model,'study_form',array('class'=>'span8','maxlength'=>255)); ?>
+	
+	<?
+		if (!empty($educations))
+		{
+			?><h3>Дополнительное образование</h3><?
+
+			foreach ($educations as $key => $value) {
+				if ($key=="status")
+					break;
+				echo $form->textFieldControlGroup($value,$key,array('class'=>'span8','maxlength'=>255));
+			}
+
+		}
+	?>
+
+
 
 	<?php echo $form->textFieldControlGroup($model,'knowledge',array('class'=>'span8','maxlength'=>255)); ?>
 
@@ -52,6 +68,19 @@
 	<?php echo $form->textFieldControlGroup($model,'timetable',array('class'=>'span8','maxlength'=>255)); ?>
 
 	<?php echo $form->textFieldControlGroup($model,'work_duties',array('class'=>'span8','maxlength'=>255)); ?>
+	<?
+		if (!empty($works))
+		{
+			?><h3>Места работы </h3><?
+
+			foreach ($works as $key => $value) {
+				if ($key=="status")
+					break;
+				echo $form->textFieldControlGroup($value,$key,array('class'=>'span8','maxlength'=>255));
+			}
+
+		}
+	?>
 
 	<?php echo $form->textFieldControlGroup($model,'motivate',array('class'=>'span8','maxlength'=>255)); ?>
 
@@ -62,3 +91,11 @@
 	<?php echo $form->textFieldControlGroup($model,'recommendation',array('class'=>'span8','maxlength'=>255)); ?>
 
 	<?php echo $form->dropDownListControlGroup($model, 'status', Resume::getStatusAliases(), array('class'=>'span8', 'displaySize'=>1)); ?>
+
+	<div class='control-group'>
+		<?php echo CHtml::activeLabelEx($model, 'wswg_body'); ?>
+		<?php $this->widget('appext.ckeditor.CKEditorWidget', array('model' => $model, 'attribute' => 'wswg_body', 'config' => array('width' => '100%')
+		)); ?>
+		<?php echo $form->error($model, 'wswg_body'); ?>
+	</div>
+

@@ -1,4 +1,4 @@
-<h1>Управление <?php echo $model->translition(); ?></h1>
+<!-- <h1>Управление <?php echo $model->translition(); ?></h1> -->
 
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 	'id'=>'resume-grid',

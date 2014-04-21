@@ -1,3 +1,7 @@
+<?
+    $cs = Yii::app()->clientScript;
+    $cs->registerScriptFile($this->getAssetsUrl().'/js/add-block.js', CClientScript::POS_END);
+?>
 <form id="form-resume" action="/resume/CreateResume" method="POST">
     <div class="row">
         <div class="col-lg-4">
@@ -94,7 +98,7 @@
             <p>Образование, когда и какие учебные заведения окончили</p>
         </div>
     </div>  
-    <div class="blocks">
+    <div class="blocks" param="0">
         <div class="block_1 margin_bottom">
             <div class="row">                         
                 <div class="col-lg-4">
@@ -166,7 +170,7 @@
             <p>Опыт работы</p>
         </div>
     </div> 
-    <div class="blocks_2">
+    <div class="blocks_2" param="0">
         <div class="block_2">
             <div class="row">
                 <div class="col-lg-4">

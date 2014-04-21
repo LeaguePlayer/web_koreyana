@@ -34,6 +34,7 @@
     * @property integer $sort
     * @property string $create_time
     * @property string $update_time
+    * @property string $wswg_body
 */
 class Resume extends EActiveRecord
 {
@@ -47,10 +48,10 @@ class Resume extends EActiveRecord
     {
         return array(
             array('status, sort', 'numerical', 'integerOnly'=>true),
-            array('name, job_type, salary, dt_birthday, register_adres, adres_fact, contacts, family_status, height, size, institution, faculty, speciality, study_form, knowledge, wrok_duration, company_name, company_sphere, post, timetable, work_duties, motivate, yours_timetable, postAfterYear, recommendation', 'length', 'max'=>255),
-            array('create_time, update_time', 'safe'),
+            array('name, job_type, salary, dt_birthday, register_adres, adres_fact, contacts, family_status, height, size, institution, faculty, speciality, study_form, wrok_duration, company_name, company_sphere, post, timetable, motivate, yours_timetable, postAfterYear, recommendation', 'length', 'max'=>255),
+            array('knowledge, work_duties, create_time, update_time, wswg_body', 'safe'),
             // The following rule is used by search().
-            array('id, name, job_type, salary, dt_birthday, register_adres, adres_fact, contacts, family_status, height, size, institution, faculty, speciality, study_form, knowledge, wrok_duration, company_name, company_sphere, post, timetable, work_duties, motivate, yours_timetable, postAfterYear, recommendation, status, sort, create_time, update_time', 'safe', 'on'=>'search'),
+            array('id, name, job_type, salary, dt_birthday, register_adres, adres_fact, contacts, family_status, height, size, institution, faculty, speciality, study_form, knowledge, wrok_duration, company_name, company_sphere, post, timetable, work_duties, motivate, yours_timetable, postAfterYear, recommendation, status, sort, create_time, update_time, wswg_body', 'safe', 'on'=>'search'),
         );
     }
 
@@ -95,6 +96,7 @@ class Resume extends EActiveRecord
             'sort' => 'Sort',
             'create_time' => 'Create Time',
             'update_time' => 'Update Time',
+            'wswg_body' => 'Wswg Body',
         );
     }
 
@@ -144,6 +146,7 @@ class Resume extends EActiveRecord
 		$criteria->compare('sort',$this->sort);
 		$criteria->compare('create_time',$this->create_time,true);
 		$criteria->compare('update_time',$this->update_time,true);
+		$criteria->compare('wswg_body',$this->wswg_body,true);
         $criteria->order = 'sort';
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,
