@@ -17,7 +17,7 @@ class RecordController extends FrontController
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','AjaxAddRecord'),
+				'actions'=>array('index','view','AjaxAddRecord', 'qaptcha'),
 				'users'=>array('*'),
 			),
 			array('deny',  // deny all users
@@ -48,22 +48,65 @@ class RecordController extends FrontController
 	{
 		$response=array('success'=>false);
 
-		$model=new Record;
-		if (isset($_POST['Record']))
+		if(isset(Yii::app()->session['qaptcha_key']) && !empty(Yii::app()->session['qaptcha_key']))
 		{
-			$model->attributes=$_POST['Record'];
-
-			if ($model->save())
+		  $myVar = Yii::app()->session['qaptcha_key'];
+		  if(isset($_POST[''.$myVar.'']) && empty($_POST[''.$myVar.'']))
+		  {
+		  	//it's human no robot
+		    $model=new Record;
+			if (isset($_POST['Record']))
 			{
-				$response['success']=true;								
-			} else {
+				$model->attributes=$_POST['Record'];
 
-				$response['success']=false;
-				$response['error']=$model->errors;
+				if ($model->save())
+				{
+					$response['success']=true;								
+				} else {
+
+					$response['success']=false;
+					$response['error']=$model->errors;
+				}
+
 			}
-
+		  }
+		  else
+		  {
+		  	//it's robot no human
+		    $response['success']=false;	
+		  }
 		}
+		unset(Yii::app()->session['qaptcha_key']);
+
+
+		
 		print(CJSON::encode($response));
+	}
+
+	public function actionQaptcha()
+	{
+		$aResponse['error'] = false;
+			
+		if(isset($_POST['action']) && isset($_POST['qaptcha_key']))
+		{
+			Yii::app()->session['qaptcha_key'] = false;	
+			
+			if(htmlentities($_POST['action'], ENT_QUOTES, 'UTF-8') == 'qaptcha')
+			{
+				Yii::app()->session['qaptcha_key'] = $_POST['qaptcha_key'];
+				echo json_encode($aResponse);
+			}
+			else
+			{
+				$aResponse['error'] = true;
+				echo json_encode($aResponse);
+			}
+		}
+		else
+		{
+			$aResponse['error'] = true;
+			echo json_encode($aResponse);
+		}
 	}
 	//======AJAX========
 }

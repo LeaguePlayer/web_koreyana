@@ -1516,6 +1516,8 @@ footer .container {
 .captcha {
     padding-top: 5px;
     text-align: left;
+    overflow: hidden;
+    height: 150px;
 }
 .captcha ul {
     margin: 0;
@@ -2123,4 +2125,9 @@ input [type=radio]
     clear: both;
     height: 30px;
     color: red;
+}
+
+.QapTcha * {
+    box-sizing: content-box;
+    -webkit-box-sizing: content-box;
 }

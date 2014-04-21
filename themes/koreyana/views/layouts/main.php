@@ -18,7 +18,7 @@
     $cs->registerScriptFile($this->getAssetsUrl().'/js/jquery.mask.js', CClientScript::POS_END);
     $cs->registerScriptFile($this->getAssetsUrl().'/js/lib/jquery.fancybox.js', CClientScript::POS_END);
     $cs->registerScriptFile($this->getAssetsUrl().'/js/jquery.ui.touch.js', CClientScript::POS_END);
-    $cs->registerScriptFile($this->getAssetsUrl().'/js/QapTcha.jquery.js', CClientScript::POS_END);
+    $cs->registerScriptFile($this->getAssetsUrl().'/js/QapTcha.jquery.min.js', CClientScript::POS_END);
     
         
     $cs->registerScriptFile('http://api-maps.yandex.ru/1.1/index.xml?key=APzyTFMBAAAAgHpRaQIAaei-e5SRlLvVX3VSxD32FuOHoawAAAAAAAAAAACpuStqol9UmMrIRM4uK3V94DSNQg==', CClientScript::POS_END);
