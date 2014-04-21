@@ -36,12 +36,24 @@ class ResumeController extends FrontController
 	
 	public function actionCreateResume()
 	{
+		
 		if (isset($_POST['Resume']))
 		{
 			$model=new Resume;
+			$model->file=CUploadedFile::getInstance($model,'file');
 			$model->attributes=$_POST['Resume'];
 			if ($model->validate())
 			{
+				if (isset($_FILES['Resume']['name']))
+				{
+					if (! file_exists('media/upload'))
+						mkdir('media/upload');
+
+					$filename = uniqid(time()).'.'.pathinfo($model->file->name, PATHINFO_EXTENSION);
+					
+					$model->file->saveAs('media/upload/'.$filename);
+					$model->file = $filename;
+				}
 				$model->status=1;
 				$model->save();
 				if (isset($_POST['DopEducation']))

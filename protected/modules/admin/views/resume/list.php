@@ -26,7 +26,7 @@
 			'value'=>'$data->create_time ? SiteHelper::russianDate($data->create_time).\' в \'.date(\'H:i\', strtotime($data->create_time)) : ""'
 		),
 		array(
-			'template'=>'{update}{delete}',
+			'template'=>'{view}{delete}',
 			'class'=>'bootstrap.widgets.TbButtonColumn',
 		),
 	),

@@ -25,30 +25,21 @@
 <div class="container">
     <div class="row jobs-5">
         <ul class="orange"><li>Отправить резюме</li><li>или</li><li><a href="/page/resume">Заполнить резюме</a></li></ul>
-        <form id="vacansy_form" action="/vacansy/AddVacancy/" class="form-job" method="POST" enctype="multipart/form-data" >
+        <form id="vacansy_form" action="/resume/CreateResume/" class="form-job" method="POST" enctype="multipart/form-data" >
             <div class="line">
                 <div class="lable">
                     <label for="FirstName">Ваше имя</label>
                 </div>
-                <input type="text" name="Vacansy[name]" placeholder="Ваше имя" value="">
+                <input type="text" name="Resume[name]" placeholder="Ваше имя" value="">
                 <? if(isset($errors['name'])): ?>
                 <div class="errors"><? foreach($errors['name'] as $error): ?><?= $error; ?><? endforeach; ?></div>
                 <? endif; ?>
             </div>
             <div class="line">
                 <div class="lable">
-                    <label for="FirstName">Фамилия</label>
-                </div>
-                <input type="text" name="Vacansy[sername]" placeholder="Фамилия" value="">
-                <? if(isset($errors['sername'])): ?>
-                <div class="errors"><? foreach($errors['sername'] as $error): ?><?= $error; ?><? endforeach; ?></div>
-                <? endif; ?>
-            </div>
-            <div class="line">
-                <div class="lable">
                     <label class="label" for="FirstName">Телефон</label>
                 </div>
-                <input name="Vacansy[phone]" type="text" class="Tel" placeholder="+7 (___) ___-__-__" value="">
+                <input name="Resume[phone]" type="text" class="Tel" placeholder="+7 (___) ___-__-__" value="">
                 <? if(isset($errors['phone'])): ?>
                 <div class="errors"><? foreach($errors['phone'] as $error): ?><?= $error; ?><? endforeach; ?></div>
                 <? endif; ?>
@@ -57,14 +48,14 @@
                 <div class="lable">
                     <label class="label" for="FirstName">Вакансия</label>
                 </div>
-                <input type="text" name="Vacansy[vacansy]" placeholder="Вакансия" value="">
-                <? if(isset($errors['vacansy'])): ?>
-                <div class="errors"><? foreach($errors['vacansy'] as $error): ?><?= $error; ?><? endforeach; ?></div>
+                <input type="text" name="Resume[job_type]" placeholder="Вакансия" value="">
+                <? if(isset($errors['resume'])): ?>
+                <div class="errors"><? foreach($errors['resume'] as $error): ?><?= $error; ?><? endforeach; ?></div>
                 <? endif; ?>
             </div>
             <div class="clear"></div>
             <div class="attechFile">
-                <input type="file" name="Vacansy[file]">
+                <input type="file" name="Resume[file]">
                 <span >Прикрепить резюме</span> 
             </div>
                 <? if(isset($errors['file'])): ?>

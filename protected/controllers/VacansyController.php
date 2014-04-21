@@ -37,7 +37,7 @@ class VacansyController extends FrontController
 	
 	public function actionIndex()
 	{
-		$models=Job::model()->findAll('status=1');
+		$models=Job::model()->findAll();
 
 		$this->render('index',array(
 			'models'=>$models,
@@ -45,7 +45,7 @@ class VacansyController extends FrontController
 	}
 	public function actionAddVacancy(){
 
-		$model=new Vacansy;
+		$model=new Resume;
 		if (isset($_POST['Vacansy']))
 		{
 			$model->attributes=$_POST['Vacansy'];

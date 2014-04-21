@@ -35,9 +35,13 @@
     * @property string $create_time
     * @property string $update_time
     * @property string $wswg_body
+    * @property string $file
 */
 class Resume extends EActiveRecord
 {
+
+    public $uploadPath='/media/upload';
+
     public function tableName()
     {
         return '{{resume}}';
@@ -48,10 +52,10 @@ class Resume extends EActiveRecord
     {
         return array(
             array('status, sort', 'numerical', 'integerOnly'=>true),
-            array('name, job_type, salary, dt_birthday, register_adres, adres_fact, contacts, family_status, height, size, institution, faculty, speciality, study_form, wrok_duration, company_name, company_sphere, post, timetable, motivate, yours_timetable, postAfterYear, recommendation', 'length', 'max'=>255),
+            array('name, job_type, salary, dt_birthday, register_adres, adres_fact, contacts, family_status, height, size, institution, faculty, speciality, study_form, wrok_duration, company_name, company_sphere, post, timetable, motivate, yours_timetable, postAfterYear, recommendation, file', 'length', 'max'=>255),
             array('knowledge, work_duties, create_time, update_time, wswg_body', 'safe'),
             // The following rule is used by search().
-            array('id, name, job_type, salary, dt_birthday, register_adres, adres_fact, contacts, family_status, height, size, institution, faculty, speciality, study_form, knowledge, wrok_duration, company_name, company_sphere, post, timetable, work_duties, motivate, yours_timetable, postAfterYear, recommendation, status, sort, create_time, update_time, wswg_body', 'safe', 'on'=>'search'),
+            array('id, name, job_type, salary, dt_birthday, register_adres, adres_fact, contacts, family_status, height, size, institution, faculty, speciality, study_form, knowledge, wrok_duration, company_name, company_sphere, post, timetable, work_duties, motivate, yours_timetable, postAfterYear, recommendation, status, sort, create_time, update_time, wswg_body, file', 'safe', 'on'=>'search'),
         );
     }
 
@@ -59,6 +63,8 @@ class Resume extends EActiveRecord
     public function relations()
     {
         return array(
+            'works'=>array(self::HAS_MANY,'Works','id_resume'),
+            'education'=>array(self::HAS_MANY,'Education','id_resume'),
         );
     }
 
@@ -97,10 +103,26 @@ class Resume extends EActiveRecord
             'create_time' => 'Дата создания',
             'update_time' => 'Дата последнего редактирования',
             'wswg_body' => 'Резюме',
+            'file' => 'Файл резюме',
         );
     }
 
+    public function download()
+    {
 
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename='.$this->file);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize('/media/upload/'.$this->file));
+        ob_clean();
+        flush();
+        $status = readfile('/media/upload/'.$this->file);
+        return $status;
+    }
     public function behaviors()
     {
         return CMap::mergeArray(parent::behaviors(), array(
@@ -147,6 +169,7 @@ class Resume extends EActiveRecord
 		$criteria->compare('create_time',$this->create_time,true);
 		$criteria->compare('update_time',$this->update_time,true);
 		$criteria->compare('wswg_body',$this->wswg_body,true);
+		$criteria->compare('file',$this->file,true);
         $criteria->order = 'sort';
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,
@@ -157,15 +180,7 @@ class Resume extends EActiveRecord
     {
         return parent::model($className);
     }
-    public static function getStatusAliases()
-    {
-        return array('0'=>'Рассмотрено','1'=>'Не рассмотрено','2'=>'Удаленно');
-    }
-    public function getCurrentStatus()
-    {
-        $statuses=self::getStatusAliases();
-        return $statuses[$this->status];
-    }
+
 	public function beforeSave()
 	{
 		if (!empty($this->dt_birthday))
@@ -180,4 +195,17 @@ class Resume extends EActiveRecord
 			$this->dt_birthday = ($this->dt_birthday !== '0000-00-00' ) ? date('d-m-Y', strtotime($this->dt_birthday)) : '';
 		}
 	}
+     public static function getStatusAliases()
+    {
+        return array('0'=>'Рассмотрено','1'=>'Не рассмотрено','2'=>'Удаленно');
+    }
+    public function getCurrentStatus()
+    {
+        $statuses=self::getStatusAliases();
+        return $statuses[$this->status];
+    }
+    public function getUploadFile()
+    {
+        return Yii::getPathOfAlias('webroot.media.upload').DIRECTORY_SEPARATOR.$this->file;
+    }
 }

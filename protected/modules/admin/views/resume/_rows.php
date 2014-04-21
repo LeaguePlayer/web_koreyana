@@ -1,6 +1,7 @@
 	<?php echo $form->textFieldControlGroup($model,'name',array('class'=>'span8','maxlength'=>255,'disabled'=>true)); ?>
 
 	<?php echo $form->textFieldControlGroup($model,'job_type',array('class'=>'span8','maxlength'=>255,'disabled'=>true)); ?>
+	<?php echo $form->textFieldControlGroup($model,'phone',array('class'=>'span8','maxlength'=>255,'disabled'=>true)); ?>
 
 	<?php echo $form->textFieldControlGroup($model,'salary',array('class'=>'span8','maxlength'=>255,'disabled'=>true)); ?>
 
@@ -92,6 +93,8 @@
 	<?php echo $form->textFieldControlGroup($model,'recommendation',array('class'=>'span8','maxlength'=>255,'disabled'=>true)); ?>
 
 	<?php echo $form->dropDownListControlGroup($model, 'status', Resume::getStatusAliases(), array('class'=>'span8', 'displaySize'=>1)); ?>
+	
+	<?php echo CHtml::ajaxLink('Файл резюме',$this->createUrl('/admin/resume/download/id/'.$model->id),array());?>
 
 	<div class='control-group'>
 		<?php echo CHtml::activeLabelEx($model, 'wswg_body'); ?>
@@ -99,4 +102,6 @@
 		)); ?>
 		<?php echo $form->error($model, 'wswg_body'); ?>
 	</div>
+
+
 
