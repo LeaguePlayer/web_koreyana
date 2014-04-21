@@ -18,7 +18,6 @@
                     array('label'=>'Резюме', 'url'=>array('/admin/Resume')),
                     ),
                 ),
-                array('label'=>'Материалы', 'url'=>array('/admin/material')),
                 array('label'=>'Настройки', 'url'=>array('/admin/config')),
             );
         ?>
