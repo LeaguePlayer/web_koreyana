@@ -12,16 +12,17 @@
     $cs->registerCoreScript('jquery');
     $cs->registerCoreScript('jquery.ui');
     //$cs->registerScriptFile($this->getAssetsUrl().'/js/lib/jquery.fancybox.js', CClientScript::POS_END);
-    $cs->registerScriptFile($this->getAssetsUrl().'/js/jquery-1.10.2.js', CClientScript::POS_END);
     $cs->registerScriptFile($this->getAssetsUrl().'/js/carousel.js', CClientScript::POS_END);
     $cs->registerScriptFile($this->getAssetsUrl().'/js/bootstrap.min.js', CClientScript::POS_END);
     $cs->registerScriptFile($this->getAssetsUrl().'/js/script.js', CClientScript::POS_END);
     $cs->registerScriptFile($this->getAssetsUrl().'/js/jquery.mask.js', CClientScript::POS_END);
     $cs->registerScriptFile($this->getAssetsUrl().'/js/lib/jquery.fancybox.js', CClientScript::POS_END);
+    $cs->registerScriptFile($this->getAssetsUrl().'/js/jquery.ui.touch.js', CClientScript::POS_END);
+    $cs->registerScriptFile($this->getAssetsUrl().'/js/QapTcha.jquery.min.js', CClientScript::POS_END);
     
         
-    //$cs->registerScriptFile('http://api-maps.yandex.ru/1.1/index.xml?key=APzyTFMBAAAAgHpRaQIAaei-e5SRlLvVX3VSxD32FuOHoawAAAAAAAAAAACpuStqol9UmMrIRM4uK3V94DSNQg==', CClientScript::POS_END);
-    $cs->registerScriptFile('http://api-maps.yandex.ru/1.1/index.xml?key=AGjxTFMBAAAA5LtgBQQADN6-HXm_rbfzfDCURo1QEe-rVB8AAAAAAAAAAADSS7TmcrFyTfSam5hAh4sf-SG1sA==', CClientScript::POS_END);
+    $cs->registerScriptFile('http://api-maps.yandex.ru/1.1/index.xml?key=APzyTFMBAAAAgHpRaQIAaei-e5SRlLvVX3VSxD32FuOHoawAAAAAAAAAAACpuStqol9UmMrIRM4uK3V94DSNQg==', CClientScript::POS_END);
+    //$cs->registerScriptFile('http://api-maps.yandex.ru/1.1/index.xml?key=AGjxTFMBAAAA5LtgBQQADN6-HXm_rbfzfDCURo1QEe-rVB8AAAAAAAAAAADSS7TmcrFyTfSam5hAh4sf-SG1sA==', CClientScript::POS_END);
     //$cs->registerScriptFile('http://api-maps.yandex.ru/services/constructor/1.0/js/?sid=PC5YaAxHJF303X_pR-LSyeodnO-oicuY&id=map-1', CClientScript::POS_END);
     //$cs->registerScriptFile($this->getAssetsUrl().'/js/lib/jquery.fancybox-buttons.js', CClientScript::POS_END);
     //$cs->registerScriptFile('http://api-maps.yandex.ru/2.0.27/?load=package.standard&lang=ru-RU', CClientScript::POS_HEAD);
@@ -97,9 +98,7 @@
         </header>
 
         <?php echo $content;?>
-            <div id="callBox" style="display:none;">
-                <?=$this->renderPartial('//layouts/callsform',array())?>
-            </div>
+
         <footer id="footer">
             <div class="container">
                 <div class="row">
@@ -122,5 +121,12 @@
                 </div>
             </div><!--container -->
         </footer>
+
+		<div style="display:none;">
+			<div id="callBox">
+				<?= $this->renderPartial('//layouts/callsform',array('model'=>new Calls()) )?>
+			</div>
+		</div>
+
     </body>
 </html>

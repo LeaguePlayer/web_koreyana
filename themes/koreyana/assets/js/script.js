@@ -12,9 +12,6 @@ $(document).ready(function(){
 
 		  success:function(data)
 		  {
-
-		  	console.log(data);
-
 		  	if (data.success==true)
 		  	{
 		  		document.location.href="/page/thanks";
@@ -125,25 +122,32 @@ $(document).ready(function(){
     	});
     	return false;
     })*/
-    $('#submit').click(function(){
-    	$.ajax({
-    		type:'POST',
-    		dataType:'JSON',
-    		url:'/calls/AjaxCreate',
-    		data:$('#login').serialize(),
+//    $('#submit').click(function(){
+//    	$.ajax({
+//    		type:'POST',
+//    		dataType:'JSON',
+//    		url:'/calls/AjaxCreate',
+//    		data:$('#login').serialize(),
+//
+//    		success:function(data)
+//    		{
+//    			alert('Ваша заявка отправлена!');
+//    			$('#login text,#login textarea,#login radio').val('');
+//    		},
+//    		error:function(data){
+//
+//    			var error="Заполните следующие поля ";
+//    		}
+//    	})
+//    	return false;
+//    })
 
-    		success:function(data)
-    		{
-    			alert('Ваша заявка отправлена!');
-    			$('#login text,#login textarea,#login radio').val('');
-    		},
-    		error:function(data){
-
-    			var error="Заполните следующие поля ";
-    		}
-    	})
-    	return false;
-    })
+    if ($('.QapTcha').length)
+    	$('.QapTcha').QapTcha({
+    		txtLock: 'Пожалуйста, перетащите ползунок вправо',
+    		txtUnlock: 'Поздравляем, антиспам-проверка пройдена!',
+    		PHPfile: '/record/qaptcha/'
+    	});
 
     //Яндекс карта
     YMaps.jQuery(function () {

@@ -1,8 +1,4 @@
-<?php
-
-?>
-
-<h1>Управление <?php echo $model->translition(); ?></h1>
+<h3>Заявки на звонки</h3>
 
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 	'id'=>'calls-grid',
@@ -17,12 +13,9 @@
 	'columns'=>array(
 		'fam',
 		'sername',
-		array(
-			'name'=>'type',
-			'type'=>'raw',
-			'value'=>'$data->type ? "Запчисти": "Сервис"'
-		),
-		
+		'phone',
+		'e_mail',
+		'currentType',
 		array(
 			'name'=>'create_time',
 			'type'=>'raw',
@@ -30,9 +23,7 @@
 		),
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
-			'template'=>'{delete}',
+			'template'=>'{view}{delete}',
 		),
 	),
 )); ?>
-
-<?php if($model->hasAttribute('sort')) Yii::app()->clientScript->registerScript('sortGrid', 'sortGrid("calls");', CClientScript::POS_END) ;?>

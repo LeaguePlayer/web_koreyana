@@ -115,7 +115,7 @@ h1,h2,h3,h4,h5,h6,p {
     position:absolute;
     left: 25px;
     top: 69px;   
-    
+    line-height: 23px;
 }
 .service a:hover {
     text-decoration:none;
@@ -1516,6 +1516,8 @@ footer .container {
 .captcha {
     padding-top: 5px;
     text-align: left;
+    overflow: hidden;
+    height: 150px;
 }
 .captcha ul {
     margin: 0;
@@ -1697,7 +1699,7 @@ footer .container {
 .blocks{
     margin-bottom:40px;
 }
-.error{
+input.error, textarea.error{
     border: solid 1px red;
 }
 .form-job{
@@ -1857,7 +1859,7 @@ body
 
 /*--------------------*/
 
-#login
+#calls-form
 {
     background-color: #fff;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
@@ -1895,7 +1897,7 @@ body
           0 7px 0 rgba(0, 0, 0, .2);
 }
 
-#login:before
+#calls-form:before
 {
     content: '';
     position: absolute;
@@ -1937,10 +1939,10 @@ fieldset
 
 /*--------------------*/
 
-#login input[type=text],#login textarea
+#calls-form input[type=text],#calls-form textarea
 {
     padding: 15px 15px 15px 30px;
-    margin: 0 0 10px 0;
+    margin: 0;
     width: 353px; /* 353 + 2 + 45 = 400 */
     border: 1px solid #ccc;
     -moz-border-radius: 5px;
@@ -1949,6 +1951,17 @@ fieldset
     -moz-box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
     -webkit-box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
     box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+}
+#calls-form .row {
+    margin-bottom: 10px;
+}
+#calls-form .row.error input,
+#calls-form .row.error textarea {
+    border: solid 1px red;
+    color: red;
+}
+#calls-form .row .errorMessage {
+    color: red;
 }
 
 #username
@@ -2112,4 +2125,9 @@ input [type=radio]
     clear: both;
     height: 30px;
     color: red;
+}
+
+.QapTcha * {
+    box-sizing: content-box;
+    -webkit-box-sizing: content-box;
 }

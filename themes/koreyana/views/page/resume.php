@@ -1,98 +1,116 @@
 <?
     $cs = Yii::app()->clientScript;
     $cs->registerScriptFile($this->getAssetsUrl().'/js/add-block.js', CClientScript::POS_END);
+
+	if ( !$model ) $model = new Resume();
 ?>
-<form id="form-resume" action="/resume/CreateResume" method="POST">
+<?php $form = $this->beginWidget('CActiveForm', array(
+	'id' => 'form-resume',
+	'action' => $this->createUrl('resume/createResume'),
+	'enableClientValidation' => true,
+	'clientOptions' => array(
+		'validateOnSubmit' => true,
+	)
+)) ?>
     <div class="row">
         <div class="col-lg-4">
-            <label for="fio">ФИО</label>
+			<?= $form->labelEx($model, 'name') ?>
         </div>
         <div class="col-lg-8">
-            <input type="text" name="Resume[name]" value=""> 
+            <?= $form->textField($model, 'name') ?>
         </div>
-    </div>                 
-    <div class="row">
-        <div class="col-lg-4">
-            <label for="job">На какую должность <br>вы претендуете</label>
-        </div>
-        <div class="col-lg-8">
-            <input type="text" name="Resume[job_type]" value="">
-        </div>
-    </div>                     
-    <div class="row">
-        <div class="col-lg-4">
-            <label for="money">Желаемый доход</label> 
-        </div>
-        <div class="col-lg-8">
-            <input type="text" name="Resume[salary]" value="">
-        </div>
-    </div>                     
-    <div class="row">
-        <div class="col-lg-4">
-            <label for="date-born">Дата и место <br>рождения</label>
-        </div>
-        <div class="col-lg-8">
-            <input type="text" name="Resume[dt_birthday]" value="">
-        </div> 
     </div>
-    <div class="row">
-        <div class="col-lg-4">
-            <label for="registration">Адрес постоянной<br> регистрации</label>
-        </div>
-        <div class="col-lg-8">
-            <input type="text" name="Resume[register_adres]" value="">
-        </div>
-    </div>  
-    <div class="row">
-        <div class="col-lg-4">
-            <label for="adress">Адрес проживания</label>
-        </div>
-        <div class="col-lg-8">
-            <input type="text" name="Resume[adres_fact]" value="">
-        </div>
-    </div> 
-    <div class="row">
-        <div class="col-lg-4">
-            <label for="tel-mail">Контактная информация:<br>
-                тел., e-mail</label>
-        </div>
-        <div class="col-lg-8">
-            <input type="text" name="Resume[contacts]" value="">
-        </div>
-    </div> 
-    <div class="row">
-        <div class="col-lg-4">
-            <label for="family">Семейное положение,<br> дети</label>
-        </div>
-        <div class="col-lg-8">
-            <input type="text" name="Resume[family_status]" value="">
-        </div>
-    </div> 
+
+	<div class="row">
+		<div class="col-lg-4">
+			<?= $form->labelEx($model, 'job_type') ?>
+		</div>
+		<div class="col-lg-8">
+			<?= $form->textField($model, 'job_type') ?>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-4">
+			<?= $form->labelEx($model, 'salary') ?>
+		</div>
+		<div class="col-lg-8">
+			<?= $form->textField($model, 'salary') ?>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-4">
+			<?= $form->labelEx($model, 'dt_birthday') ?>
+		</div>
+		<div class="col-lg-8">
+			<?= $form->textField($model, 'dt_birthday') ?>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-4">
+			<?= $form->labelEx($model, 'register_adres') ?>
+		</div>
+		<div class="col-lg-8">
+			<?= $form->textField($model, 'register_adres') ?>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-4">
+			<?= $form->labelEx($model, 'adres_fact') ?>
+		</div>
+		<div class="col-lg-8">
+			<?= $form->textField($model, 'adres_fact') ?>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-4">
+			<?= $form->labelEx($model, 'contacts') ?>
+		</div>
+		<div class="col-lg-8">
+			<?= $form->textField($model, 'contacts') ?>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-4">
+			<?= $form->labelEx($model, 'family_status') ?>
+		</div>
+		<div class="col-lg-8">
+			<?= $form->textField($model, 'family_status') ?>
+		</div>
+	</div>
+
     <div class="row">
         <div class="col-lg-4"></div>
         <div id="param" class="col-lg-8">
             <p>Укажите ваш рост в сантиметрах и размер одежды</p>
             <span>по Российской шкале 46,48,50...</span>
-            <div class="row">
-                <div class="col-lg-2">
-                    <label for="stature">Рост (см)</label>
-                </div>
-                <div class="col-lg-8">
-                    <input type="text" name="Resume[height]" value="">
-                </div>
-            </div> 
-            <div class="row">
-                <div class="col-lg-2">
-                    <label for="size">Размер</label>
-                </div>
-                <div class="col-lg-8">
-                    <input type="text" name="Resume[size]" value="">
-                </div>
-            </div> 
         </div>
-    </div> 
+    </div>
 
-    <div class="row">                         
+	<div class="row">
+		<div class="col-lg-4">
+			<?= $form->labelEx($model, 'height') ?>
+		</div>
+		<div class="col-lg-8">
+			<?= $form->textField($model, 'height') ?>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-4">
+			<?= $form->labelEx($model, 'size') ?>
+		</div>
+		<div class="col-lg-8">
+			<?= $form->textField($model, 'size') ?>
+		</div>
+	</div>
+
+	<div class="row">
         <div class="col-lg-4"></div>
         <div class="col-lg-8">
             <p>Образование, когда и какие учебные заведения окончили</p>
@@ -284,4 +302,4 @@
             <input type="submit" value="Отправить">
         </div>
     </div>
-</form>
+<?php $this->endWidget() ?>

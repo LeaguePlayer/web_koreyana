@@ -35,12 +35,11 @@ class CallsController extends FrontController
 			$model->type=$_POST['Calls']['type']=='true' ? true : false;
 			if ($model->validate())
 			{
-				$response['succes']=true;
+				$response['success'] = true;
+				$response['message'] = 'Ваша заявка успешно отправлена!';
 				$model->save();
 			} else {
-
-				$response['error']=$model->errors;
-
+				$response['errors']=$model->errors;
 			}
 		}
 		echo CJSON::encode($response);
