@@ -1389,7 +1389,7 @@ footer .container {
 .bt-4 {
     padding-left: 216px;    
 }
-.bt-4 a {
+.bt-4 input[type=submit] {
     background: url(../images/icon/bt-3.png) no-repeat; 
     width:245px;
     height:40px;
@@ -1543,9 +1543,7 @@ footer .container {
 }
 /*=====10.заполнить резюме=========*/
 #form-resume input {
-    width:375px;
-    height:37px;
-    padding-left: 12px;
+    border: none;
 }
 #form-resume value {
     font-size:18px;
