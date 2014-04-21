@@ -12,9 +12,6 @@ $(document).ready(function(){
 
 		  success:function(data)
 		  {
-
-		  	console.log(data);
-
 		  	if (data.success==true)
 		  	{
 		  		document.location.href="/page/thanks";
@@ -144,6 +141,13 @@ $(document).ready(function(){
 //    	})
 //    	return false;
 //    })
+
+    if ($('.QapTcha').length)
+    	$('.QapTcha').QapTcha({
+    		txtLock: 'Пожалуйста, перетащите ползунок вправо',
+    		txtUnlock: 'Поздравляем, антиспам-проверка пройдена!',
+    		PHPfile: '/record/qaptcha/'
+    	});
 
     //Яндекс карта
     YMaps.jQuery(function () {
