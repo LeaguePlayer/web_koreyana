@@ -17,7 +17,7 @@
 		array(
 			'name'=>'status',
 			'type'=>'raw',
-			'value'=>'Resume::getStatusAliases($data->status)',
+			'value'=>'$data->getCurrentStatus()',
 			'filter'=>Resume::getStatusAliases()
 		),
 		array(

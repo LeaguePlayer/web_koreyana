@@ -157,7 +157,15 @@ class Resume extends EActiveRecord
     {
         return parent::model($className);
     }
-
+    public static function getStatusAliases()
+    {
+        return array('0'=>'Рассмотрено','1'=>'Не рассмотрено','2'=>'Удаленно');
+    }
+    public function getCurrentStatus()
+    {
+        $statuses=self::getStatusAliases();
+        return $statuses[$this->status];
+    }
 	public function beforeSave()
 	{
 		if (!empty($this->dt_birthday))
