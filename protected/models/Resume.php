@@ -47,7 +47,10 @@ class Resume extends EActiveRecord
         return '{{resume}}';
     }
 
-
+    public function translition()
+    {
+        return "Резюме";
+    }
     public function rules()
     {
         return array(

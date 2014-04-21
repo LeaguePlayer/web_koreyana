@@ -61,8 +61,8 @@ class ResumeController extends AdminController
 	}
 	public function actionDelete($id)
 	{
+		Education::model()->deleteAll('id_resume=:id',array(':id'=>$id));
+		Works::model()->deleteAll('id_resume=:id',array(':id'=>$id));
 		Resume::model()->deleteByPk($id,'id=:id',array(':id'=>$id));
-		Education::deleteAll('id_resume=:id',array(':id'=>$id));
-		Works::deleteAll('id_resume=:id',array(':id'=>$id));
 	}
 }

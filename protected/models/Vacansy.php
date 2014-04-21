@@ -35,7 +35,10 @@ class Vacansy extends EActiveRecord
 
         );
     }
-
+    public function translition()
+    {
+        return "Вакансии";
+    }
     public function relations()
     {
         return array(
