@@ -1,12 +1,11 @@
 <?php
 $this->breadcrumbs=array(
-	"{$model->translition()}"=>array('list'),
+	"Резюме"=>array('list'),
 	'Редактирование',
 );
 
 $this->menu=array(
 	array('label'=>'Список', 'url'=>array('list')),
-	array('label'=>'Добавить','url'=>array('create')),
 );
 ?>
 

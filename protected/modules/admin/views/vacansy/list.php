@@ -24,21 +24,16 @@ $this->menu=array(
 		array(
 			'name'=>'status',
 			'type'=>'raw',
-			'value'=>'Vacansy::getStatusAliases($data->status)',
+			'value'=>'$data->getCurrentStatus()',
 			'filter'=>Vacansy::getStatusAliases()
 		),
-		'sort',
 		array(
 			'name'=>'create_time',
 			'type'=>'raw',
 			'value'=>'$data->create_time ? SiteHelper::russianDate($data->create_time).\' в \'.date(\'H:i\', strtotime($data->create_time)) : ""'
 		),
 		array(
-			'name'=>'update_time',
-			'type'=>'raw',
-			'value'=>'$data->update_time ? SiteHelper::russianDate($data->update_time).\' в \'.date(\'H:i\', strtotime($data->update_time)) : ""'
-		),
-		array(
+			'template'=>'{update}{delete}',
 			'class'=>'bootstrap.widgets.TbButtonColumn',
 		),
 	),

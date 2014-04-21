@@ -125,25 +125,25 @@ $(document).ready(function(){
     	});
     	return false;
     })*/
-    $('#submit').click(function(){
-    	$.ajax({
-    		type:'POST',
-    		dataType:'JSON',
-    		url:'/calls/AjaxCreate',
-    		data:$('#login').serialize(),
-
-    		success:function(data)
-    		{
-    			alert('Ваша заявка отправлена!');
-    			$('#login text,#login textarea,#login radio').val('');
-    		},
-    		error:function(data){
-
-    			var error="Заполните следующие поля ";
-    		}
-    	})
-    	return false;
-    })
+//    $('#submit').click(function(){
+//    	$.ajax({
+//    		type:'POST',
+//    		dataType:'JSON',
+//    		url:'/calls/AjaxCreate',
+//    		data:$('#login').serialize(),
+//
+//    		success:function(data)
+//    		{
+//    			alert('Ваша заявка отправлена!');
+//    			$('#login text,#login textarea,#login radio').val('');
+//    		},
+//    		error:function(data){
+//
+//    			var error="Заполните следующие поля ";
+//    		}
+//    	})
+//    	return false;
+//    })
 
     if ($('.QapTcha').length)
     	$('.QapTcha').QapTcha();

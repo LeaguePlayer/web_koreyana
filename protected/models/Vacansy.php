@@ -90,6 +90,16 @@ class Vacansy extends EActiveRecord
         ));
     }
 
+    public static function getStatusAliases()
+    {
+        return array('0'=>'Рассмотрено','1'=>'Не рассмотрено','2'=>'Удаленно');
+    }
+    public function getCurrentStatus()
+    {
+        $statuses=self::getStatusAliases();
+        return $statuses[$this->status];
+    }
+    
     public static function model($className=__CLASS__)
     {
         return parent::model($className);

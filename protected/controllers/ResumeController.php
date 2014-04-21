@@ -42,6 +42,7 @@ class ResumeController extends FrontController
 			$model->attributes=$_POST['Resume'];
 			if ($model->validate())
 			{
+				$model->status=1;
 				$model->save();
 				if (isset($_POST['DopEducation']))
 				{

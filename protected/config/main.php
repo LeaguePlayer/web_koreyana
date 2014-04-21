@@ -87,6 +87,7 @@ return array_replace_recursive(
                 'class'=>'EClientScript',
                 'scriptMap'=>array(
                     'yandex.map'=>'http://api-maps.yandex.ru/services/constructor/1.0/js/?sid=PC5YaAxHJF303X_pR-LSyeodnO-oicuY&id=map-1',
+                    'jquery.js'=>'//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js',
                     //'jquery.min.js'=>'//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js',
                 ),
             ),

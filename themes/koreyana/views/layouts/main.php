@@ -12,7 +12,6 @@
     $cs->registerCoreScript('jquery');
     $cs->registerCoreScript('jquery.ui');
     //$cs->registerScriptFile($this->getAssetsUrl().'/js/lib/jquery.fancybox.js', CClientScript::POS_END);
-    $cs->registerScriptFile($this->getAssetsUrl().'/js/jquery-1.10.2.js', CClientScript::POS_END);
     $cs->registerScriptFile($this->getAssetsUrl().'/js/carousel.js', CClientScript::POS_END);
     $cs->registerScriptFile($this->getAssetsUrl().'/js/bootstrap.min.js', CClientScript::POS_END);
     $cs->registerScriptFile($this->getAssetsUrl().'/js/script.js', CClientScript::POS_END);
@@ -99,9 +98,7 @@
         </header>
 
         <?php echo $content;?>
-            <div id="callBox" style="display:none;">
-                <?=$this->renderPartial('//layouts/callsform',array())?>
-            </div>
+
         <footer id="footer">
             <div class="container">
                 <div class="row">
@@ -124,5 +121,12 @@
                 </div>
             </div><!--container -->
         </footer>
+
+		<div style="display:none;">
+			<div id="callBox">
+				<?= $this->renderPartial('//layouts/callsform',array('model'=>new Calls()) )?>
+			</div>
+		</div>
+
     </body>
 </html>
