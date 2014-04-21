@@ -34,6 +34,7 @@
     * @property integer $sort
     * @property string $create_time
     * @property string $update_time
+    * @property string $wswg_body
 */
 class Resume extends EActiveRecord
 {
@@ -47,10 +48,10 @@ class Resume extends EActiveRecord
     {
         return array(
             array('status, sort', 'numerical', 'integerOnly'=>true),
-            array('name, job_type, salary, dt_birthday, register_adres, adres_fact, contacts, family_status, height, size, institution, faculty, speciality, study_form, knowledge, wrok_duration, company_name, company_sphere, post, timetable, work_duties, motivate, yours_timetable, postAfterYear, recommendation', 'length', 'max'=>255),
-            array('create_time, update_time', 'safe'),
+            array('name, job_type, salary, dt_birthday, register_adres, adres_fact, contacts, family_status, height, size, institution, faculty, speciality, study_form, wrok_duration, company_name, company_sphere, post, timetable, motivate, yours_timetable, postAfterYear, recommendation', 'length', 'max'=>255),
+            array('knowledge, work_duties, create_time, update_time, wswg_body', 'safe'),
             // The following rule is used by search().
-            array('id, name, job_type, salary, dt_birthday, register_adres, adres_fact, contacts, family_status, height, size, institution, faculty, speciality, study_form, knowledge, wrok_duration, company_name, company_sphere, post, timetable, work_duties, motivate, yours_timetable, postAfterYear, recommendation, status, sort, create_time, update_time', 'safe', 'on'=>'search'),
+            array('id, name, job_type, salary, dt_birthday, register_adres, adres_fact, contacts, family_status, height, size, institution, faculty, speciality, study_form, knowledge, wrok_duration, company_name, company_sphere, post, timetable, work_duties, motivate, yours_timetable, postAfterYear, recommendation, status, sort, create_time, update_time, wswg_body', 'safe', 'on'=>'search'),
         );
     }
 
@@ -66,35 +67,36 @@ class Resume extends EActiveRecord
     {
         return array(
             'id' => 'ID',
-            'name' => 'Name',
-            'job_type' => 'Job Type',
-            'salary' => 'Salary',
-            'dt_birthday' => 'Dt Birthday',
-            'register_adres' => 'Register Adres',
-            'adres_fact' => 'Adres Fact',
-            'contacts' => 'Contacts',
-            'family_status' => 'Family Status',
-            'height' => 'Height',
-            'size' => 'Size',
-            'institution' => 'Institution',
-            'faculty' => 'Faculty',
-            'speciality' => 'Speciality',
-            'study_form' => 'Study Form',
-            'knowledge' => 'Knowledge',
-            'wrok_duration' => 'Wrok Duration',
-            'company_name' => 'Company Name',
-            'company_sphere' => 'Company Sphere',
-            'post' => 'Post',
-            'timetable' => 'Timetable',
-            'work_duties' => 'Work Duties',
-            'motivate' => 'Motivate',
-            'yours_timetable' => 'Yours Timetable',
-            'postAfterYear' => 'Post After Year',
-            'recommendation' => 'Recommendation',
-            'status' => 'Status',
-            'sort' => 'Sort',
-            'create_time' => 'Create Time',
-            'update_time' => 'Update Time',
+            'name' => 'ФИО',
+            'job_type' => 'На какую должность вы претендуете',
+            'salary' => 'Желаемый доход',
+            'dt_birthday' => 'Дата и место рождения',
+            'register_adres' => 'Адрес постоянной регистрации',
+            'adres_fact' => 'Адрес проживания',
+            'contacts' => 'Контактная информация:тел., e-mail',
+            'family_status' => 'Семейное положение, дети',
+            'height' => 'Рост (см)',
+            'size' => 'Размер',
+            'institution' => 'Учебное заведение',
+            'faculty' => 'Факультет',
+            'speciality' => 'Специальность',
+            'study_form' => 'Форма обучения',
+            'knowledge' => 'Компьютерные навыки и знания',
+            'wrok_duration' => 'Период работы',
+            'company_name' => 'Название компании',
+            'company_sphere' => 'Сфера деятельности компании',
+            'post' => 'Должность или профессия',
+            'timetable' => 'График работы',
+            'work_duties' => 'Должностные обязанности и достижения',
+            'motivate' => 'Мотивы и стимулы, побудившие Вас прийти именно к нам',
+            'yours_timetable' => 'Какой график работы Вас устроиит? Ваше отношение к возможным командировкам?',
+            'postAfterYear' => 'Как Вы представляете свое положение в нашей компании через год?',
+            'recommendation' => 'Кто из Ваших бывших коллег и руководителей может дать Вам устную рекомендацию или рекомендательное письмо?',
+            'status' => 'Статус',
+            'sort' => 'Вес для сортировки',
+            'create_time' => 'Дата создания',
+            'update_time' => 'Дата последнего редактирования',
+            'wswg_body' => 'Резюме',
         );
     }
 
@@ -144,6 +146,7 @@ class Resume extends EActiveRecord
 		$criteria->compare('sort',$this->sort);
 		$criteria->compare('create_time',$this->create_time,true);
 		$criteria->compare('update_time',$this->update_time,true);
+		$criteria->compare('wswg_body',$this->wswg_body,true);
         $criteria->order = 'sort';
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,

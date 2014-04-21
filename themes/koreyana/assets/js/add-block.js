@@ -1,9 +1,17 @@
 jQuery(function($) {
-    var block = $(".blocks").html();
+
+    String.prototype.replaceAll = function(search, replace){
+        return this.split(search).join(replace);
+    }
+
     var del = $(".del");
 
     $("#add").on('click', function() {
+
+        var block = $(".blocks").html().replaceAll("Resume","DopEducation["+$(".block_1").length+"]");
+
         $(".blocks").append(block).find('.del').parent().parent().show();
+        
         return false;
     });
 
@@ -16,10 +24,13 @@ jQuery(function($) {
         return false;
     });
     
-    var block2 = $(".blocks_2").html();
+
 
 
     $("#add1").on('click', function() {
+
+        var block2 = $(".blocks_2").html().replaceAll("Resume","DopWork["+$(".block_2").length+"]");
+
         $(".blocks_2").append(block2).find('.del1').show();
         return false;
     });
@@ -28,8 +39,8 @@ jQuery(function($) {
         $(this).parent().parent().parent().remove();
         if ($(".del1").length == 1) {
             $(".del1").hide();
-        }
-        ;
+        };
+
         return false;
     });
 

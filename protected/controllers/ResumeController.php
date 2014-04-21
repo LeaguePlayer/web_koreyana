@@ -43,6 +43,28 @@ class ResumeController extends FrontController
 			if ($model->validate())
 			{
 				$model->save();
+				if (isset($_POST['DopEducation']))
+				{
+					foreach ($_POST['DopEducation'] as $key => $value) {
+
+						$education=new Education;
+						$education->attributes=$value;
+						$education->id_resume=$model->id;
+						if ($education->validate())
+							$education->save();
+					}
+				}
+				if (isset($_POST['DopWork']))
+				{
+					foreach ($_POST['DopWork'] as $key => $value) {
+
+						$works=new Works;
+						$works->attributes=$value;
+						$works->id_resume=$model->id;
+						if ($works->validate())
+							$works->save();
+					}
+				}
 				$this->redirect(array('/page/thanks'));
 			} else {
 				$this->redirect(array('/page/resume'));
