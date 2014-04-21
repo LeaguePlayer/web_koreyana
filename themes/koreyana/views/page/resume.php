@@ -4,7 +4,7 @@
             <label for="fio">ФИО</label>
         </div>
         <div class="col-lg-8">
-            <input type="text" name="Resume[Name]" value=""> 
+            <input type="text" name="Resume[name]" value=""> 
         </div>
     </div>                 
     <div class="row">
@@ -157,7 +157,7 @@
         </div>
         <div class="col-lg-4"></div>
         <div class="col-lg-8">
-            <textarea rows="11" cols="55"></textarea>
+            <textarea rows="11" name="Resume[knowledge]" cols="55"></textarea>
         </div>
     </div>
     <div class="row">                         
@@ -173,7 +173,7 @@
                     <label for="experience">Период работы</label>
                 </div>
                 <div class="col-lg-8">
-                    <input type="text" name="Resume[experience]" value="">
+                    <input type="text" name="Resume[wrok_duration]" value="">
                 </div>
             </div> 
             <div class="row">
@@ -181,7 +181,7 @@
                     <label for="company-name">Название компании</label>
                 </div>
                 <div class="col-lg-8">
-                    <input type="text" name="Resume[company-name]" value="">
+                    <input type="text" name="Resume[company_name]" value="">
                 </div>
             </div> 
             <div class="row">
@@ -189,7 +189,7 @@
                     <label for="sphere">Сфера деятельности компании</label>
                 </div>
                 <div class="col-lg-8">
-                    <input type="text" name="Resume[sphere]" value="">
+                    <input type="text" name="Resume[company_sphere]" value="">
                 </div>
             </div> 
             <div class="row">
@@ -197,7 +197,7 @@
                     <label for="profession">Должность или профессия</label>
                 </div>
                 <div class="col-lg-8">
-                    <input type="text" name="Resume[profession]" value="">
+                    <input type="text" name="Resume[post]" value="">
                 </div>
             </div> 
             <div class="row">
@@ -205,7 +205,7 @@
                     <label for="timetable">График работы</label>
                 </div>
                 <div class="col-lg-8">
-                    <input type="text" name="Resume[yours_timetable]" value="">
+                    <input type="text" name="Resume[timetable]" value="">
                 </div>
             </div> 
             <div class="row">

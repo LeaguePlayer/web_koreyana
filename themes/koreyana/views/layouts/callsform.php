@@ -19,7 +19,7 @@
             <?php echo $form->error($model,'fam'); ?>
         </div>
 
-       <!--  <div class="row">
+        <div class="row">
             <?php echo $form->labelEx($model,'sername'); ?>
             <?php echo $form->textField($model,'sername'); ?>
             <?php echo $form->error($model,'sername'); ?>
@@ -38,7 +38,7 @@
             <?php echo $form->labelEx($model,'comment'); ?>
             <?php echo $form->TextArea($model,'comment'); ?>
             <?php echo $form->error($model,'comment'); ?>
-        </div> -->
+        </div>
         
         <?php echo CHtml::label('какой какой то вопрос','comment'); ?>
         <div class="row">
