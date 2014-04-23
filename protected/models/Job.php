@@ -37,6 +37,7 @@ class Job extends EActiveRecord
     public function relations()
     {
         return array(
+            'node' => array(self::BELONGS_TO, 'Structure', 'node_id'),
         );
     }
 
@@ -85,6 +86,12 @@ class Job extends EActiveRecord
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,
         ));
+    }
+
+    public function getCurrentStatus()
+    {
+        $statuses=self::getStatusAliases();
+        return $statuses[$this->status];
     }
 
     public static function model($className=__CLASS__)

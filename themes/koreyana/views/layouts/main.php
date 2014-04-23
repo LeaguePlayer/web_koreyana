@@ -12,7 +12,7 @@
     $cs->registerCoreScript('jquery');
     $cs->registerCoreScript('jquery.ui');
     //$cs->registerScriptFile($this->getAssetsUrl().'/js/lib/jquery.fancybox.js', CClientScript::POS_END);
-    $cs->registerScriptFile($this->getAssetsUrl().'/js/carousel.js', CClientScript::POS_END);
+    //$cs->registerScriptFile($this->getAssetsUrl().'/js/carousel.js', CClientScript::POS_END);
     $cs->registerScriptFile($this->getAssetsUrl().'/js/bootstrap.min.js', CClientScript::POS_END);
     $cs->registerScriptFile($this->getAssetsUrl().'/js/script.js', CClientScript::POS_END);
     $cs->registerScriptFile($this->getAssetsUrl().'/js/jquery.mask.js', CClientScript::POS_END);

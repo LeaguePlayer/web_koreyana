@@ -261,7 +261,6 @@ footer .container {
 
 }
 .carousel-inner {
-    margin-right: 76px;
     overflow:hidden;
     height: 322px;
     right: 40px;
@@ -594,11 +593,11 @@ footer .container {
     font-family: 'Helvetica', sans-serif;
     font-weight: bold;
     height:95px;
-    padding: 20px 90px 20px 140px;
+    padding: 20px 100px 20px 140px;
     position:absolute;
     z-index: -1;
     top: 13px;
-    left: 345px;
+    left: 320px;
     text-shadow: 1px 0 0 #FFFFFF;
 }
 .respons span {

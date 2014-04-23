@@ -1,6 +1,6 @@
 <?php
 
-class JobController extends FrontController
+class JobListController extends FrontController
 {
 	public $layout='//layouts/simple';
 
@@ -25,18 +25,19 @@ class JobController extends FrontController
 			),
 		);
 	}
+
 	
 	public function actionView($id)
 	{
 		$this->render('view',array(
-			'model'=>$this->loadModel('job', $id),
+			'model'=>$this->loadModel('JobList', $id),
 		));
 	}
 
 	
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('job');
+		$dataProvider=new CActiveDataProvider('JobList');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
