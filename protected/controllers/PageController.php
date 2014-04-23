@@ -69,8 +69,13 @@ class PageController extends FrontController
 		// 	$all[$key]->wswg_body=str_replace('/media//', 'src="/', $all[$key]->wswg_body);
 		// 	$all[$key]->save();
 		// }
-		$cs = Yii::app()->clientScript;
-		$cs->registerScriptFile('http://api-maps.yandex.ru/services/constructor/1.0/js/?sid=PC5YaAxHJF303X_pR-LSyeodnO-oicuY&id=map-1', CClientScript::POS_END);
+		$node=Structure::model()->findByUrl("main");
+		if ( !empty($node->seo->meta_title) )
+            $this->title = $node->seo->meta_title.' | '.Yii::app()->config->get('app.name');
+        else
+            $this->title = $node->name . ' | ' . Yii::app()->config->get('app.name');
+        Yii::app()->clientScript->registerMetaTag($node->seo->meta_desc, 'description', null, array('id'=>'meta_description'), 'meta_description');
+        Yii::app()->clientScript->registerMetaTag($node->seo->meta_keys, 'keywords', null, array('id'=>'keywords'), 'meta_keywords');
 
 		$model=Page::model()->findByPk(1);
 		$this->render('index',array(

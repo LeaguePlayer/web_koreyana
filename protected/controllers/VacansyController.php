@@ -43,6 +43,7 @@ class VacansyController extends FrontController
 			'models'=>$models,
 		));
 	}
+	
 	public function actionAddVacancy(){
 
 		$model=new Resume;
