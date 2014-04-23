@@ -18,7 +18,13 @@ $this->menu=array(
     )',
 	'columns'=>array(
 		'name',
-		
+		'preview'=>'$data->preview',
+		array(
+			'name'=>'status',
+			'type'=>'raw',
+			'value'=>'job::getStatusAliases($data->status)',
+			'filter'=>job::getStatusAliases()
+		),
 	),
 )); ?>
 

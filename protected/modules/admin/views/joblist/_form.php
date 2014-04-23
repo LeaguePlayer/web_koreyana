@@ -36,16 +36,16 @@
     'columns'=>array(
         'name',
         'preview',
-        // array(
-        //     'name'=>'img_preview',
-        //     'type'=>'raw',
-        //     'value'=>'$data->getImage("icon")',
-        //     'filter'=>false
-        // ),
+        array(
+            'name'=>'status',
+            'type'=>'raw',
+            'value'=>'job::getStatusAliases($data->status)',
+            'filter'=>job::getStatusAliases()
+        ),
         
         array(
             'class'=>'bootstrap.widgets.TbButtonColumn',
-            'template'=>'{delete}{update}',
+            'template'=>'{update}{delete}',
             'buttons'=>array(
                 'delete'=>array(
                     'url'=>'array("/admin/job/delete", "id"=>$data->id)'

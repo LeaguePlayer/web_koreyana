@@ -88,6 +88,12 @@ class Job extends EActiveRecord
         ));
     }
 
+    public function getCurrentStatus()
+    {
+        $statuses=self::getStatusAliases();
+        return $statuses[$this->status];
+    }
+
     public static function model($className=__CLASS__)
     {
         return parent::model($className);
