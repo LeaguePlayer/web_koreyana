@@ -191,17 +191,27 @@ padding-top: 10px;
     color: #fff;
     font-family: 'MyriadPro', sans-serif;
     margin-right: 10px; 
-    background: -moz-linear-gradient(#FD6058, #DF4044);
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(#FD6058), to(#DF4044));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FD6058', endColorstr='#DF4044');
+    background: #fd6058; /* Old browsers */
+    background: -moz-linear-gradient(top, #fd6058 0%, #fd6058 0%, #df4044 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fd6058), color-stop(0%,#fd6058), color-stop(100%,#df4044)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #fd6058 0%,#fd6058 0%,#df4044 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #fd6058 0%,#fd6058 0%,#df4044 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #fd6058 0%,#fd6058 0%,#df4044 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #fd6058 0%,#fd6058 0%,#df4044 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fd6058', endColorstr='#df4044',GradientType=0 ); /* IE6-9 */
     -moz-border-radius: 25px;
     -webkit-border-radius: 25px;
     border-radius: 25px; 
 }
 .phone a:hover {
-    background: -moz-linear-gradient(#E4574F, #CA3B3E);
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(#E4574F), to(#CA3B3E));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E4574F', endColorstr='#CA3B3E');
+    background: #e4574f; /* Old browsers */
+    background: -moz-linear-gradient(top, #e4574f 0%, #fd6058 0%, #ca3b3e 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e4574f), color-stop(0%,#fd6058), color-stop(100%,#ca3b3e)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #e4574f 0%,#fd6058 0%,#ca3b3e 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #e4574f 0%,#fd6058 0%,#ca3b3e 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #e4574f 0%,#fd6058 0%,#ca3b3e 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #e4574f 0%,#fd6058 0%,#ca3b3e 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4574f', endColorstr='#ca3b3e',GradientType=0 ); /* IE6-9 */
     text-decoration:none;
 }
 .phone img {
@@ -2131,9 +2141,4 @@ input [type=radio]
 }
 .navbar-nav{
     margin:0px!important;
-}
-
-.errorMessage {
-    text-align: left;
-    color: red;
 }

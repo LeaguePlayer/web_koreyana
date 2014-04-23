@@ -82,7 +82,7 @@ class Job extends EActiveRecord
 		$criteria->compare('sort',$this->sort);
 		$criteria->compare('create_time',$this->create_time,true);
 		$criteria->compare('update_time',$this->update_time,true);
-        $criteria->order = 'sort';
+        $criteria->order = 'create_time desc';
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,
         ));

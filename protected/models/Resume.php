@@ -173,7 +173,7 @@ class Resume extends EActiveRecord
 		$criteria->compare('update_time',$this->update_time,true);
 		$criteria->compare('wswg_body',$this->wswg_body,true);
 		$criteria->compare('file',$this->file,true);
-        $criteria->order = 'sort';
+        $criteria->order = 'create_time desc';
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,
         ));
