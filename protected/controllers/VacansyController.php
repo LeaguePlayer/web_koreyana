@@ -39,6 +39,14 @@ class VacansyController extends FrontController
 	{
 		$models=Job::model()->findAll();
 
+		$node=Structure::model()->findByUrl("vacansies");
+		if ( !empty($node->seo->meta_title) )
+            $this->title = $node->seo->meta_title;
+        else
+            $this->title = $node->name . ' | ' . Yii::app()->config->get('app.name');
+        Yii::app()->clientScript->registerMetaTag($node->seo->meta_desc, 'description', null, array('id'=>'meta_description'), 'meta_description');
+        Yii::app()->clientScript->registerMetaTag($node->seo->meta_keys, 'keywords', null, array('id'=>'keywords'), 'meta_keywords');
+
 		$this->render('index',array(
 			'models'=>$models,
 		));

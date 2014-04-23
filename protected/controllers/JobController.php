@@ -25,7 +25,6 @@ class JobController extends FrontController
 			),
 		);
 	}
-
 	
 	public function actionView($id)
 	{
