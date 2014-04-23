@@ -27,6 +27,7 @@ class Record extends EActiveRecord
     public function rules()
     {
         return array(
+			array('name, phone, dt_visit, visit_time', 'required'),
             array('status, sort', 'numerical', 'integerOnly'=>true),
             array('name, phone, dt_visit, visit_time, avto_info', 'length', 'max'=>255),
             array('work_type, create_time, update_time', 'safe'),
@@ -87,7 +88,7 @@ class Record extends EActiveRecord
 		$criteria->compare('sort',$this->sort);
 		$criteria->compare('create_time',$this->create_time,true);
 		$criteria->compare('update_time',$this->update_time,true);
-        $criteria->order = 'sort';
+        $criteria->order = 'create_time DESC';
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,
         ));

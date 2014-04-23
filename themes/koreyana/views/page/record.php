@@ -1,58 +1,70 @@
 <?php 
     $cs = Yii::app()->clientScript;
     $cs->registerCssFile($this->getAssetsUrl().'/css/QapTcha.jquery.css');
-
+	if ( !$model ) $model = new Record();
 ?>
-<form id="form-services">
+<?php $form = $this->beginWidget('CActiveForm', array(
+	'id' => 'form-services',
+	'enableClientValidation' => true,
+	'clientOptions' => array(
+		'validateOnTipe' => true,
+		'validateOnSubmit' => true
+	)
+)) ?>
 
     <div class="row">
         <div class="col-lg-4">
-            <label for="FirstName">Ваше имя</label>
+            <?= $form->labelEx($model, 'name') ?>
         </div>
         <div class="col-lg-8">
-            <input type="text" name="Record[name]" placeholder="Ваше имя" value=""> 
+			<?= $form->textField($model, 'name', array('placeholder' => 'Ваше имя')) ?>
         </div>
-    </div>                 
-    <div class="row">
-        <div class="col-lg-4">
-            <label for="Tel">Телефон</label>
-        </div>
-        <div class="col-lg-8">
-            <input class="phone_us" type="text" name="Record[phone]" placeholder="+7 (___) ___-__-__" value="">
-        </div>
-    </div>                     
-    <div class="row">
-        <div class="col-lg-4">
-            <label for="Date">Дата визита</label> 
-        </div>
-        <div class="col-lg-8">
-            <input class="date" type="text" name="Record[dt_visit]" placeholder="__/__/____" value="">
-        </div>
-    </div>                     
-    <div class="row">
-        <div class="col-lg-4">
-            <label for="Time">Время визита</label>
-        </div>
-        <div class="col-lg-8">
-            <input class="time" type="text" name="Record[visit_time]" placeholder="__:__" value="">
-        </div> 
     </div>
-    <div class="row">
-        <div class="col-lg-4">
-            <label for="Car">Марка и модель</br> автомобиля</label>
-        </div>
-        <div class="col-lg-8">
-            <input type="text" name="Record[avto_info]" placeholder="Например Kia Rio" value="">
-        </div>
-    </div>                 
-    <div class="row">
-        <div class="col-lg-4">
-            <label>Предположительные</br> виды работ</label>
-        </div>
-        <div class="col-lg-8">
-            <textarea rows="11" cols="55" name="Record[work_type]" placeholder="Виды работ..." ></textarea>
-        </div>
-    </div>  
+
+	<div class="row">
+		<div class="col-lg-4">
+			<?= $form->labelEx($model, 'phone') ?>
+		</div>
+		<div class="col-lg-8">
+			<?= $form->textField($model, 'phone', array('placeholder' => '+7 (___) ___-__-__', 'class'=>'phone_us')) ?>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-4">
+			<?= $form->labelEx($model, 'dt_visit') ?>
+		</div>
+		<div class="col-lg-8">
+			<?= $form->textField($model, 'dt_visit', array('placeholder' => '__/__/____', 'class'=>'date')) ?>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-4">
+			<?= $form->labelEx($model, 'visit_time') ?>
+		</div>
+		<div class="col-lg-8">
+			<?= $form->textField($model, 'visit_time', array('placeholder' => '__:__', 'class'=>'time')) ?>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-4">
+			<?= $form->labelEx($model, 'avto_info') ?>
+		</div>
+		<div class="col-lg-8">
+			<?= $form->textField($model, 'avto_info', array('placeholder' => 'Например Kia Rio')) ?>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-4">
+			<?= $form->labelEx($model, 'work_type') ?>
+		</div>
+		<div class="col-lg-8">
+			<?= $form->textArea($model, 'work_type', array('placeholder' => 'Виды работ...', 'rows'=>11, 'cols'=>55)) ?>
+		</div>
+	</div>
 
     <div class="row">
             <label>&nbsp;</label>
@@ -69,4 +81,4 @@
 
     </div>
 
-</form>
+<? $this->endWidget() ?>

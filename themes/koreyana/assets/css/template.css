@@ -2133,3 +2133,8 @@ input [type=radio]
 .navbar-nav{
     margin:0px!important;
 }
+
+.errorMessage {
+    text-align: left;
+    color: red;
+}

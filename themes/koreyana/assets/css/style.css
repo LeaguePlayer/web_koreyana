@@ -82,11 +82,6 @@ a img {
     font-style: normal;
 }
 
-
-html {
-	background: url('../img/bg-pattern.jpg') repeat;
-}
-
 body {
 	font-family: pt_sansregular, sans;
 	font-size: 14px;

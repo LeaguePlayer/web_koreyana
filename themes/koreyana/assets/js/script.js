@@ -4,31 +4,32 @@ $(document).ready(function(){
 	//========= Form Validating start ================
 
 	$('#formsubmit').click(function(){
+        var form = $('#form-services');
 		$.ajax({
-		  url: "/record/AjaxAddRecord",
-		  dataType:'JSON',
-		  method:'POST',
-		  data:$('#form-services').serialize(),
-
-		  success:function(data)
-		  {
-		  	if (data.success==true)
-		  	{
-		  		document.location.href="/page/thanks";
-		  	} 
-		  	else
-			{
-				for (var i in data.error)
-				{
-					$('input[name="Record['+i+']"]').addClass('error');
-				}
-		  	}
-		  },
-
-		  error:function(){
-		  	alert("Произошла ошибка на сервере, Ваши данные не были отправленны!");
-		  }
-		})
+            url: "/record/AjaxAddRecord",
+            dataType:'JSON',
+            method:'POST',
+            data:form.serialize(),
+            success:function(data) {
+                $('.errorMessage', form).hide();
+                $('input, textarea').removeClass('error')
+                if (data.success==true) {
+                    document.location.href="/page/thanks";
+                } else {
+                    for (var i in data.errors) {
+                        var input = $('input[name="Record['+i+']"]').addClass('error');
+                        var errorMessage = input.next('.errorMessage');
+                        if ( !errorMessage.length ) {
+                            errorMessage = $('<div></div>').addClass('errorMessage').hide().insertAfter(input);
+                        }
+                        errorMessage.text(data.errors[i]).show();
+                    }
+                }
+            },
+            error: function() {
+            alert("Произошла ошибка на сервере, Ваши данные не были отправленны!");
+            }
+		});
 		return false;
 	});
 	$('#submitContacts').click(function(){
@@ -75,13 +76,11 @@ $(document).ready(function(){
     	  function(){
         	$('.hide').slideDown(500);
         	$(this).html('Показать все характеристики');
-        	console.log('123');
       	}, 
 
           function(){
         	$('.hide').slideUp(500);
         	$(this).html('Скрыть');
-        	console.log('123');
      	}
    );
 	}
@@ -91,8 +90,9 @@ $(document).ready(function(){
     $('.Tel').mask('+7 (000) 000-00-00');
 
     $('#callBtn').on('click', function() {
-        $this = $(this);
+        var $this = $(this);
         $.fancybox.open($('#callBox'), {
+            padding: 0,
             afterShow: function() {
                 $('a.close', this.inner).click(function(e) {
                     $.fancybox.close();
@@ -101,7 +101,11 @@ $(document).ready(function(){
             }
         });
         return false;
-    })
+    });
+
+    $('#driveOrder').on('click', function() {
+        var $this = $(this);
+    });
     
     /*$('#sendVacansy').click(function(){
     	$.ajax({

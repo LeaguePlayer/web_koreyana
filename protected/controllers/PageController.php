@@ -46,7 +46,7 @@ class PageController extends FrontController
 			if (substr_count($page->wswg_body, $value)>0)
 			{
 				$view=preg_replace('/[{}]/', '', $value);
-				$form=$this->renderPartial($view,true,true);
+				$form=$this->renderPartial($view,null,true);
 				$page->wswg_body=str_replace($value, $form, $page->wswg_body);
 				break;
 			}

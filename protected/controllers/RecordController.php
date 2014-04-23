@@ -46,40 +46,28 @@ class RecordController extends FrontController
 	//======AJAX========
 	public function actionAjaxAddRecord()
 	{
-		$response=array('success'=>false);
+		$response = array(
+			'success'=>false
+		);
 
-		if(isset(Yii::app()->session['qaptcha_key']) && !empty(Yii::app()->session['qaptcha_key']))
-		{
-		  $myVar = Yii::app()->session['qaptcha_key'];
-		  if(isset($_POST[''.$myVar.'']) && empty($_POST[''.$myVar.'']))
-		  {
-		  	//it's human no robot
-		    $model=new Record;
-			if (isset($_POST['Record']))
-			{
-				$model->attributes=$_POST['Record'];
-
-				if ($model->save())
-				{
-					$response['success']=true;								
-				} else {
-
-					$response['success']=false;
-					$response['error']=$model->errors;
+		$model = new Record;
+		if ( isset($_POST['Record']) ) {
+			$model->attributes=$_POST['Record'];
+			$valid = $model->validate();
+			if ( $valid ) {
+				if(isset(Yii::app()->session['qaptcha_key']) && !empty(Yii::app()->session['qaptcha_key'])) {
+					$myVar = Yii::app()->session['qaptcha_key'];
+					if(isset($_POST[''.$myVar.'']) && empty($_POST[''.$myVar.''])) {
+						//it's human no robot
+						$model->save();
+						unset(Yii::app()->session['qaptcha_key']);
+						$response['success']=true;
+					}
 				}
-
+			} else {
+				$response['errors'] = $model->errors;
 			}
-		  }
-		  else
-		  {
-		  	//it's robot no human
-		    $response['success']=false;	
-		  }
 		}
-		unset(Yii::app()->session['qaptcha_key']);
-
-
-		
 		print(CJSON::encode($response));
 	}
 
@@ -89,7 +77,7 @@ class RecordController extends FrontController
 			
 		if(isset($_POST['action']) && isset($_POST['qaptcha_key']))
 		{
-			Yii::app()->session['qaptcha_key'] = false;	
+			Yii::app()->session['qaptcha_key'] = false;
 			
 			if(htmlentities($_POST['action'], ENT_QUOTES, 'UTF-8') == 'qaptcha')
 			{
