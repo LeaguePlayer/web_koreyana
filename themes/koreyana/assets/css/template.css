@@ -61,7 +61,7 @@ h1,h2,h3,h4,h5,h6,p {
     font-family: 'MyriadPro', sans-serif;
     line-height: 0.9;
     text-shadow: 0px 0px 1px #fff, 0 0 1em #fff;
-
+    padding-top: 14px;
 }
 .navbar li:hover > a {
     color:#fff;
@@ -76,11 +76,13 @@ h1,h2,h3,h4,h5,h6,p {
     vertical-align:middle;
     text-align:center;
     display: inline-block;
+    padding-top: 8px;
 }
 #long-bottom {
     background: url(../images/icon/menu-bt-long.png) no-repeat; 
     width:122px;
     height:37px;
+    padding-top: 8px;
 }
 #logo img {
     left: 15px;
@@ -221,7 +223,6 @@ padding-top: 10px;
     display: inline-block;
 }
 .logo {
-    width:129px;
     float:right;
     padding-left: 0;
     padding-right: 0;
@@ -324,7 +325,7 @@ footer .container {
 
 #cant-slider {
     width:auto;
-    margin-bottom: 160px;
+    margin-bottom: 100px;
 }
 
 .carousel-inner > .item {
@@ -1809,6 +1810,7 @@ input.error, textarea.error{
 margin: 0px 70px;
 padding: 0;
 width: 630px;
+margin-top: 50px;
 }
 
 .orange li+li {

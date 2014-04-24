@@ -116,7 +116,7 @@
                     </div>
                     <div class="col-lg-2 logo">
                         <h6>С Кореяна друзья с 2013 года</h6> 
-                        <a href="http://amobile-studio.ru/" target="_blank"><img src="<?=$this->getAssetsUrl().DIRECTORY_SEPARATOR?>images/icon/logo.png" style="width:120px; alt=""/></a>
+                        <a href="http://amobile-studio.ru/" target="_blank"><img src="<?=$this->getAssetsUrl().DIRECTORY_SEPARATOR?>images/icon/logo.png" style="width:120px;" alt=""/></a>
                     </div>
                 </div>
             </div><!--container -->

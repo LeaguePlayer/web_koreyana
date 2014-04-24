@@ -1,10 +1,12 @@
 <div class="container">
     <div class="center jobs-1">
-        <h1>Вакансии</h1>
-        <h2>Автокомплекс «Кореяна» приглашает на работу</h2>
+        <h1 style="margin-bottom:30px;">Вакансии</h1>
+        <p><?=(empty($models) ? "На данный момент нет свободных вакансий." : "")?></p>
+        <h2 style="margin-top:30px;">Автокомплекс «Кореяна» приглашает на работу</h2>
     </div>
 </div>
 <?
+
 	foreach ($models as $key => $value) {
 		?>
 		<div class="gray jobs">
