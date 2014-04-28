@@ -25,7 +25,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/lgpl.html.
 	/*plugin script*/
 	var methods={
 		init:function(options){
-			var defaults={ 
+			var defaults={
 				set_width:false, /*optional element width: boolean, pixels, percentage*/
 				set_height:false, /*optional element height: boolean, pixels, percentage*/
 				horizontalScroll:false, /*scroll horizontally: boolean*/

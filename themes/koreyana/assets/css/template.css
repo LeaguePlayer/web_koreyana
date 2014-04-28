@@ -2141,6 +2141,26 @@ input [type=radio]
     box-sizing: content-box;
     -webkit-box-sizing: content-box;
 }
+.QapTcha .Slider {
+    background: #f3d283; /* Old browsers */
+    background: -moz-linear-gradient(top,  #f3d283 0%, #bc8057 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3d283), color-stop(100%,#bc8057)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #f3d283 0%,#bc8057 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #f3d283 0%,#bc8057 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #f3d283 0%,#bc8057 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #f3d283 0%,#bc8057 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3d283', endColorstr='#bc8057',GradientType=0 ); /* IE6-9 */
+}
+.QapTcha .Slider:after{
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 18px;
+    height: 20px;
+    background: url(../images/captcha-slider.png) no-repeat;
+    top: 9px;
+    left: 16px;
+}
 .navbar-nav{
     margin:0px!important;
 }
