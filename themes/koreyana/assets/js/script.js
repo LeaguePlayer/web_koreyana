@@ -12,7 +12,8 @@ $(document).ready(function(){
             data:form.serialize(),
             success:function(data) {
                 $('.errorMessage', form).hide();
-                $('input, textarea').removeClass('error')
+                $('input, textarea').removeClass('error');
+                console.log(data);
                 if (data.success==true) {
                     document.location.href="/page/thanks";
                 } else {
@@ -33,37 +34,65 @@ $(document).ready(function(){
 		return false;
 	});
 	$('#submitContacts').click(function(){
+        var form = $('#form-services');
+		// $.ajax({
+		//   url: "/calls/AjaxCreate",
+		//   dataType:'JSON',
+		//   method:'POST',
+		//   data:$('#form-services').serialize(),
 
-		$.ajax({
-		  url: "/calls/AjaxCreate",
-		  dataType:'JSON',
-		  method:'POST',
-		  data:$('#form-services').serialize(),
+		//   success:function(data)
+		//   {
 
-		  success:function(data)
-		  {
+		//   	if (data.success==true)
+		//   	{
+		//   		document.location.href="/page/thanks";
+		//   	} 
+		//   	else
+		// 	{
+		// 		//$(document).scrollTop(0);
 
-		  	console.log(data);
+		// 		for (var i in data.error)
+		// 		{
+  //                   console.log(i);
+		// 			$('input[name="Calls['+i+']"]').addClass('error');
+  //                   console.log($('input[name="Calls['+i+']"]'))
+		// 		}
+		//   	}
+		//   },
 
-		  	if (data.success==true)
-		  	{
-		  		document.location.href="/page/thanks";
-		  	} 
-		  	else
-			{
-				$(document).scrollTop(0);
-				for (var i in data.error)
-				{
-					$('input[name="Calls['+i+']"]').addClass('error');
-				}
-		  	}
-		  },
+		//   error:function(){
+		//   	alert("Произошла ошибка на сервере, Ваши данные не были отправленны!");
+		//   }
 
-		  error:function(){
-		  	alert("Произошла ошибка на сервере, Ваши данные не были отправленны!");
-		  }
-
-		})
+		// });
+        
+        $.ajax({
+            url: "/calls/AjaxCreate",
+            dataType:'JSON',
+            method:'POST',
+            data:form.serialize(),
+            success:function(data) {
+                $('.errorMessage', form).hide();
+                $('input, textarea').removeClass('error')
+                if (data.success==true) {
+                    document.location.href="/page/thanks";
+                } else {
+                    for (var i in data.errors) {
+                        var input = $('input[name="Calls['+i+']"]').addClass('error');
+                        var errorMessage = input.next('.errorMessage');
+                        if ( !errorMessage.length ) {
+                            errorMessage = $('<div></div>').addClass('errorMessage').hide().insertAfter(input);
+                        }
+                        errorMessage.text(data.errors[i]).show();
+                    }
+                }
+            },
+            error: function() {
+            alert("Произошла ошибка на сервере, Ваши данные не были отправленны!");
+            }
+        });
+        return false;
 		return false;
 
 	})
@@ -154,30 +183,30 @@ $(document).ready(function(){
     	});
 
     //Яндекс карта
-    YMaps.jQuery(function () {
-    		if ($('#map-1').length) {
-	            map = new YMaps.Map(document.getElementById("map-1"));
-	            map.setCenter(new YMaps.GeoPoint(65.610002,57.152867), 17);
-	            map.addControl(new YMaps.TypeControl());
-				map.addControl(new YMaps.ToolBar());
-				map.addControl(new YMaps.Zoom());
-	            var placemark = new YMaps.Placemark(new YMaps.GeoPoint(65.610002,57.152867), {style: "default#carIcon"});
-	            placemark.name = "Центральный филиал: ул. Дамбовская, 10";
-				placemark.description = "+7 (3452) 500-480 (отдел продаж)<br /> +7 (3452) 986-185 (СТО)<br /> +7 (3452) 637-909<br /> +7 (3452) 710-999";
+    // YMaps.jQuery(function () {
+    // 		if ($('#map-1').length) {
+	   //          map = new YMaps.Map(document.getElementById("map-1"));
+	   //          map.setCenter(new YMaps.GeoPoint(65.610002,57.152867), 17);
+	   //          map.addControl(new YMaps.TypeControl());
+				// map.addControl(new YMaps.ToolBar());
+				// map.addControl(new YMaps.Zoom());
+	   //          var placemark = new YMaps.Placemark(new YMaps.GeoPoint(65.610002,57.152867), {style: "default#carIcon"});
+	   //          placemark.name = "Центральный филиал: ул. Дамбовская, 10";
+				// placemark.description = "+7 (3452) 500-480 (отдел продаж)<br /> +7 (3452) 986-185 (СТО)<br /> +7 (3452) 637-909<br /> +7 (3452) 710-999";
 
-	            map.addOverlay(placemark);
-    		}
-    		if ($('#mymap').length) {
-	            map = new YMaps.Map(document.getElementById("mymap"));
-	            map.setCenter(new YMaps.GeoPoint(65.610002,57.152867), 17);
-	            map.addControl(new YMaps.TypeControl());
-				map.addControl(new YMaps.ToolBar());
-				map.addControl(new YMaps.Zoom());
-	            var placemark = new YMaps.Placemark(new YMaps.GeoPoint(65.610002,57.152867), {style: "default#carIcon"});
-	            placemark.name = "Центральный филиал: ул. Дамбовская, 10";
-				placemark.description = "+7 (3452) 500-480 (отдел продаж)<br /> +7 (3452) 986-185 (СТО)<br /> +7 (3452) 637-909<br /> +7 (3452) 710-999";
+	   //          map.addOverlay(placemark);
+    // 		}
+    // 		if ($('#mymap').length) {
+	   //          map = new YMaps.Map(document.getElementById("mymap"));
+	   //          map.setCenter(new YMaps.GeoPoint(65.610002,57.152867), 17);
+	   //          map.addControl(new YMaps.TypeControl());
+				// map.addControl(new YMaps.ToolBar());
+				// map.addControl(new YMaps.Zoom());
+	   //          var placemark = new YMaps.Placemark(new YMaps.GeoPoint(65.610002,57.152867), {style: "default#carIcon"});
+	   //          placemark.name = "Центральный филиал: ул. Дамбовская, 10";
+				// placemark.description = "+7 (3452) 500-480 (отдел продаж)<br /> +7 (3452) 986-185 (СТО)<br /> +7 (3452) 637-909<br /> +7 (3452) 710-999";
 
-	            map.addOverlay(placemark);
-    		}
-        });
+	   //          map.addOverlay(placemark);
+    // 		}
+    //     });
 });

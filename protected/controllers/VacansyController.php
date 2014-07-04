@@ -37,7 +37,17 @@ class VacansyController extends FrontController
 	
 	public function actionIndex()
 	{
+
 		$models=Job::model()->findAll();
+
+		$contacts=Page::model()->findByPk(11);
+	    if (!empty($contacts))
+	    {
+	        $cs = Yii::app()->clientScript;
+	        $cs->registerScriptFile('http://api-maps.yandex.ru/services/constructor/1.0/js/?sid=PC5YaAxHJF303X_pR-LSyeodnO-oicuY&id=mymap', CClientScript::POS_END);
+	    }
+		$form=$this->renderPartial('//page/contacts',null,true);
+				$contacts->wswg_body=str_replace("{contacts}", $form, $contacts->wswg_body);
 
 		$node=Structure::model()->findByUrl("vacansies");
 		if ( !empty($node->seo->meta_title) )
@@ -48,7 +58,7 @@ class VacansyController extends FrontController
         Yii::app()->clientScript->registerMetaTag($node->seo->meta_keys, 'keywords', null, array('id'=>'keywords'), 'meta_keywords');
 
 		$this->render('index',array(
-			'models'=>$models,
+			'models'=>$models,"contacts"=>$contacts
 		));
 	}
 	

@@ -46,7 +46,7 @@ h1,h2,h3,h4,h5,h6,p {
 }*/
 .navbar {
     /*position:absolute;*/
-    top: 30px; 
+    top: 63px; 
     display: inline-block;
     left: -7px;
 }
@@ -72,7 +72,7 @@ h1,h2,h3,h4,h5,h6,p {
     text-decoration:none;    
 }
 #padding-top-6, #long-bottom {
-    padding:6px 0 0;
+    /*padding:6px 0 0;*/
     vertical-align:middle;
     text-align:center;
     display: inline-block;
@@ -676,8 +676,6 @@ footer .container {
     margin-top: 33px;
 }
 .zp-6 {
-    margin-bottom: 195px;    
-    margin-bottom: 195px;    
 }
 .zp-6 h3 {
     text-align:left;
@@ -695,15 +693,12 @@ footer .container {
     font-family: 'Helvetica', sans-serif;
     font-weight: bold;    
 }
-.zp-6 img {
-    position:absolute;
-    top: -165px;
-    display:block;
-    margin-left:20px;
-}
 .zp-6 .col-lg-6 {
     padding:0px;
     display: inline-block;
+    position: absolute;
+    right: -50px;
+    top: 0
 }
 .zp-6 .gray {
     width:980px;
@@ -961,6 +956,7 @@ footer .container {
 }
 .gray:nth-child(odd) {
     width:100%;
+    text-align: left;
 }
 .center {
     text-align:center;
@@ -1426,10 +1422,10 @@ footer .container {
     margin-bottom: 25px;
 }
 .cont .bt-4 {
-    padding-left: 149px;
     margin-top: 7px;
     margin-bottom: 30px;
     text-align: left;
+    text-align: center;
 }
 .cont h2 {
     color:#e68a17;
@@ -1457,7 +1453,7 @@ footer .container {
     height:37px;
     padding-left: 12px;
 }
-#form-services value {
+#form-services {
     font-size:18px;
     font-family: 'Helvetica_Light', sans-serif;     
 }
@@ -1499,8 +1495,8 @@ footer .container {
     height:40px;
     padding-top:7px;
     padding-bottom: 9px;
-    padding-left: 73px;
-    padding-right: 74px;
+    padding-left: 76px;
+    padding-right: 76px;
     font-family: 'MyriadPro', sans-serif;
     font-size:20px;
     color: #fff;    
@@ -1926,7 +1922,7 @@ body
 
 h1
 {
-    text-shadow: 0 1px 0 rgba(255, 255, 255, .7), 0px 2px 0 rgba(0, 0, 0, .5);
+    
     text-transform: uppercase;
     text-align: center;
     color: #666;

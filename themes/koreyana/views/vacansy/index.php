@@ -1,3 +1,7 @@
+<?
+    print($contacts->wswg_body);
+?>
+
 <div class="container">
     <div class="center jobs-1">
         <h1 style="margin-bottom:30px;">Вакансии</h1>

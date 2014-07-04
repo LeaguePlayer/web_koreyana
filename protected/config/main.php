@@ -77,6 +77,8 @@ return array_replace_recursive(
                 'rules'=>array(
                     'gii'=>'gii',
                     'admin'=>'admin/structure',
+                    'page/contacts'=>'vacansy/index',
+                    'page/Contacts'=>'vacansy/index',
                     'admin/<controller:!config>' => 'admin/<controller>/list',
                     '/'=>'page/index',
 
