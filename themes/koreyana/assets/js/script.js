@@ -33,6 +33,7 @@ $(document).ready(function(){
 		});
 		return false;
 	});
+
 	$('#submitContacts').click(function(){
         var form = $('#form-services');
 		// $.ajax({

@@ -1,29 +1,33 @@
 <?php
 
-class CallsController extends FrontController
+class CallsController extends CController
 {
 	public $layout='//layouts/simple';
 
-	
-	public function filters()
-	{
-		return array(
-			'accessControl', // perform access control for CRUD operations
-		);
-	}
+	public function actionCalculateCost(){
+		$response['success']=false;
 
-	
-	public function accessRules()
-	{
-		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','AjaxCreate'),
-				'users'=>array('*'),
-			),
-			array('deny',  // deny all users
-				'users'=>array('*'),
-			),
-		);
+		if ($_POST['CalculateCost']){
+			$model=new CalculateCost;
+			$model->attributes=$_POST['CalculateCost'];
+
+			if ($response['success']=$model->validate())
+			{
+				$to=(string)Config::model()->find('param=\'admin.mail\'')->value;
+
+				$subject="Новая заявка с сайта ".Yii::app()->request->hostInfo.'<br>';
+
+				$message='Марка - '.CalculateCost::getBrands($model->id_brand).'<br>';
+				$message='Модель - '.$model->model.'<br>';
+				$message='Год выпуска - '.$model->year.'<br>';
+				$message='Кузов - '.CalculateCost::getBasketType($model->id_basket).'<br>';
+				$message='Тип стекла - '.CalculateCost::getGlassTypes($model->id_glass).'<br>';
+				$message='Комментарий - '.$model->comment ? $model->comment : 'нет'.'<br>';
+
+				SiteHelper::sendMail($subject,$comment,$to);
+			}
+		}
+		echo CJSON::encode($response);
 	}
 
 	public function actionAjaxCreate()

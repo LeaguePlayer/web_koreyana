@@ -38,6 +38,14 @@ return array_replace_recursive(
                 'returnUrl' => array('/user/profile'),
                 'returnLogoutUrl' => array('/user/login'),
             ),
+            'gii'=>array(
+                'class'=>'system.gii.GiiModule',
+                'password'=>'qwe123',
+                'ipFilters'=>array('127.0.0.1','::1'),
+                'generatorPaths'=>array(
+                    'application.gii',
+                ),
+            ),
         ),
         // application components
         'components'=>array(

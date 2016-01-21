@@ -1053,7 +1053,7 @@ footer .container {
     font-size:39px;
     font-family: 'Helvetica', sans-serif;
     font-weight: bold;
-    text-transform:uppercase;  
+    text-transform:uppercase;
     margin-bottom: 17px;
 }
 .company-1 p {
@@ -1432,8 +1432,8 @@ footer .container {
     font-size:25px;
     font-family: 'Helvetica', sans-serif;
     font-weight: bold; 
-    text-decoration:none;
     margin-bottom: 50px;
+    text-decoration:none;
     margin-top: 15px;
     text-align: left;
 }
@@ -1444,11 +1444,51 @@ footer .container {
     overflow: hidden;
 }
 /*==============9.запись===============*/
+#progressTimer{
+    display: inline-block;
+    width:375px;
+}
+#calculate-form .errorMessage{
+    color: red;
+    padding-left: 40px;
+}
+
+#calculate-form{
+    padding: 40px 0;
+}
+
+#calculate-form .caption{
+    padding-left: 100px;
+    font-size: 20px;
+    padding-bottom: 30px;
+}
+#calculate-form #submit{
+    float: none;
+}
+#calculate-form label {
+    text-align:right;
+    font-size:18px;
+    font-family: 'Helvetica_Light', sans-serif;  
+    font-weight:normal;
+    padding-right: 20px;
+    width: 150px;
+    display: inline-block;
+}
+
+#calculate-form input,select,textarea {
+    width:375px;
+    height:37px;
+    padding-left: 12px;
+    margin-bottom: 15px;
+}
+#calculate-form textarea{
+    height: 100px;
+}
 #form-services {
     margin: 0 auto;
     padding-left: 100px;
 }
-#form-services input {
+#form-services input{
     width:375px;
     height:37px;
     padding-left: 12px;
@@ -1457,7 +1497,7 @@ footer .container {
     font-size:18px;
     font-family: 'Helvetica_Light', sans-serif;     
 }
-#form-services label {
+#form-services label{
     text-align:right;
     font-size:18px;
     font-family: 'Helvetica_Light', sans-serif;  

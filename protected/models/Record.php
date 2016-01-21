@@ -43,7 +43,6 @@ class Record extends EActiveRecord
         );
     }
 
-
     public function attributeLabels()
     {
         return array(

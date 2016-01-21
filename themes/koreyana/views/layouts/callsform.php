@@ -24,7 +24,7 @@
 				}"
 			),
             'focus'=>array($model,'fam'),
-//            'htmlOptions'=>array('id'=>'login'),
+            //'htmlOptions'=>array('id'=>'login'),
 
         )); ?>
 

@@ -40,7 +40,7 @@ class PageController extends FrontController
         else
             $this->title = $node->name . ' | ' . Yii::app()->config->get('app.name');
 
-		$mark=array('{resume}','{record}','{contacts}');
+		$mark=array('{resume}','{record}','{contacts}','{calculate_cost}');
 
 		foreach ($mark as $key => $value) {
 			if (substr_count($page->wswg_body, $value)>0)
