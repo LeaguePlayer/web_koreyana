@@ -2,11 +2,12 @@
     <?php
         $form = $this->beginWidget('CActiveForm', array(
             'id'=>'calls-form',
-			'action'=>$this->createUrl('calls/AjaxCreate'),
+			'action'=>$this->createUrl('calls/ajaxCreate'),
 			'enableClientValidation' => true,
 			'clientOptions' => array(
 				'validateOnSubmit' => true,
 				'afterValidate' => "js: function(form, data, hasError) {
+                    console.log(data);
 					if ( hasError ) return;
 					form = $(form);
 					$.ajax({
@@ -15,16 +16,18 @@
 						data: form.serialize(),
 						dataType: 'json',
 						success: function(data) {
-							if ( data.success ) {
-								alert(data.message);
-								$.fancybox.close();
-							}
+                            if (data.success)
+                            {
+                                alert('Ваша заявка успешно сформирована')
+                                $.fancybox.close();
+                            }
+								
 						}
 					});
 				}"
 			),
             'focus'=>array($model,'fam'),
-            //'htmlOptions'=>array('id'=>'login'),
+//            'htmlOptions'=>array('id'=>'login'),
 
         )); ?>
 
@@ -34,11 +37,11 @@
             <?php echo $form->error($model,'fam'); ?>
         </div>
 
-        <div class="row">
+        <!-- <div class="row">
             <?php echo $form->labelEx($model,'sername'); ?>
             <?php echo $form->textField($model,'sername'); ?>
             <?php echo $form->error($model,'sername'); ?>
-        </div>
+        </div> -->
         <div class="row">
             <?php echo $form->labelEx($model,'phone'); ?>
             <?php echo $form->textField($model,'phone'); ?>
@@ -57,7 +60,7 @@
         <div class="row">
 			<?= $form->labelEx($model,'type'); ?><br>
 			<?=$form->radioButtonList($model,'type',Calls::getTypes())?>
-			<?= $form->error($model,'comment'); ?>
+			<?= $form->error($model,'type'); ?>
         </div>
 
         <div class="row">

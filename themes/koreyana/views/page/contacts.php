@@ -2,112 +2,81 @@
     $model=new Calls;
     
 ?>
-<?php $form = $this->beginWidget('CActiveForm', array(
-    'id' => 'form-services',
-    'enableClientValidation' => true,
-    'clientOptions' => array(
-        'validateOnTipe' => true,
-        'validateOnSubmit' => true
-    )
-)) ?>
 
-    <div class="row">
-        <div class="col-lg-4">
-            <?= $form->labelEx($model, 'fam') ?>
-        </div>
-        <div class="col-lg-8">
-            <?= $form->textField($model, 'fam', array('placeholder' => 'Ваше имя')) ?>
+<div id="contacts" >
+    <div class="bx">
+        <div class="form">
+        <?php $form = $this->beginWidget('CActiveForm', array(
+        'id' => 'contact-form',
+        'action' => $this->createUrl('/calls/AjaxCreate'),
+        'enableClientValidation' => true,
+        'clientOptions' => array(
+            'validateOnType' => true,
+            'validateOnSubmit' => true,
+            'afterValidate' => "js: function(form, data, hasError) {
+                if ( hasError ) return;
+
+                form = $('#contact-form');
+                var action = form.attr('action');
+                $.ajax({
+                    url: action,
+                    type: 'POST',
+                    dataType: 'json',
+                    data: form.serialize(),
+                    success: function(data) {
+
+                        if ( data.success ) {
+                            window.location.href = '".$this->createUrl('/page/thanks')."';
+                        }
+                        console.log(data);
+                    },
+                    error:function(){
+                         console.log(data);
+                    }
+                });
+            }"
+        ),
+        'htmlOptions' => array('class' => 'contact_form',)
+    )) ?>
+            <ul>
+                <li>
+                    <?= $form->hiddenField($model, 'sendCall', array('value' => false)) ?>
+                </li>
+                <li>
+                    <?= $form->labelEx($model, 'fam') ?>
+                    <?= $form->textField($model, 'fam', array('placeholder' => 'Ваше имя')) ?>
+                    <?= $form->error($model, 'fam') ?>
+                </li>
+
+                <li>
+                    <?= $form->labelEx($model, 'sername') ?>
+                    <?= $form->textField($model, 'sername', array('placeholder' => 'Ваша фамилия')) ?>
+                    <?= $form->error($model, 'sername') ?>
+                </li>
+
+                <li>
+                    <?= $form->labelEx($model, 'phone') ?>
+                    <?= $form->textField($model, 'phone', array('placeholder' => '+7 (___) ___-__-__', 'class'=>'phone_us')) ?>
+                    <?= $form->error($model, 'phone') ?>
+                </li>
+
+                <li>
+                    <?= $form->labelEx($model, 'e_mail') ?>
+                    <?= $form->textField($model, 'e_mail', array('placeholder' => 'example@example.com', 'class'=>'e_mail')) ?>
+                    <?= $form->error($model, 'e_mail') ?>
+                </li>
+                
+                <li>
+                    <?= $form->labelEx($model, 'comment') ?>
+                    <?= $form->textArea($model, 'comment', array('placeholder' => 'Текст сообщения', 'lines'=>11, 'cols'=>55)) ?>
+                    <?= $form->error($model, 'comment') ?>
+                </li>
+                <li class="line">
+                    <label></label>
+                   <input type="submit" value="Отправить">
+                </li>
+            </ul>
+            <?php $this->endWidget(); ?>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-lg-4">
-            <?= $form->labelEx($model, 'sername') ?>
-        </div>
-        <div class="col-lg-8">
-            <?= $form->textField($model, 'sername', array('placeholder' => 'Ваша фамилия')) ?>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-4">
-            <?= $form->labelEx($model, 'phone') ?>
-        </div>
-        <div class="col-lg-8">
-            <?= $form->textField($model, 'phone', array('placeholder' => '+7 (___) ___-__-__', 'class'=>'phone_us')) ?>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-4">
-            <?= $form->labelEx($model, 'e_mail') ?>
-        </div>
-        <div class="col-lg-8">
-            <?= $form->textField($model, 'e_mail', array('placeholder' => 'example@example.com', 'class'=>'e_mail')) ?>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-4">
-            <?= $form->labelEx($model, 'comment') ?>
-        </div>
-        <div class="col-lg-8">
-            <?= $form->textArea($model, 'comment', array('placeholder' => 'Текст сообщения', 'rows'=>11, 'cols'=>55)) ?>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="bt-3"> 
-            <a id="submitContacts"  href="#">Отправить</a>
-        </div>
-    </div>
-
-<? $this->endWidget() ?>
-
-<!-- <form id="form-services" action="#">
-    <div class="row">
-        <div class="col-lg-4">
-            <label for="FirstName">Ваша имя</label>
-        </div>
-        <div class="col-lg-8">
-            <input type="text" name="Calls[fam]" placeholder="Ваше имя" value=""> 
-        </div>
-    </div>      
-    <div class="row">
-        <div class="col-lg-4">
-            <label for="FirstName">Ваша Фамилия</label>
-        </div>
-        <div class="col-lg-8">
-            <input type="text" name="Calls[sername]" placeholder="Ваше фамилия" value=""> 
-        </div>
-    </div>                
-    <div class="row">
-        <div class="col-lg-4">
-            <label for="Tel">Телефон</label>
-        </div>
-        <div class="col-lg-8">
-            <input class="phone_us"  type="text" name="Calls[phone]" placeholder="+7 (___) ___-__-__" value="">
-        </div>
-    </div>                     
-    <div class="row">
-        <div class="col-lg-4">
-            <label for="mail">E-mail</label> 
-        </div>
-        <div class="col-lg-8">
-            <input type="text" name="Calls[e_mail]" placeholder="example@example.com" value="">
-        </div>
-    </div>                                   
-    <div class="row">
-        <div class="col-lg-4">
-            <label>Текст обращения</label>
-        </div>
-        <div class="col-lg-8">
-            <textarea rows="11" cols="55" name="Calls[comment]" placeholder="Текст сообщения..."></textarea>
-        </div>
-    </div>    
-    <div class="row">
-        <div class="bt-4"> 
-            <a id="submitContacts" href="#">Отправить</a>
-        </div>
-    </div>
-</form> -->
+</div>

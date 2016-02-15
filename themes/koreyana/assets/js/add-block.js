@@ -8,7 +8,7 @@ jQuery(function($) {
 
     $("#add").on('click', function() {
 
-        var block = $(".blocks").html().replaceAll("Resume","DopEducation["+$(".block_1").length+"]");
+        var block = $(".blocks").html().replaceAll("["+($(".block_1").length)+"]","["+($(".block_1").length+1)+"]");
 
         $(".blocks").append(block).find('.del').parent().parent().show();
         
@@ -29,7 +29,7 @@ jQuery(function($) {
 
     $("#add1").on('click', function() {
 
-        var block2 = $(".blocks_2").html().replaceAll("Resume","DopWork["+$(".block_2").length+"]");
+        var block2 = $(".blocks_2").html().replaceAll("["+$(".block_2").length+"]","["+($(".block_2").length+1)+"]");
 
         $(".blocks_2").append(block2).find('.del1').show();
         return false;

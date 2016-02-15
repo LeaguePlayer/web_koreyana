@@ -8,77 +8,56 @@
 	'enableClientValidation' => true,
 	'clientOptions' => array(
 		'validateOnTipe' => true,
-		'validateOnSubmit' => true
-	)
+		'validateOnSubmit' => true,
+	),
+	'htmlOptions'=>array('style'=>'margin-right:300px')
 )) ?>
+<ul class="line">
+    <li>
+        <?= $form->labelEx($model, 'name') ?>
+		<?= $form->textField($model, 'name', array('placeholder' => 'Ваше имя')) ?>
+		<?= $form->error($model, 'name') ?>
+    </li>
 
-    <div class="row">
-        <div class="col-lg-4">
-            <?= $form->labelEx($model, 'name') ?>
-        </div>
-        <div class="col-lg-8">
-			<?= $form->textField($model, 'name', array('placeholder' => 'Ваше имя')) ?>
-        </div>
-    </div>
+	<li>
+		<?= $form->labelEx($model, 'phone') ?>
+		<?= $form->textField($model, 'phone', array('placeholder' => '+7 (___) ___-__-__', 'class'=>'phone_us')) ?>
+		<?= $form->error($model, 'phone') ?>
+	</li>
 
-	<div class="row">
-		<div class="col-lg-4">
-			<?= $form->labelEx($model, 'phone') ?>
-		</div>
-		<div class="col-lg-8">
-			<?= $form->textField($model, 'phone', array('placeholder' => '+7 (___) ___-__-__', 'class'=>'phone_us')) ?>
-		</div>
-	</div>
+	<li>
+		<?= $form->labelEx($model, 'dt_visit') ?>
+		<?= $form->textField($model, 'dt_visit', array('placeholder' => '__/__/____', 'class'=>'date')) ?>
+		<?= $form->error($model, 'dt_visit') ?>
+	</li>
 
-	<div class="row">
-		<div class="col-lg-4">
-			<?= $form->labelEx($model, 'dt_visit') ?>
-		</div>
-		<div class="col-lg-8">
-			<?= $form->textField($model, 'dt_visit', array('placeholder' => '__/__/____', 'class'=>'date')) ?>
-		</div>
-	</div>
+	<li>
+		<?= $form->labelEx($model, 'visit_time') ?>
+		<?= $form->textField($model, 'visit_time', array('placeholder' => '__:__', 'class'=>'time')) ?>
+		<?= $form->error($model, 'visit_time') ?>
+	</li>
 
-	<div class="row">
-		<div class="col-lg-4">
-			<?= $form->labelEx($model, 'visit_time') ?>
-		</div>
-		<div class="col-lg-8">
-			<?= $form->textField($model, 'visit_time', array('placeholder' => '__:__', 'class'=>'time')) ?>
-		</div>
-	</div>
+	<li>
+		<?= $form->labelEx($model, 'avto_info') ?>
+		<?= $form->textField($model, 'avto_info', array('placeholder' => 'Например Kia Rio')) ?>
+		<?= $form->error($model, 'avto_info') ?>
+	</li>
+	<li>
+		<?= $form->labelEx($model, 'work_type') ?>
+		<?= $form->textArea($model, 'work_type', array('placeholder' => 'Виды работ...', 'lines'=>11, 'cols'=>55,'style'=>'height:100px;')) ?>
+		<?= $form->error($model, 'work_type') ?>
+	</li>
 
-	<div class="row">
-		<div class="col-lg-4">
-			<?= $form->labelEx($model, 'avto_info') ?>
-		</div>
-		<div class="col-lg-8">
-			<?= $form->textField($model, 'avto_info', array('placeholder' => 'Например Kia Rio')) ?>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-lg-4">
-			<?= $form->labelEx($model, 'work_type') ?>
-		</div>
-		<div class="col-lg-8">
-			<?= $form->textArea($model, 'work_type', array('placeholder' => 'Виды работ...', 'rows'=>11, 'cols'=>55)) ?>
-		</div>
-	</div>
-
-    <div class="row">
-            <label>&nbsp;</label>
+    <li>
+			<label for="Record_work_type">Защита от спама: перетащите ползунок</label>
             <div class="captcha_wrap">
                 <div class="captcha"> 
-                    <p>Защита от спама: перетащите ползунок</p>
-
                     <div class="QapTcha"></div>
                 </div>
-            </div>
-            <div class="bt-3"> 
-                <a id="formsubmit" href="#">Записаться</a>
-            </div>
-
-    </div>
-
+            </div>    
+    </li>
+    <li>
+        <input style="margin-left:81px;" type="submit" id="formsubmit" value="Записаться">
+    </li>
+</ul>
 <? $this->endWidget() ?>

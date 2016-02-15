@@ -7,6 +7,8 @@ if ($model->id==2)
 //$cs->registerScriptFile($pathToAssets.'/js/'.'jquery.mask.js', CClientScript::POS_END);
 
 print($model->wswg_body);
+if ($model->id==4)
+	$this->renderPartial('//question/index',array('model'=>new Question));
 
 ?>
 <script>

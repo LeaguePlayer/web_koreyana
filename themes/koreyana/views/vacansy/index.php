@@ -1,7 +1,10 @@
 <?
     print($contacts->wswg_body);
 ?>
-
+<?
+    $model=new Resume;
+    //$model->contactPage=true;
+?>
 <div class="container">
     <div class="center jobs-1">
         <h1 style="margin-bottom:30px;">Вакансии</h1>
@@ -30,8 +33,8 @@
 ?>
 <div class="container">
     <div class="row jobs-5">
-        <ul class="orange"><li>Отправить резюме</li><li>или</li><li><a href="/page/resume">Заполнить резюме</a></li></ul>
-        <form id="vacansy_form" action="/resume/CreateResume/" class="form-job" method="POST" enctype="multipart/form-data" >
+        <ul class="orange"><li><a href="#" class="showForm">Отправить резюме</a></li><li>или</li><li><a href="/page/resume">Заполнить резюме</a></li></ul>
+        <!-- <form style="display:none" id="vacansy_form" action="/resume/CreateResume/" class="form-job" method="POST" enctype="multipart/form-data" >
             <div class="line">
                 <div class="lable">
                     <label for="FirstName">Ваше имя</label>
@@ -70,6 +73,61 @@
             <div class="line send">
                 <input type="submit" id="sendVacansy" value="Отправить">
             </div>
-        </form>
+        </form> 
+     
+
+    </div>
+</div>-->
+   <div id="resume" class="line">
+    <div class="bx">
+        <div class="form">
+        <?php $form = $this->beginWidget('CActiveForm', array(
+        'id' => 'resume-form',
+        'action' => $this->createUrl('/resume/CreateResume/'),
+        'enableClientValidation' => true,
+        'clientOptions' => array(
+                'validateOnType' => true,
+                
+            ),
+        'htmlOptions'=>array('class' => 'contact_form','enctype'=>'multipart/form-data','style'=>'display:none'),
+        )); ?>
+            <ul>
+                <li>
+                    <?= $form->hiddenField($model, 'contactPage', array('value' => true)) ?>
+                </li>
+                <li>
+                    <?= $form->labelEx($model, 'name') ?>
+                    <?= $form->textField($model, 'name', array('placeholder' => 'Ваше имя')) ?>
+                    <?= $form->error($model, 'name') ?>
+                </li>
+
+                <li>
+                    <?= $form->labelEx($model, 'phone') ?>
+                    <?= $form->textField($model, 'phone', array('placeholder' => '+7 (___) ___-__-__', 'class'=>'phone_us')) ?>
+                    <?= $form->error($model, 'phone') ?>
+                </li>
+                
+                <li>
+                    <?= $form->labelEx($model, 'job_type') ?>
+                    <?= $form->textField($model, 'job_type', array('placeholder' => 'Вакансия', 'lines'=>11, 'cols'=>55)) ?>
+                    <?= $form->error($model, 'job_type') ?>
+                    
+                </li>
+                <li>
+                    <label>Прикрепить резюме</label>
+                    <div class="attechFile">
+                        <?= $form->fileField($model, 'file') ?>
+                        <span >Прикрепить резюме</span> 
+                    </div>
+                    <?= $form->error($model, 'file') ?>
+                    <div class="fileName"></div>
+                </li>
+                <li class="line">
+                    <label></label>
+                   <input type="submit" value="Отправить">
+                </li>
+            </ul>
+            <?php $this->endWidget(); ?>
+        </div>
     </div>
 </div>

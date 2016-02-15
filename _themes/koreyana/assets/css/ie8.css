@@ -1,0 +1,259 @@
+
+footer {
+    display:inline-block;
+}
+#footer {
+    height:125px;
+    background: #efefef;
+    padding-top:20px;
+    display: inline-block;
+    width:100%;
+}
+#footer .container {
+    padding-right: 0;
+}
+.navbar-nav {
+    margin:0;
+}
+.navbar li > a {
+    margin-right: 0;
+}
+.services .col-lg-3 {
+    display:inline-block;
+    width:230px;
+    vertical-align:top;
+}
+.services-1 .col-lg-4 {
+    display:inline-block;
+    vertical-align:top;
+    width:430px;
+}
+.service h3 {
+    font-size: 17px;
+}
+#form-services .col-lg-8,
+#form-jobs .col-lg-8 {
+    display:inline-block;
+}
+#form-services .col-lg-4 {
+    display:inline-block;
+    float:left;
+    width:450px;
+}
+#form-jobs .col-lg-4 {
+    display:inline-block;
+    float:left;
+    width:200px;   
+}
+#form-services textarea,
+#form-jobs textarea {
+    width:375px;
+    height:240px;
+}
+#padding-top-6, #long-bottom {
+    top:-2px;
+}
+.logo {
+    top:4px;
+}
+.logo h6 {
+    font-size: 11px;
+}
+.etalon h5, 
+.etalon p {
+    font-size:11px;
+}
+.tbl-plan-to .col-lg-6 {
+    display:inline-block;
+}
+.jobs-2 .col-lg-3,
+.jobs-3 .col-lg-3,
+.jobs-4 .col-lg-3 {
+    display:inline-block; 
+    vertical-align:top;
+}
+.jobs-2 .col-lg-9,
+.jobs-3 .col-lg-9,
+.jobs-4 .col-lg-9 {
+    display:inline-block;     
+}
+.jobs-5 .col-lg-4,
+.jobs-5 .col-lg-6,
+.jobs-5 .col-lg-8 {
+    display:inline-block;  
+    vertical-align:top;
+}
+.bt-4 a {
+    padding: 8px 74px 9px;
+}
+.phone a {
+    padding-left: 15px;
+    padding-right: 23px;
+    padding-top: 10px;    
+    background: url(../images/icon/bt_1.png) no-repeat; 
+    width:187px;
+    height:41px;
+}
+.phone a:hover {
+    background-position:bottom;
+}
+.phone img {
+    left: 160px;
+}
+.item {
+    display:inline-block;   
+}
+.item .col-lg-6 {
+    display:inline-block;     
+}
+.customers-4 .col-lg-8 {   
+    width:1150px;
+}
+.company-1 .col-lg-6 {
+    width:663px;
+}
+.company-2 .col-lg-6 {
+    width:650px; 
+    display:inline-block;
+    vertical-align:top;
+}
+.company-2 .col-lg-7 {
+    display:inline-block; 
+    vertical-align:top;
+}
+.company-4 .col-lg-7 {
+    width:775px;
+    display:inline-block;
+    vertical-align:top;
+}
+.company-4 .col-lg-5 {
+    width:550px;
+    display:inline-block;
+    vertical-align:top;
+}
+.sto-1 .col-lg-6 {
+    display:inline-block;
+}
+.sto-2 .col-lg-6 {
+    display:inline-block;
+    vertical-align:top;
+}
+.sto-3 .col-lg-5 {
+    display:block;
+}
+.sto-3 .col-lg-5 p {
+    margin-bottom: 0px; 
+    padding-bottom: 10px;
+}
+.sto-3 .col-lg-6 {
+    display:inline-block;
+}
+.sto-3 .col-lg-6 img {
+    top:-101px;
+}
+.bt-3 a {
+    padding:8px 70px 9px;
+}
+.bt-5 a {
+    padding: 8px 103px 9px 104px;
+}
+/*=====================================*/
+#form-resume .col-lg-4 {
+    width:433px;
+    display:inline-block;
+    vertical-align:middle;
+}
+#form-resume .col-lg-8 {
+    width:840px;
+    display:inline-block;
+    vertical-align:middle;
+}
+#param .col-lg-2 {
+    width:130px;
+    display:inline-block;
+}
+#param .col-lg-8 {
+    width:550px;
+    display:inline-block;
+    padding-left:0px;
+}
+#zp-slider {
+    display:block;
+    position:relative;
+}
+#brand-slider {
+    display:block;
+    position:relative; 
+    width:880px;
+}
+#zp-slider .item,
+#brand-slider .item,
+#cant-slider .item {
+    display: none;
+    position: relative;
+    transition: left 0.6s ease-in-out 0s;
+}
+#zp-slider .active,
+#brand-slider .active,
+#cant-slider .active {
+    display:block;
+}
+#zp-slider .right,
+#cant-slider .right {
+    right:0px;
+    position:absolute;
+}
+#zp-slider .left,
+#cant-slider .left {
+    left:0px;
+    position:absolute;
+}
+#brand-slider .left {
+    left:0px;
+    width:20px;
+    height:20px;
+    position:absolute;
+}
+#brand-slider .right {
+    right:0px;
+    width:20px;
+    height:20px;
+    position:absolute;
+}
+.guaranty .col-lg-5 {
+    display:inline-block;
+}
+.guaranty .col-lg-7 {
+    width:705px;
+    display:inline-block;
+}
+#cant-slider {
+    position:relative;
+    margin-bottom:15px;
+}
+#cant-slider .carousel-indicators {
+    left: 630px;  
+    position:absolute;
+}
+#cant-slider .carousel-indicators .active {
+    display:inline-block;
+}
+.zp-6 img {
+    left:575px;
+    top:-232px;
+}
+.zp-6 {
+    margin-bottom: 205px;
+}
+.modal-body {
+    display:block;
+}
+#bt-road a {
+    font-size:16px;
+}
+.cont h2 {
+    padding-left: 450px;
+}
+.cont .bt-4 {
+    padding-left: 465px;    
+}

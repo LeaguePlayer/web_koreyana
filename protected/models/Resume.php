@@ -86,6 +86,7 @@ class Resume extends EActiveRecord
             'family_status' => 'Семейное положение, дети',
             'height' => 'Рост (см)',
             'size' => 'Размер',
+            'phone'=>'Телефон',
             'institution' => 'Учебное заведение',
             'faculty' => 'Факультет',
             'speciality' => 'Специальность',
