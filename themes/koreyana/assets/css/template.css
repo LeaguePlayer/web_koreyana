@@ -1644,7 +1644,7 @@ form label {
 /*==================================*/
 .ymaps-overlay-stepwise-pane-1 {
     width: 330px;
-    height: 190px;
+    height: 250px;
     background: url(../images/icon/bg-bt-ymaps.png);
     /* opacity: 0.70; */
     position: absolute;

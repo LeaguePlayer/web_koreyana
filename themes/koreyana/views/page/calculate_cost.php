@@ -1,4 +1,4 @@
-<?if (isset($_GET['test'])){?>
+<?if (true){?>
 <?
 
       $cs=Yii::app()->clientScript;
@@ -82,11 +82,11 @@
               <?php echo $form->dropDownList($model,'id_basket',CalculateCost::getBasketType(),array('empty'=>'Выберите кузов')); ?>
               <?php echo $form->error($model,'id_basket'); ?>
           </div>
-          <div class="row">
-              <?php echo $form->labelEx($model,'id_glass'); ?>
-              <?php echo $form->dropDownList($model,'id_glass',CalculateCost::getGlassTypes(),array('empty'=>'Выберите тип стекла...')); ?>
-              <?php echo $form->error($model,'id_glass'); ?>
-          </div>
+          <!-- <div class="row">
+              <?//php echo $form->labelEx($model,'id_glass'); ?>
+              <?//php echo $form->dropDownList($model,'id_glass',CalculateCost::getGlassTypes(),array('empty'=>'Выберите тип стекла...')); ?>
+              <?//php echo $form->error($model,'id_glass'); ?>
+          </div> -->
           <div class="row">
               <?php echo $form->labelEx($model,'comment'); ?>
               <?php echo $form->textarea($model,'comment'); ?>
@@ -100,17 +100,19 @@
         </div>
         <div class="part-2" style="display:none;">
           <div class="row">
-            <div class="caption">Расчет выполнен!</div>
+            <div class="caption">Расчет выполнен!<br> 
+              Оставьте свои данные, чтобы наш специалист связался с вами и согласовал время заезда на СТО.
+            </div>
+          </div>
+          <div class="row">
+              <?php echo $form->labelEx($model,'name'); ?>
+              <?php echo $form->textField($model,'name');?>
+              <?php echo $form->error($model,'name'); ?>
           </div>
           <div class="row">
               <?php echo $form->labelEx($model,'phone'); ?> 
               <?php echo $form->textField($model,'phone'); ?>
               <?php echo $form->error($model,'phone'); ?>
-          </div>
-          <div class="row">
-              <?php echo $form->labelEx($model,'email'); ?>
-              <?php echo $form->textField($model,'email');?>
-              <?php echo $form->error($model,'year'); ?>
           </div>
           <div class="clear"></div>
           <div class="row">

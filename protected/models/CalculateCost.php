@@ -126,9 +126,9 @@ class CalculateCost extends EActiveRecord
     public function rules()
     {
         return array(
-            array('id_brand, model, year, id_basket, id_glass','required'),
-            array('year, id_basket, phone, id_glass, status, sort', 'numerical', 'integerOnly'=>true),
-            array('model,id_brand,email', 'length', 'max'=>255),
+            array('id_brand, model, year','required'),
+            array('year, id_basket, phone, status, sort', 'numerical', 'integerOnly'=>true),
+            array('model,id_brand,email,name', 'length', 'max'=>255),
             array('create_time, update_time, comment', 'safe'),
             // The following rule is used by search().
             array('id, id_brand, model, year, id_basket, id_glass, status, sort, create_time, update_time', 'safe', 'on'=>'search'),
@@ -151,8 +151,9 @@ class CalculateCost extends EActiveRecord
             'model' => 'Модель',
             'year' => 'Год выпуска',
             'id_basket' => 'Кузов',
-            'id_glass' => 'Тип стекла',
-            'comment'=>'Комментарий',
+            'name'=>'ФИО',
+            //'id_glass' => 'Тип стекла',
+            'comment'=>'Опишите вашу проблему',
             'phone'=>'Телефон',
             'email'=>'E-mail',
             'status' => 'Status',
@@ -183,7 +184,7 @@ class CalculateCost extends EActiveRecord
 		$criteria->compare('model',$this->model,true);
 		$criteria->compare('year',$this->year);
 		$criteria->compare('id_basket',$this->id_basket);
-		$criteria->compare('id_glass',$this->id_glass);
+		//$criteria->compare('id_glass',$this->id_glass);
 		$criteria->compare('status',$this->status);
 		$criteria->compare('sort',$this->sort);
 		$criteria->compare('create_time',$this->create_time,true);

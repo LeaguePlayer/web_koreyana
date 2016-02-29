@@ -16,14 +16,19 @@ class CallsController extends CController
 				$to=(string)Config::model()->find('param=\'admin.mail\'')->value;
 
 				$subject="Новая заявка с сайта ".Yii::app()->request->hostInfo.'<br>';
-
-				$message='Марка - '.CalculateCost::getBrands($model->id_brand).'<br>';
-				$message='Модель - '.$model->model.'<br>';
-				$message='Год выпуска - '.$model->year.'<br>';
-				$message='Кузов - '.CalculateCost::getBasketType($model->id_basket).'<br>';
-				$message='Тип стекла - '.CalculateCost::getGlassTypes($model->id_glass).'<br>';
-				$message='Комментарий - '.$model->comment ? $model->comment : 'нет'.'<br>';
-
+				
+				$message="Коллеги, доброго времени суток!<br><br>";
+	            $message.="Только что пользователь на сайте gmk.ru отправил заявку со страницы ".$this->title.".<br>
+	            Контактные данные, которые мы получили:<br>";
+				
+				$message.='Имя пользователя - '.$model->name.'<br>';
+				$message.='Телефон - '.$model->phone.'<br>';
+				$message.='Марка - '.CalculateCost::getBrands($model->id_brand).'<br>';
+				$message.='Модель - '.$model->model.'<br>';
+				$message.='Год выпуска - '.$model->year.'<br>';
+				$message.='Кузов - '.CalculateCost::getBasketType($model->id_basket).'<br>';
+				$message.='Тип стекла - '.CalculateCost::getGlassTypes($model->id_glass).'<br>';
+				$message.='Комментарий - '.$model->comment ? $model->comment : 'нет'.'<br>';
 				SiteHelper::sendMail($subject,$comment,$to);
 			}
 		}
