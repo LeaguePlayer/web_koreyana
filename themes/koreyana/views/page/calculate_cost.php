@@ -55,7 +55,7 @@
               }"
             ),
         )); ?>
-        <div class="caption">Узнать стоимость работ по вашему автомобилю онлайн</div>
+        <h1 class="caption">Узнать стоимость работ по вашему автомобилю онлайн </h1>
         <div class="part-1">
           <div class="row" style="visibility: hidden;">
             <label>Выполняется расчет</label>
