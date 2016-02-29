@@ -18,7 +18,7 @@ class CallsController extends CController
 				$subject="Новая заявка с сайта ".Yii::app()->request->hostInfo.'<br>';
 				
 				$message="Коллеги, доброго времени суток!<br><br>";
-	            $message.="Только что пользователь на сайте gmk.ru отправил заявку со страницы ".$this->title.".<br>
+	            $message.="Только что пользователь на сайте koreyana-tyumen.ru отправил заявку <br>
 	            Контактные данные, которые мы получили:<br>";
 				
 				$message.='Имя пользователя - '.$model->name.'<br>';
