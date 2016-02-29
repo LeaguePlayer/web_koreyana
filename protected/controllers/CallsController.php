@@ -19,7 +19,7 @@ class CallsController extends CController
 				
 				$message="Коллеги, доброго времени суток!<br><br>";
 	            $message.="Только что пользователь на сайте koreyana-tyumen.ru отправил заявку <br>
-	            Контактные данные, которые мы получили:<br>";
+	            Контактные данные, которые мы получили:<br><br>";
 				
 				$message.='Имя пользователя - '.$model->name.'<br>';
 				$message.='Телефон - '.$model->phone.'<br>';
@@ -27,7 +27,7 @@ class CallsController extends CController
 				$message.='Модель - '.$model->model.'<br>';
 				$message.='Год выпуска - '.$model->year.'<br>';
 				$message.='Кузов - '.CalculateCost::getBasketType($model->id_basket).'<br>';
-				$message.='Тип стекла - '.CalculateCost::getGlassTypes($model->id_glass).'<br>';
+				//$message.='Тип стекла - '.CalculateCost::getGlassTypes($model->id_glass).'<br>';
 				$message.='Комментарий - '.$model->comment ? $model->comment : 'нет'.'<br>';
 				SiteHelper::sendMail($subject,$message,$to);
 			}
