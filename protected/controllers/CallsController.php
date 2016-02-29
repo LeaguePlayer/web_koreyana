@@ -29,7 +29,7 @@ class CallsController extends CController
 				$message.='Кузов - '.CalculateCost::getBasketType($model->id_basket).'<br>';
 				$message.='Тип стекла - '.CalculateCost::getGlassTypes($model->id_glass).'<br>';
 				$message.='Комментарий - '.$model->comment ? $model->comment : 'нет'.'<br>';
-				SiteHelper::sendMail($subject,$comment,$to);
+				SiteHelper::sendMail($subject,$message,$to);
 			}
 		}
 		echo CJSON::encode($response);
