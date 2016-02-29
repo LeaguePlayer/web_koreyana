@@ -55,7 +55,7 @@
               }"
             ),
         )); ?>
-        <div class="caption">Узнать стоимость стекла на свой автомобиль</div>
+        <div class="caption">Узнать стоимость работ по вашему автомобилю онлайн</div>
         <div class="part-1">
           <div class="row" style="visibility: hidden;">
             <label>Выполняется расчет</label>
