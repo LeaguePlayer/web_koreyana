@@ -15,7 +15,7 @@ class CallsController extends CController
 			{
 				$to=(string)Config::model()->find('param=\'admin.mail\'')->value;
 
-				$subject="Новая заявка с сайта ".Yii::app()->request->hostInfo.'<br>';
+				$subject="Новая заявка с сайта koreyana-tyumen.ru";
 				
 				$message="Коллеги, доброго времени суток!<br><br>";
 	            $message.="Только что пользователь на сайте koreyana-tyumen.ru отправил заявку <br>
