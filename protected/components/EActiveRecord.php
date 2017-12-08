@@ -22,8 +22,6 @@ class EActiveRecord extends CActiveRecord
     const STATUS_REMOVED = 3;
     const STATUS_DEFAULT = self::STATUS_PUBLISH;
 
-    public $max_sort;
-
     public static function getStatusAliases($status = -1)
     {
         $aliases = array(
@@ -37,6 +35,9 @@ class EActiveRecord extends CActiveRecord
 
         return $aliases;
     }
+
+   
+
 
     public function behaviors()
     {

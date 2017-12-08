@@ -18,6 +18,7 @@
                     ),
                 ),
                 array('label'=>'Настройки', 'url'=>array('/admin/config')),
+                array('label'=>'Бот', 'url'=>array('/admin/requestsBot')),
             );
         ?>
         <?php

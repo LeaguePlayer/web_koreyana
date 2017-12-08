@@ -1,0 +1,32 @@
+.switcher
+{
+	display: inline-block;
+	margin-right: 15px;
+	position: relative;
+
+}
+.switcher .badge
+{
+	height: 20px;
+	width: 20px;
+	background: #D64541;
+	position: absolute;
+	    top: -9px;
+    right: -8px;
+    z-index: 1;
+	display: block;
+	padding: 0;
+	margin: 0;
+	color:#fff;
+	font-size: 11px;
+	text-align: center;
+	line-height: 20px;
+}
+.switcher .badge:empty
+{
+	display: none;
+}
+.status_0 td
+{
+	background: #F5D76E !important;
+}
