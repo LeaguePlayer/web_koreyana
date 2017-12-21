@@ -42,7 +42,16 @@ class RequestsBot extends EActiveRecord
 
     public function viewAllRequestsByThisType()
     {
-        self::model()->updateAll(array('status'=>self::STATUS_VIEWED), "id_type = {$this->id_type} and confirmed = 1");
+        $criteria = new CDbCriteria;
+        $criteria->addCondition("id_type = :type and confirmed = 1");
+            $criteria->params[':type'] = $this->id_type;
+
+        if(Yii::app()->request->cookies['office']->value != RequestsBot::OFFICE_ANY)
+        {
+            $criteria->addCondition("id_office is null or id_office = :id_office");
+            $criteria->params[':id_office'] = Yii::app()->request->cookies['office']->value;
+        }
+        self::model()->updateAll(array('status'=>self::STATUS_VIEWED), $criteria);
     } 
 
 
@@ -53,7 +62,7 @@ class RequestsBot extends EActiveRecord
     const OFFICE_30_LET_POBEDI = 3;
     const OFFICE_ANY = 4;
 
-    public static function getTypes($type = false)
+    public static function getOffices($type = false)
     {
         $aliases = array(
             self::OFFICE_MOLODEJNAYA => 'Молодёжная, 74 ст3',
@@ -65,6 +74,8 @@ class RequestsBot extends EActiveRecord
 
         if (is_numeric($type))
             return $aliases[$type];
+        elseif (is_null($type))
+            return "";
 
         return $aliases;
     }
@@ -79,13 +90,14 @@ class RequestsBot extends EActiveRecord
     {
         $aliases = array(
             self::TYPE_EVACUTOR => 'Вызов эвакуатора',
-            self::TYPE_STO => 'Запрос в СТО',
+            self::TYPE_STO => 'Запрос СТО / Запчасти',
             // self::TYPE_PARTS => 'Запрос по запчастям',
             self::TYPE_REVIEWS => 'Отзывы',
         );
-
+// var_dump($type);die();
         if (is_numeric($type))
             return $aliases[$type];
+        
 
         return $aliases;
     }
@@ -151,6 +163,15 @@ class RequestsBot extends EActiveRecord
 		$criteria->compare('confirmed',$this->confirmed,true);
 		$criteria->compare('status',$this->status);
 		$criteria->compare('create_time',$this->create_time,true);
+
+        if(Yii::app()->request->cookies['office']->value != RequestsBot::OFFICE_ANY)
+        {
+            $criteria->addCondition("id_office is null or id_office = :id_office");
+            $criteria->params[':id_office'] = Yii::app()->request->cookies['office']->value;
+        }
+
+        
+
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,
              'sort' => array('defaultOrder' => 'create_time DESC'),

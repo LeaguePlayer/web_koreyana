@@ -43,6 +43,11 @@ class Controller extends CController
 
     public function init(){
         parent::init();
+
+        if(is_null(Yii::app()->request->cookies['office']))
+            Yii::app()->request->cookies['office'] =  new CHttpCookie('office', RequestsBot::OFFICE_ANY );;
+// var_dump(Yii::app()->request->cookies['office']->value);die();
+
         $this->title = Yii::app()->name;
         $this->cs = Yii::app()->clientScript;
         $this->cs->registerCoreScript('jquery');

@@ -30,6 +30,38 @@ $this->menu=array(
 ?>
 </div>
 
+<?
+	
+	$columns = array();
+	$columns[] = array(
+			'name'=>'id_client',
+			'type'=>'raw',
+			'value'=>function($e){
+				
+				$name = ($e->client->name) ? "{$e->client->name} / {$e->client->phone}" : $e->client->phone;
+				return CHtml::link($name, "viber://chat?number={$e->client->phone}", array('target'=>"_blank"));
+			},
+		);
+
+	if(in_array($id_type, array( RequestsBot::TYPE_STO )))
+		$columns[] = array(
+			'name'=>'id_office',
+			'type'=>'raw',
+			'value'=>'RequestsBot::getOffices($data->id_office)',
+			'filter'=>false
+		);
+
+	$columns[] = 'comment';
+	$columns[] = array(
+			'name'=>'create_time',
+			'type'=>'raw',
+			'value'=>'$data->create_time ? SiteHelper::russianDate($data->create_time).\' в \'.date(\'H:i\', strtotime($data->create_time)) : ""'
+		);
+
+
+
+?>
+
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 	'id'=>'requests-bot-grid',
 	'dataProvider'=>$model->search(),
@@ -40,41 +72,7 @@ $this->menu=array(
         "id"=>"items[]_".$data->id,
         "class"=>"status_".(isset($data->status) ? $data->status : ""),
     )',
-	'columns'=>array(
-		array(
-			'name'=>'id_client',
-			'type'=>'raw',
-			'value'=>function($e){
-				
-				$name = ($e->client->name) ? "{$e->client->name} / {$e->client->phone}" : $e->client->phone;
-				return CHtml::link($name, "viber://chat?number={$e->client->phone}", array('target'=>"_blank"));
-			},
-			// 'filter'=>RequestsBot::getStatusAliases()
-		),
-		// 'id_type',
-		// array(
-		// 	'name'=>'id_type',
-		// 	'type'=>'raw',
-		// 	'value'=>'RequestsBot::getStatusAliases($data->status)',
-		// 	'filter'=>RequestsBot::getStatusAliases()
-		// ),
-		'comment',
-		// array(
-		// 	'name'=>'status',
-		// 	'type'=>'raw',
-		// 	'value'=>'RequestsBot::getStatusAliases($data->status)',
-		// 	'filter'=>RequestsBot::getStatusAliases()
-		// ),
-		array(
-			'name'=>'create_time',
-			'type'=>'raw',
-			'value'=>'$data->create_time ? SiteHelper::russianDate($data->create_time).\' в \'.date(\'H:i\', strtotime($data->create_time)) : ""'
-		),
-		// array(
-		// 	'class'=>'bootstrap.widgets.TbButtonColumn',
-		// 	'template'=>"",
-		// ),
-	),
+	'columns'=>$columns,
 )); ?>
 
 <?php if($model->hasAttribute('sort')) Yii::app()->clientScript->registerScript('sortGrid', 'sortGrid("requestsbot");', CClientScript::POS_END) ;?>

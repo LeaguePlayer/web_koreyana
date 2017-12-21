@@ -19,6 +19,7 @@ class RequestsBotController extends AdminController
         }
         $RequestsBot->id_type = $id_type;
         $RequestsBot->confirmed = 1; // show only confirmed
+        // $RequestsBot->id_office = 1; // show only confirmed
         
 
        
@@ -41,10 +42,16 @@ class RequestsBotController extends AdminController
     	{
     		$criteria = new CDbCriteria;
     		$criteria->addCondition("status = :status and id_type = :type and confirmed = 1");
-    		$criteria->params = array(
-    				':status'=>RequestsBot::STATUS_NEW,
-    				':type'=>$got_id_type,
-    			);
+            $criteria->params[':type'] = $got_id_type;
+            $criteria->params[':status'] = RequestsBot::STATUS_NEW;
+               
+
+
+            if(Yii::app()->request->cookies['office']->value != RequestsBot::OFFICE_ANY)
+            {
+                $criteria->addCondition("id_office is null or id_office = :id_office");
+                $criteria->params[':id_office'] = Yii::app()->request->cookies['office']->value;
+            }
 
     		$count = (int)RequestsBot::model()->count( $criteria  );
     		if($count == 0)

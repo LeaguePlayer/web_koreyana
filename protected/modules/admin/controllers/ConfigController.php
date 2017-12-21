@@ -9,6 +9,14 @@ class ConfigController extends AdminController
         return array();
     }
 
+       public function actionChangeLang($lang)
+        {
+            // Yii::app()->language = $lang;
+            Yii::app()->request->cookies['office'] = new CHttpCookie('office', $lang );
+
+            $this->redirect($_SERVER['HTTP_REFERER']);
+        }
+
     public function actionUpdate()
     {
         $configs = Config::model()->findAll();
