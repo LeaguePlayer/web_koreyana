@@ -45,17 +45,43 @@ class RequestsBot extends EActiveRecord
         self::model()->updateAll(array('status'=>self::STATUS_VIEWED), "id_type = {$this->id_type} and confirmed = 1");
     } 
 
+
+     //Офисы
+    const OFFICE_MOLODEJNAYA = 0;
+    const OFFICE_TOVARNOE = 1;
+    const OFFICE_DOMOSTROITELEY = 2;
+    const OFFICE_30_LET_POBEDI = 3;
+    const OFFICE_ANY = 4;
+
+    public static function getTypes($type = false)
+    {
+        $aliases = array(
+            self::OFFICE_MOLODEJNAYA => 'Молодёжная, 74 ст3',
+            self::OFFICE_TOVARNOE => 'Товарное шоссе, 14/1',
+            self::OFFICE_DOMOSTROITELEY => 'Домостроителей, 19',
+            self::OFFICE_30_LET_POBEDI => '30 лет Победы, 125 ст8',
+            self::OFFICE_ANY => 'Любой офис',
+        );
+
+        if (is_numeric($type))
+            return $aliases[$type];
+
+        return $aliases;
+    }
+
      //ТИПЫ Обращений
     const TYPE_EVACUTOR = 0;
     const TYPE_STO = 1;
-    const TYPE_PARTS = 2;
+    // const TYPE_PARTS = 2;
+    const TYPE_REVIEWS = 3;
 
     public static function getTypes($type = false)
     {
         $aliases = array(
             self::TYPE_EVACUTOR => 'Вызов эвакуатора',
             self::TYPE_STO => 'Запрос в СТО',
-            self::TYPE_PARTS => 'Запрос по запчастям',
+            // self::TYPE_PARTS => 'Запрос по запчастям',
+            self::TYPE_REVIEWS => 'Отзывы',
         );
 
         if (is_numeric($type))
@@ -68,7 +94,7 @@ class RequestsBot extends EActiveRecord
     public function rules()
     {
         return array(
-            array('id_client, id_type, confirmed, status', 'numerical', 'integerOnly'=>true),
+            array('id_client, id_type, confirmed, status, id_office', 'numerical', 'integerOnly'=>true),
             array('comment, create_time', 'safe'),
             // The following rule is used by search().
             array('id, id_client, id_type, comment, status, create_time', 'safe', 'on'=>'search'),
@@ -90,6 +116,7 @@ class RequestsBot extends EActiveRecord
             'id' => 'ID',
             'id_client' => 'Клиент',
             'id_type' => 'Тип',
+            'id_office' => 'Офис',
             'comment' => 'Комментарий',
             'status' => 'Статус',
             'create_time' => 'Дата создания',
